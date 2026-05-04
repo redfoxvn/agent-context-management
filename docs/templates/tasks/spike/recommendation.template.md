@@ -1,0 +1,23 @@
+# Recommendation
+
+## Recommended Option
+...
+
+## Rationale
+- ...
+
+## Decision Needed
+- ...
+
+## Next Steps
+1. ...
+2. ...
+3. ...
+
+## ADR Needed
+- [ ] yes
+- [ ] no
+- reason:
+
+## Follow-up Tasks
+- ...

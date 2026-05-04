@@ -1,0 +1,29 @@
+# Handoff
+
+## Current Status
+- ...
+
+## Refactor Summary
+- ...
+
+## Behavior Changes
+- expected: none
+- actual: ...
+
+## Changed Files
+- ...
+
+## Important Context
+- ...
+
+## Tests / Checks Run
+- ...
+
+## Known Risks
+- ...
+
+## Remaining Work
+- ...
+
+## Recommended Next Action
+- ...
