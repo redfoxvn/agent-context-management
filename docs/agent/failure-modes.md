@@ -1,33 +1,85 @@
 # Agent Failure Modes
 
-## Common failure modes
+## Purpose
 
-### Editing generated files
+This file lists common ways coding agents fail in this repository and how to avoid them.
 
-Do not manually edit generated files.
+Use it as a quick risk reminder before planning, implementing, or reporting completion.
 
-Instead, update the source schema and regenerate.
+---
 
-### Weakening server-side validation
+## Context Failures
 
-Client-side validation is UX only.
+### Working From User Request Alone
 
-Server-side validation must remain authoritative.
+Problem: agent edits before reconciling docs, code, and tests.
 
-### Assuming docs are always newer than code
+Avoid by loading the relevant context from `docs/index.md` and `docs/agent/context-policy.md`.
 
-Docs describe durable intent, but may be outdated.
+### Over-Reading
 
-When docs and code conflict, surface the conflict.
+Problem: agent reads too much context and loses task focus.
 
-### Refactoring across module boundaries too early
+Avoid by using context depth levels and stopping once the plan is safe.
+
+### Trusting One Source Blindly
+
+Problem: docs, code, tests, or user request is treated as automatically correct.
+
+Avoid by surfacing behavior-affecting conflicts.
+
+### Using Task Docs As Current Truth
+
+Problem: old task notes override feature docs.
+
+Avoid by treating `docs/features/` as current behavior and `docs/tasks/` as history.
+
+### Promoting Unverified Notes
+
+Problem: task hypotheses become durable docs before verification.
+
+Avoid by promoting only verified current truth, except for documentation-only or planning-only tasks.
+
+---
+
+## Implementation Failures
+
+### Refactoring Across Boundaries Too Early
 
 Prefer localized changes unless the task explicitly requires broader refactor.
 
-### Adding tests that only verify mocks
+### Weakening Validation Or Security
 
-Tests should verify observable behavior, not just implementation details.
+Client-side validation is UX only. Server-side validation, auth, permissions, and data integrity must remain authoritative.
 
-### Ignoring backward compatibility
+### Editing Generated Files
 
-For public API, database, and auth changes, check compatibility requirements.
+Update the source schema/config and regenerate instead of manually editing generated output.
+
+### Adding Tests That Only Verify Mocks
+
+Tests should verify observable behavior, not only implementation details.
+
+### Ignoring Backward Compatibility
+
+For public API, database, auth, and migration changes, check compatibility and rollback requirements.
+
+---
+
+## Completion Failures
+
+### Claiming Verification Not Run
+
+Never say work is verified unless checks were actually run or manual verification was performed.
+
+### Missing Handoff
+
+If work is incomplete, risky, long-running, or partially verified, update `handoff.md`.
+
+### Leaving Indexes Stale
+
+When adding, renaming, deprecating, or completing important docs, update relevant indexes.
+
+### Hiding Residual Risk
+
+Report remaining risks, skipped checks, blockers, and assumptions explicitly.

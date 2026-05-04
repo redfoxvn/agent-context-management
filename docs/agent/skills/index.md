@@ -2,11 +2,13 @@
 
 ## Purpose
 
-This index lists reusable procedures that task workflows can invoke.
+This file is the registry for reusable agent procedures.
 
-Skills are not task classifications. A task workflow defines the lifecycle; skills define how to perform individual steps inside that lifecycle.
+Skills are not task types. Workflows call skills for specific steps.
 
-## Skill File Convention
+---
+
+## Convention
 
 Each skill lives at:
 
@@ -14,32 +16,36 @@ Each skill lives at:
 docs/agent/skills/[skill-name]/SKILL.md
 ```
 
-The skill name must match the name used in `docs/agent/task-workflow.md`.
+Skill names must match the names used in `docs/agent/task-workflow.md`.
+
+---
 
 ## Skills
 
 | Skill | Purpose |
 |---|---|
-| `bugfix` | Diagnose a defect and define a minimal fix path. |
-| `codebase-research` | Find the smallest relevant docs/code/tests before planning changes. |
-| `decision-recording` | Decide whether a durable decision or ADR is needed and record it correctly. |
-| `documentation-update` | Update task, feature, architecture, product, or decision docs in the right layer. |
-| `impact-analysis` | Identify affected features, modules, contracts, data, tests, and risks. |
-| `implementation` | Apply scoped changes while preserving architecture and safety constraints. |
-| `implementation-planning` | Convert understood requirements and impact into an actionable implementation plan. |
-| `migration` | Plan and execute schema, data, dependency, runtime, or infrastructure migrations safely. |
-| `performance-optimization` | Improve performance while preserving correctness and measuring results. |
-| `refactor` | Improve internal structure without changing behavior. |
-| `requirement-analysis` | Clarify request, scope, actors, acceptance criteria, and ambiguity. |
-| `security-remediation` | Analyze and remediate auth, permission, validation, secret, or data exposure risks. |
-| `session-handoff` | Preserve working state for continuation across sessions or agents. |
-| `spike-research` | Investigate options and produce decision support without silently implementing. |
-| `test-design` | Design meaningful tests for behavior, regressions, edge cases, and risk areas. |
-| `verification` | Run and record checks without overstating what was verified. |
+| `bugfix` | Diagnose a defect and define a minimal fix path |
+| `codebase-research` | Find the smallest relevant docs/code/tests before planning |
+| `decision-recording` | Record durable decisions or ADRs when needed |
+| `documentation-update` | Update the correct task or durable documentation layer |
+| `impact-analysis` | Identify affected features, modules, contracts, data, tests, and risks |
+| `implementation` | Apply scoped changes while preserving architecture and safety constraints |
+| `implementation-planning` | Convert context and impact into an actionable implementation plan |
+| `migration` | Plan and execute schema, data, dependency, runtime, or infrastructure migrations safely |
+| `performance-optimization` | Improve performance while preserving correctness and measuring results |
+| `refactor` | Improve internal structure without changing behavior |
+| `requirement-analysis` | Clarify request, scope, actors, acceptance criteria, and ambiguity |
+| `security-remediation` | Analyze and remediate auth, permission, validation, secret, or data exposure risks |
+| `session-handoff` | Preserve working state for continuation |
+| `spike-research` | Investigate options and produce decision support |
+| `test-design` | Design meaningful behavior and regression tests |
+| `verification` | Run and record checks without overstating certainty |
+
+---
 
 ## Maintenance Rules
 
 - Add a skill here when adding it to `docs/agent/task-workflow.md`.
 - Remove or deprecate a skill here when removing it from workflows.
 - Keep skill docs procedural and concise.
-- Do not use skills as durable feature truth; use `docs/features/` for that.
+- Do not store feature truth in skill docs.
