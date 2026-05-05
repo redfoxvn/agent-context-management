@@ -5,6 +5,7 @@
 This file defines how agents create, update, and consume task handoffs.
 
 A handoff preserves working state for another session. It is not durable feature truth.
+For multi-phase work, handoff should reflect the state of the whole task outcome, not just the last part touched.
 
 ---
 
@@ -49,6 +50,7 @@ Use this structure:
 - task classification:
 - related feature/module:
 - last updated:
+- overall outcome complete: yes | no
 
 ## Task Summary
 ...
@@ -80,6 +82,9 @@ Use this structure:
 ## Remaining Work
 - ...
 
+## Phase Status
+- Optional: list which phases/workstreams are complete, in progress, or deferred.
+
 ## Recommended Next Action
 1. ...
 ```
@@ -93,6 +98,7 @@ Keep it short, concrete, and path-oriented.
 A useful handoff:
 
 - states current status clearly
+- states whether completion applies to the whole outcome or only some internal phases
 - lists changed files
 - summarizes important context and decisions
 - records verification and gaps
@@ -107,6 +113,7 @@ Avoid:
 - copying full plans or logs
 - claiming verification without result
 - storing final feature behavior only in handoff
+- marking a task `completed` when only one phase is complete
 
 ---
 

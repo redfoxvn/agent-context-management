@@ -5,6 +5,7 @@
 - task classification: docs
 - related docs:
 - last updated:
+- overall outcome complete: yes | no
 
 ## Task Summary
 ...
@@ -35,6 +36,9 @@
 
 ## Remaining Work
 - ...
+
+## Phase Status
+- Optional: list which phases/workstreams are complete, in progress, or deferred.
 
 ## Recommended Next Action
 1. ...

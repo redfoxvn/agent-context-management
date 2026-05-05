@@ -43,6 +43,7 @@ For non-trivial tasks:
 
 - Classify the task using `docs/agent/task-workflow.md`.
 - Create or update a task folder under `docs/tasks/[YYYY-MM-DD-task-slug]/`.
+- Prefer one task folder per user outcome or logical feature/change; track tightly related phases inside that folder unless there is a real boundary that requires a separate task.
 - Create a concise plan before implementation.
 - Record verification in the task folder.
 - Update durable docs only when durable truth changes.

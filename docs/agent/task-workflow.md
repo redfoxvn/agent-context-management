@@ -51,6 +51,38 @@ For non-trivial tasks:
 
 Keep artifacts proportional to risk. Do not create verbose docs just to satisfy a template.
 
+## Task Folder Granularity
+
+Default rule:
+
+```txt
+one task folder = one user outcome or one logical feature/change
+```
+
+Do not create a new task folder just because implementation has multiple parts, phases, or workstreams.
+Keep tightly related work in one folder and record the internal progress in task artifacts.
+
+Keep using the same task folder when:
+
+- the parts contribute to the same user-visible outcome
+- the work shares one main classification and workflow
+- the parts depend on the same acceptance criteria to be considered done
+- splitting would mostly duplicate context, plan, or verification history
+
+Create a new task folder when:
+
+- the work becomes a different logical outcome
+- the classification or workflow changes materially
+- a part can ship, roll back, or be verified independently
+- risk, ownership, or durable decision scope has clearly separated
+
+For multi-phase work inside one task folder:
+
+- record phases or workstreams in `plan.md`
+- update `implementation-log.md` as each phase progresses
+- use `handoff.md` to show what is done, what remains, and whether the overall outcome is complete
+- mark the task `completed` only when the whole outcome is complete
+
 ---
 
 ## Classification
@@ -124,36 +156,6 @@ For small tasks, mark non-applicable sections as `N/A`.
 | `spike` | spike-research, codebase-research, impact-analysis, decision-recording, documentation-update, session-handoff |
 
 Use `docs/agent/skills/index.md` to find skill procedures.
-
----
-
-## Skill Usage by Phase
-
-Use this table as recommended guidance. Do not force a skill when the phase is not relevant to the task.
-
-| Phase | Recommended Skill |
-|---|---|
-| Clarify request, scope, actors, acceptance criteria | `requirement-analysis` |
-| Research relevant docs, code, and tests | `codebase-research` |
-| Analyze affected modules, contracts, data, tests, and risks | `impact-analysis` |
-| Plan implementation or task execution | `implementation-planning` |
-| Apply scoped changes | `implementation` |
-| Design behavior, regression, edge-case, or security tests | `test-design` |
-| Run and record checks | `verification` |
-| Update task or durable docs | `documentation-update` |
-| Record durable decision or ADR candidate | `decision-recording` |
-| Preserve continuation state | `session-handoff` |
-
-Use classification-specific skills for the phase that defines that task type:
-
-| Classification | Phase | Recommended Skill |
-|---|---|---|
-| `bugfix` | Reproduce, investigate, root-cause, fix hypothesis | `bugfix` |
-| `refactor` | Define scope, constraints, and behavior preservation | `refactor` |
-| `migration` | Current/target state, compatibility, rollback | `migration` |
-| `performance` | Baseline, bottleneck, optimization evidence | `performance-optimization` |
-| `security` | Trust boundaries, threat analysis, remediation | `security-remediation` |
-| `spike` | Research question, findings, options, recommendation | `spike-research` |
 
 ---
 
