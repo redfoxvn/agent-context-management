@@ -8,6 +8,13 @@ Run and record checks that demonstrate what was and was not verified.
 - After code, tests, docs, templates, or workflow changes.
 - A task folder exists and verification results must be recorded.
 
+## Inputs
+- Task plan and verification strategy.
+- Changed files and affected tests.
+- Project scripts or documented verification commands.
+- Risk level from impact analysis.
+- Any prior failed checks or skipped checks.
+
 ## Procedure
 1. Choose the smallest relevant checks first.
 2. Prefer targeted tests before broad checks.
@@ -19,6 +26,13 @@ Run and record checks that demonstrate what was and was not verified.
 ## Outputs
 - `verification.md` updates.
 - Final response verification summary.
+- Known verification gaps and residual risks.
+
+## Completion Criteria
+- Relevant checks were run, or each skipped check has a reason.
+- Results are recorded with command/method, result, and notes.
+- Failures are classified as related, unrelated, or unknown.
+- Final response can accurately state what was and was not verified.
 
 ## Do Not
 - Do not claim verification that was not performed.

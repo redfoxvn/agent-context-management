@@ -8,6 +8,12 @@ Diagnose incorrect behavior and define a minimal, verified fix.
 - Root cause is unknown or only partially understood.
 - Regression coverage is needed.
 
+## Inputs
+- Bug report, failing test, runtime error, or user-reported symptom.
+- Expected behavior from feature docs, task docs, or user request.
+- Actual behavior evidence, reproduction notes, logs, or screenshots when available.
+- Related source files, tests, and recent task history if regression is suspected.
+
 ## Procedure
 1. Capture expected behavior, actual behavior, symptoms, impact, and environment.
 2. Reproduce the bug, or document why reproduction is not possible.
@@ -21,6 +27,12 @@ Diagnose incorrect behavior and define a minimal, verified fix.
 - Bug report, reproduction, investigation, root-cause, and regression-test artifacts when applicable.
 - Fix plan inputs.
 - Verification notes.
+
+## Completion Criteria
+- Expected and actual behavior are clearly distinguished.
+- Reproduction exists, or the inability to reproduce is documented with best available evidence.
+- Root cause or fix hypothesis is specific enough to plan a minimal change.
+- Regression coverage or an explicit test gap is recorded.
 
 ## Do Not
 - Do not implement a fix before understanding the failure enough to scope it.

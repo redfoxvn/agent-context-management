@@ -8,6 +8,12 @@ Improve internal structure while preserving externally observable behavior.
 - Code structure, naming, boundaries, or maintainability need improvement without behavior change.
 - Existing tests or characterization tests are needed to protect behavior.
 
+## Inputs
+- Refactor motivation, scope, and non-goals.
+- Current behavior or public contracts that must be preserved.
+- Relevant architecture docs, conventions, source files, and tests.
+- Known risk areas, weak coverage, or characterization needs.
+
 ## Procedure
 1. Define refactor motivation, scope, and non-goals.
 2. Identify behavior and public contracts that must remain unchanged.
@@ -20,6 +26,12 @@ Improve internal structure while preserving externally observable behavior.
 ## Outputs
 - Refactor motivation, scope, constraints, behavior-preservation, plan, and verification artifacts.
 - Updated architecture docs only if durable structure changes.
+
+## Completion Criteria
+- Scope and non-goals are explicit.
+- Preserved behavior and public contracts are identified.
+- Relevant architecture boundaries and verification strategy are known.
+- Any need to reclassify as `change-feature` is resolved before implementation continues.
 
 ## Do Not
 - Do not mix behavior changes into a refactor.

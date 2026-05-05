@@ -8,6 +8,12 @@ Decide whether a durable decision should be recorded and capture the reasoning i
 - Multiple viable options exist and the chosen direction should survive beyond the task.
 - A spike produces a recommendation that may become policy or architecture.
 
+## Inputs
+- Decision candidate, alternatives, constraints, and chosen direction when known.
+- Related task, feature, architecture, product, security, or decision docs.
+- Consequences, tradeoffs, risks, reversibility, and follow-up work.
+- ADR template and decisions index when a durable ADR may be needed.
+
 ## Procedure
 1. Identify the decision, alternatives, and constraints.
 2. Decide whether task notes are enough or an ADR is needed.
@@ -20,6 +26,12 @@ Decide whether a durable decision should be recorded and capture the reasoning i
 - Decision notes in task docs.
 - ADR under `docs/decisions/` when needed.
 - Updated decisions index when applicable.
+
+## Completion Criteria
+- Decision, alternatives, constraints, and rationale are explicit.
+- Task note versus ADR placement is intentionally chosen.
+- Consequences, tradeoffs, and follow-up work are recorded.
+- Related docs and `docs/decisions/index.md` are updated when an ADR is added or changed.
 
 ## Do Not
 - Do not create ADRs for minor local choices.

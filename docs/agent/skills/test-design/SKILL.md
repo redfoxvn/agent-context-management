@@ -8,6 +8,12 @@ Design meaningful tests that verify observable behavior and protect against regr
 - Existing tests are missing, weak, flaky, or too implementation-focused.
 - A task needs regression, edge-case, negative-case, or security-focused coverage.
 
+## Inputs
+- Expected behavior from feature docs, task intent, source code, and existing tests.
+- Risk areas, edge cases, error cases, permissions/security cases, and regression concerns.
+- Existing test structure, tools, fixtures, and verification constraints.
+- Known coverage gaps or questionable behavior needing reconciliation.
+
 ## Procedure
 1. Identify the expected behavior from feature docs, task intent, code, and existing tests.
 2. Choose the smallest useful test level: unit, integration, e2e, or manual verification.
@@ -20,6 +26,12 @@ Design meaningful tests that verify observable behavior and protect against regr
 - Test plan or regression-test artifact in the task folder.
 - New or updated test cases when implementation proceeds.
 - Feature test scenario updates if durable expectations change.
+
+## Completion Criteria
+- Expected behavior and test level are explicit.
+- Critical flows and relevant edge, error, regression, and security cases are considered.
+- Tests focus on observable behavior rather than implementation details.
+- Covered and not-covered scenarios are recorded when useful.
 
 ## Do Not
 - Do not add tests that only verify mocks.

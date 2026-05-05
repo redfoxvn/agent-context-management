@@ -8,6 +8,13 @@ Convert understood requirements and impact into a concise, executable plan.
 - After requirement analysis, codebase research, and impact analysis are sufficient.
 - A task needs sequencing, verification, rollback, or risk control.
 
+## Inputs
+- Requirement/scope summary.
+- Codebase research findings.
+- Impact analysis.
+- Relevant task template under `docs/templates/tasks/[task-classification]/`.
+- Known risks, assumptions, open questions, and verification constraints.
+
 ## Procedure
 1. State task summary and classification.
 2. Define intended behavior change or intended non-behavior-change.
@@ -20,6 +27,13 @@ Convert understood requirements and impact into a concise, executable plan.
 ## Outputs
 - `plan.md` in the task folder.
 - Updated plan when scope or classification changes.
+- Clear verification strategy and affected files/directories.
+
+## Completion Criteria
+- Plan states classification, scope, affected files/docs, implementation steps, verification, and risks.
+- Behavior change or intended non-behavior-change is explicit.
+- Open questions do not block safe implementation, or the task is stopped.
+- Plan aligns with the selected task template and context policy.
 
 ## Do Not
 - Do not plan broad rewrites unless explicitly required.

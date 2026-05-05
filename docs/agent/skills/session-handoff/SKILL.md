@@ -8,6 +8,12 @@ Preserve enough context for another agent or session to continue safely.
 - Important assumptions, decisions, blockers, or verification gaps exist.
 - Context is getting large or the next step is not obvious from the diff.
 
+## Inputs
+- Current task status, classification, scope, and related feature/module.
+- Changed files, important context, assumptions, decisions, blockers, and risks.
+- Verification performed, verification gaps, and remaining work.
+- `docs/agent/session-handoff.md` and the task folder.
+
 ## Procedure
 1. Use `docs/agent/session-handoff.md` as the format guide.
 2. Record current status, classification, related feature/module, and last updated date.
@@ -19,6 +25,12 @@ Preserve enough context for another agent or session to continue safely.
 ## Outputs
 - `handoff.md` in the task folder.
 - Final task status that matches verification state.
+
+## Completion Criteria
+- Handoff status matches the actual task and verification state.
+- Changed files, context, decisions, verification, risks, and remaining work are recorded.
+- Next action is concrete enough for another agent to continue.
+- Handoff is updated before ending or when material state changes.
 
 ## Do Not
 - Do not use handoff as durable feature truth.

@@ -8,6 +8,12 @@ Apply scoped changes while preserving architecture, safety constraints, and task
 - The affected files and verification strategy are known.
 - The task is ready for edits.
 
+## Inputs
+- Current plan, task classification, and intended behavior change or non-behavior-change.
+- Affected files, docs, tests, and verification strategy.
+- Relevant architecture constraints, conventions, and safety requirements.
+- Known risks, assumptions, open questions, and user work in the worktree.
+
 ## Procedure
 1. Re-read the current plan and affected files before editing.
 2. Make minimal, localized changes that follow existing conventions.
@@ -19,6 +25,12 @@ Apply scoped changes while preserving architecture, safety constraints, and task
 ## Outputs
 - Source, test, or docs changes scoped to the task.
 - `implementation-log.md` updates when a task folder exists.
+
+## Completion Criteria
+- Changes are scoped to the plan and follow existing conventions.
+- Required safeguards, contracts, and unrelated user work are preserved.
+- Tests or docs are updated when behavior or durable truth changes.
+- Plan, classification, or scope changes are recorded before continuing.
 
 ## Do Not
 - Do not make unrelated cleanup changes.

@@ -8,6 +8,12 @@ Plan and execute schema, data, dependency, framework, runtime, or infrastructure
 - Rollback, compatibility, or data integrity matters.
 - Multiple versions or deployment states may coexist.
 
+## Inputs
+- Current state and target state.
+- Affected data, schema, dependencies, runtime, infrastructure, or compatibility constraints.
+- Relevant feature, architecture, decision, source, and test docs.
+- Rollback, recovery, deployment, and verification constraints.
+
 ## Procedure
 1. Capture current state and target state.
 2. Identify affected features, modules, data, runtime, dependencies, and external systems.
@@ -20,6 +26,12 @@ Plan and execute schema, data, dependency, framework, runtime, or infrastructure
 ## Outputs
 - Migration motivation, current-state, target-state, plan, rollback-plan, implementation-log, verification, and handoff artifacts.
 - Updated architecture or feature data/API docs when durable truth changes.
+
+## Completion Criteria
+- Current and target states are clear.
+- Compatibility, rollback, recovery, and data-integrity risks are analyzed.
+- Migration and rollback plans are explicit enough to execute safely.
+- Verification covers migration result and relevant compatibility assumptions.
 
 ## Do Not
 - Do not run destructive or shared-environment migrations without explicit approval.

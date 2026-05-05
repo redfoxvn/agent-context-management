@@ -127,6 +127,36 @@ Use `docs/agent/skills/index.md` to find skill procedures.
 
 ---
 
+## Skill Usage by Phase
+
+Use this table as recommended guidance. Do not force a skill when the phase is not relevant to the task.
+
+| Phase | Recommended Skill |
+|---|---|
+| Clarify request, scope, actors, acceptance criteria | `requirement-analysis` |
+| Research relevant docs, code, and tests | `codebase-research` |
+| Analyze affected modules, contracts, data, tests, and risks | `impact-analysis` |
+| Plan implementation or task execution | `implementation-planning` |
+| Apply scoped changes | `implementation` |
+| Design behavior, regression, edge-case, or security tests | `test-design` |
+| Run and record checks | `verification` |
+| Update task or durable docs | `documentation-update` |
+| Record durable decision or ADR candidate | `decision-recording` |
+| Preserve continuation state | `session-handoff` |
+
+Use classification-specific skills for the phase that defines that task type:
+
+| Classification | Phase | Recommended Skill |
+|---|---|---|
+| `bugfix` | Reproduce, investigate, root-cause, fix hypothesis | `bugfix` |
+| `refactor` | Define scope, constraints, and behavior preservation | `refactor` |
+| `migration` | Current/target state, compatibility, rollback | `migration` |
+| `performance` | Baseline, bottleneck, optimization evidence | `performance-optimization` |
+| `security` | Trust boundaries, threat analysis, remediation | `security-remediation` |
+| `spike` | Research question, findings, options, recommendation | `spike-research` |
+
+---
+
 ## Reclassification Rules
 
 Reclassify when actual work differs from the initial classification.

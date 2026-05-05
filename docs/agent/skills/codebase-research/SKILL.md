@@ -8,6 +8,13 @@ Identify the smallest relevant part of the codebase before planning changes.
 - The affected module, feature, or test area is not yet confirmed.
 - Docs, code, and tests need to be reconciled before editing.
 
+## Inputs
+- Task request, scope, or handoff.
+- `docs/index.md`.
+- `docs/agent/context-policy.md`.
+- `docs/architecture/source-map.md`.
+- Relevant feature, architecture, decision, and task indexes.
+
 ## Procedure
 1. Read `docs/index.md` and use it to locate the owning docs.
 2. Read relevant feature, architecture, decision, or task docs.
@@ -20,6 +27,13 @@ Identify the smallest relevant part of the codebase before planning changes.
 - A context summary in the task folder when useful.
 - Inputs for `impact-analysis` or `implementation-planning`.
 - A list of relevant source files and tests.
+- Known docs/code/tests conflicts, if any.
+
+## Completion Criteria
+- Affected feature/module or likely search area is identified.
+- Relevant durable docs, source files, and tests are listed.
+- Known conflicts or unknowns are explicit.
+- Agent has enough context to run impact analysis or write a safe plan.
 
 ## Do Not
 - Do not start editing before identifying affected tests or a verification strategy.

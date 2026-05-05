@@ -8,6 +8,12 @@ Turn a user request into clear scope, expected behavior, acceptance criteria, an
 - The user request has unclear scope, actors, constraints, or success criteria.
 - The task may need reclassification before planning.
 
+## Inputs
+- User request or problem report.
+- `docs/index.md` for source-of-truth locations.
+- Relevant product or feature docs when domain behavior is involved.
+- Existing task handoff if continuing prior work.
+
 ## Procedure
 1. Restate the request in task-shaped terms.
 2. Identify task classification and whether the work is trivial or non-trivial.
@@ -17,9 +23,16 @@ Turn a user request into clear scope, expected behavior, acceptance criteria, an
 6. Stop for clarification when a safe assumption cannot be made.
 
 ## Outputs
-- Request or scope artifact in the task folder.
+- Request, scope, or feature-draft artifact in the task folder when applicable.
+- Task classification and trivial/non-trivial decision.
 - Acceptance criteria or success criteria.
-- Assumptions and open questions.
+- Explicit assumptions and open questions.
+
+## Completion Criteria
+- Task classification is known or the ambiguity is explicitly reported.
+- In-scope and out-of-scope work are clear enough to plan.
+- Behavior-affecting assumptions are either documented as safe or escalated for clarification.
+- Acceptance criteria or success criteria exist for non-trivial work.
 
 ## Do Not
 - Do not silently decide product behavior when the request is ambiguous.
