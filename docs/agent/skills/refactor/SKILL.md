@@ -1,39 +1,28 @@
 # Skill: Refactor
 
-## Purpose
+## Use For
+
 Improve internal structure while preserving externally observable behavior.
 
-## Use When
-- The task is classified as `refactor`.
-- Code structure, naming, boundaries, or maintainability need improvement without behavior change.
-- Existing tests or characterization tests are needed to protect behavior.
+## Key Moves
 
-## Inputs
-- Refactor motivation, scope, and non-goals.
-- Current behavior or public contracts that must be preserved.
-- Relevant architecture docs, conventions, source files, and tests.
-- Known risk areas, weak coverage, or characterization needs.
+- Define motivation, scope, and non-goals.
+- Identify behavior and public contracts that must remain unchanged.
+- Check relevant architecture boundaries and conventions.
+- Use existing tests or add characterization coverage when risk warrants it.
+- Make small incremental changes.
+- Reclassify as `change-feature` if behavior must change.
 
-## Procedure
-1. Define refactor motivation, scope, and non-goals.
-2. Identify behavior and public contracts that must remain unchanged.
-3. Check architecture boundaries and conventions.
-4. Identify existing tests or add characterization tests when risk warrants it.
-5. Plan small incremental changes.
-6. Verify behavior preservation after changes.
-7. Reclassify as `change-feature` if behavior must change.
+## Output
 
-## Outputs
-- Refactor motivation, scope, constraints, behavior-preservation, plan, and verification artifacts.
-- Updated architecture docs only if durable structure changes.
+- refactor scope and non-goals
+- preserved behavior/contracts
+- affected files/modules
+- verification strategy
+- architecture doc updates only when durable structure changes
 
-## Completion Criteria
-- Scope and non-goals are explicit.
-- Preserved behavior and public contracts are identified.
-- Relevant architecture boundaries and verification strategy are known.
-- Any need to reclassify as `change-feature` is resolved before implementation continues.
+## Escalate When
 
-## Do Not
-- Do not mix behavior changes into a refactor.
-- Do not cross module boundaries without understanding architecture constraints.
-- Do not perform broad formatting unless formatting is the task.
+- behavior change becomes necessary
+- module boundaries are unclear
+- test coverage is too weak to verify preservation
