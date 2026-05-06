@@ -4,7 +4,7 @@
 
 This is the bootstrap file for coding agents working in this repository.
 
-Keep this file short. Detailed workflow, context loading, tool safety, review, and handoff rules live under `docs/agent/`.
+Keep this file short. Detailed context loading, workflow, tool safety, review, and handoff rules live under `docs/agent/`.
 
 ---
 
@@ -23,15 +23,26 @@ If these sources conflict in a behavior-affecting way, stop and report the confl
 
 ---
 
-## Required Entry Points
+## Read Path
 
 For non-trivial tasks, read in this order:
 
 1. `docs/index.md`
-2. `docs/agent/operating-manual.md`
-3. `docs/agent/context-policy.md`
-4. `docs/agent/task-workflow.md`
-5. Relevant docs, source code, and tests identified by those files
+2. `docs/agent/context-policy.md`
+3. `docs/agent/task-workflow.md`
+4. Relevant docs, source code, and tests identified by those files
+
+Read conditionally:
+
+- `docs/agent/tool-policy.md` before risky commands or mutating tools
+- `docs/agent/review-checklist.md` before reporting completion
+- `docs/agent/session-handoff.md` when continuing or preserving incomplete/risky work
+- relevant `docs/agent/skills/*/SKILL.md` only when the task needs that procedure
+
+Optional references:
+
+- `docs/agent/operating-manual.md` for the default operating loop overview
+- `docs/agent/failure-modes.md` for common agent mistakes and reminders
 
 For trivial edits, use judgment and keep changes minimal.
 
