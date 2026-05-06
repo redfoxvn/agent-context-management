@@ -7,8 +7,9 @@ Describe core entities and relationships.
 
 | Entity | Description | Relationships |
 |---|---|---|
-| User | System account | Owns Workspace |
-| Workspace | Collaboration space | Contains Projects |
+| Actor | Human or system participant | Interacts with Resource |
+| Resource | Domain-managed object | May belong to a Collection |
+| Collection | Logical grouping boundary | Contains Resources |
 
 ---
 
@@ -16,11 +17,11 @@ Describe core entities and relationships.
 
 | Entity | States |
 |---|---|
-| Project | draft -> active -> archived |
+| Resource | draft -> active -> archived |
 
 ---
 
 ## Constraints
 
-- A user may belong to multiple workspaces.
-- Archived entities remain readable.
+- Actors may interact with multiple collections or resources.
+- Archived entities may remain readable.
