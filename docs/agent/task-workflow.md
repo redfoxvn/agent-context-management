@@ -16,7 +16,7 @@ Use it after:
 
 ```txt
 Workflow = task lifecycle
-Skill    = reusable procedure inside a workflow step
+Skill    = reusable tactical heuristic used inside a workflow step
 Template = artifact schema
 Task docs = what happened during a task
 Feature docs = what is true now
@@ -142,20 +142,35 @@ For small tasks, mark non-applicable sections as `N/A`.
 
 ## Skills by Classification
 
+Skills are optional tactical references. Do not read every skill by default.
+
 | Classification | Skills |
 |---|---|
-| `new-feature` | requirement-analysis, codebase-research, impact-analysis, implementation-planning, implementation, test-design, verification, documentation-update, decision-recording, session-handoff |
-| `change-feature` | requirement-analysis, codebase-research, impact-analysis, implementation-planning, implementation, test-design, verification, documentation-update, decision-recording, session-handoff |
-| `bugfix` | bugfix, codebase-research, impact-analysis, implementation-planning, implementation, test-design, verification, documentation-update, session-handoff |
-| `refactor` | refactor, codebase-research, impact-analysis, implementation-planning, implementation, test-design, verification, documentation-update, decision-recording, session-handoff |
-| `migration` | migration, codebase-research, impact-analysis, implementation-planning, implementation, test-design, verification, documentation-update, decision-recording, session-handoff |
-| `performance` | performance-optimization, codebase-research, impact-analysis, implementation-planning, implementation, test-design, verification, documentation-update, decision-recording, session-handoff |
-| `security` | security-remediation, codebase-research, impact-analysis, implementation-planning, implementation, test-design, verification, documentation-update, decision-recording, session-handoff |
-| `test-improvement` | test-design, codebase-research, impact-analysis, implementation-planning, implementation, verification, documentation-update, session-handoff |
-| `docs` | documentation-update, codebase-research, impact-analysis, verification, session-handoff |
-| `spike` | spike-research, codebase-research, impact-analysis, decision-recording, documentation-update, session-handoff |
+| `new-feature` | requirement-analysis, codebase-research, impact-analysis, implementation-planning, test-design, decision-recording |
+| `change-feature` | requirement-analysis, codebase-research, impact-analysis, implementation-planning, test-design, decision-recording |
+| `bugfix` | bugfix, codebase-research, impact-analysis, implementation-planning, test-design |
+| `refactor` | refactor, codebase-research, impact-analysis, implementation-planning, test-design, decision-recording |
+| `migration` | migration, codebase-research, impact-analysis, implementation-planning, test-design, decision-recording |
+| `performance` | performance-optimization, codebase-research, impact-analysis, implementation-planning, test-design, decision-recording |
+| `security` | security-remediation, codebase-research, impact-analysis, implementation-planning, test-design, decision-recording |
+| `test-improvement` | test-design, codebase-research, impact-analysis, implementation-planning |
+| `docs` | codebase-research, impact-analysis |
+| `spike` | spike-research, codebase-research, impact-analysis, decision-recording |
 
 Use `docs/agent/skills/index.md` to find skill procedures.
+
+---
+
+## Removed Generic Skills
+
+The following former skills were removed because their guidance is already covered by core workflow, review, or index rules:
+
+| Removed Skill | Replacement |
+|---|---|
+| `implementation` | `implementation-planning` + workflow summary |
+| `verification` | `docs/agent/review-checklist.md` + workflow summary |
+| `documentation-update` | `docs/index.md` write locations + promotion rule |
+| `session-handoff` | `docs/agent/session-handoff.md` |
 
 ---
 
