@@ -12,6 +12,15 @@ This repository is a reusable framework for helping coding agents:
 
 It is designed to be adapted into real software repositories. This repo itself is the framework, not an application codebase.
 
+## Philosophy
+
+```txt
+The context system should not make smart agents follow long procedures.
+It should help them find the right truth, avoid unsafe assumptions, and preserve state.
+```
+
+The framework assumes strong coding models that can reason well with concise structure, clear boundaries, and reliable source-of-truth routing.
+
 ## Why This Exists
 
 Coding agents fail in predictable ways:
@@ -45,19 +54,19 @@ task docs record what happened
 durable docs record what is true now
 ```
 
-## How Agents Are Expected To Work
+## Read Model
 
-For non-trivial work, an agent should:
+The framework separates:
 
-1. Read `AGENTS.md`.
-2. Read `docs/index.md`.
-3. Read the core agent docs in `docs/agent/`.
-4. Classify the task.
-5. Load only the relevant durable docs, source code, and tests.
-6. Create or update a task folder under `docs/tasks/`.
-7. Plan before implementation.
-8. Verify before reporting completion.
-9. Promote verified truth into durable docs when needed.
+- required bootstrap context
+- conditional task-specific context
+- optional reference material
+
+Agents should load:
+
+1. the smallest safe context
+2. the relevant durable truth
+3. only the procedures needed for the current task
 
 This keeps execution disciplined without forcing the agent to read the whole repository.
 
@@ -126,11 +135,24 @@ This repository currently contains the framework, policies, skills, and template
 
 ## Recommended Entry Points
 
-- Start with [AGENTS.md](AGENTS.md)
-- Then read [docs/index.md](docs/index.md)
-- For the operating loop, read [docs/agent/operating-manual.md](docs/agent/operating-manual.md)
-- For context loading, read [docs/agent/context-policy.md](docs/agent/context-policy.md)
-- For task classification and artifacts, read [docs/agent/task-workflow.md](docs/agent/task-workflow.md)
+Required for non-trivial work:
+
+- [AGENTS.md](AGENTS.md)
+- [docs/index.md](docs/index.md)
+- [docs/agent/context-policy.md](docs/agent/context-policy.md)
+- [docs/agent/task-workflow.md](docs/agent/task-workflow.md)
+
+Read conditionally:
+
+- `tool-policy.md` before risky commands
+- `review-checklist.md` before completion
+- `session-handoff.md` when continuing incomplete/risky work
+- relevant skill docs only when needed
+
+Optional reference:
+
+- `operating-manual.md`
+- `failure-modes.md`
 
 ## License
 
