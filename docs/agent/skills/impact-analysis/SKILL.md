@@ -1,41 +1,26 @@
 # Skill: Impact Analysis
 
-## Purpose
-Identify what a task may affect before implementation.
+## Use For
 
-## Use When
-- A task changes behavior, structure, tests, data, API, security, runtime, or docs.
-- The regression risk or blast radius is unclear.
-- A plan needs affected files, modules, and verification strategy.
+Identify affected behavior, modules, contracts, tests, and risk before implementation.
 
-## Inputs
-- Requirement/scope summary.
-- Codebase research findings.
-- Relevant feature, architecture, decision, and task docs.
-- Relevant source files and tests.
-- Current task classification.
+## Key Moves
 
-## Procedure
-1. Identify affected features, modules, layers, and entry points.
-2. Check API, data model, auth, permissions, external services, and runtime impact.
-3. Identify tests that should change or protect behavior.
-4. Identify docs that may need task updates or durable updates.
-5. List compatibility, rollback, security, and regression risks.
-6. Mark unknowns that require expanded context or clarification.
+- Trace affected features, APIs, data models, and dependencies.
+- Identify behavior that must change vs behavior that must remain stable.
+- Inspect adjacent modules and shared contracts when coupling exists.
+- Identify verification scope and regression risk.
+- Keep analysis proportional to task risk.
 
-## Outputs
-- Impact-analysis artifact in the task folder when applicable.
-- Affected files/directories for the implementation plan.
-- Risk and verification inputs.
-- Durable docs that may need updates.
+## Output
 
-## Completion Criteria
-- Affected features/modules/layers are identified or explicitly unknown.
-- API, data, auth/security, external integration, and runtime impacts are checked when relevant.
-- Tests and verification areas are identified.
-- Risks and required context expansion are explicit before planning.
+- affected modules/files
+- risk summary
+- verification scope
+- dependency or compatibility concerns
 
-## Do Not
-- Do not treat impact as limited to files directly edited.
-- Do not ignore tests that encode current behavior.
-- Do not hide security, data, API, or auth impact under generic risk wording.
+## Escalate When
+
+- impact crosses architectural boundaries
+- compatibility or migration risk is unclear
+- hidden coupling keeps expanding scope
