@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This file is the canonical source for task classification, workflows, skills, templates, and task artifact guidance.
+This file is the canonical source for task classification, workflow lifecycle, skills, templates, profiles, and task artifact guidance.
 
 Use it after:
 
@@ -15,23 +15,30 @@ Use it after:
 ## Mental Model
 
 ```txt
-Workflow = task lifecycle
-Skill    = reusable tactical heuristic used inside a workflow step
-Template = artifact schema
+Workflow  = task lifecycle
+Template  = artifact structure
+Profile   = classification-specific attention
+Skill     = tactical heuristic
 Task docs = what happened during a task
 Feature docs = what is true now
+```
+
+Task templates live at:
+
+```txt
+docs/templates/tasks/*.template.md
+```
+
+Task profiles live at:
+
+```txt
+docs/templates/tasks/profiles/[task-classification].md
 ```
 
 Skill files live at:
 
 ```txt
 docs/agent/skills/[skill-name]/SKILL.md
-```
-
-Templates live at:
-
-```txt
-docs/templates/tasks/[task-classification]/
 ```
 
 ---
@@ -43,11 +50,13 @@ For non-trivial tasks:
 1. Classify the task.
 2. Load context using `docs/agent/context-policy.md`.
 3. Create or update `docs/tasks/[YYYY-MM-DD-task-slug]/`.
-4. Keep task artifacts proportional to risk.
-5. Plan before implementation.
-6. Verify before completion.
-7. Update durable docs only when durable truth changes.
-8. Update handoff when work is incomplete, risky, long-running, or non-obvious.
+4. Use `docs/templates/tasks/task.template.md` as the default structure.
+5. Use the matching task profile for classification-specific focus.
+6. Keep task artifacts proportional to risk.
+7. Plan before implementation.
+8. Verify before completion.
+9. Update durable docs only when durable truth changes.
+10. Update handoff when work is incomplete, risky, long-running, or non-obvious.
 
 Do not create verbose docs just to satisfy a template.
 
@@ -87,18 +96,18 @@ For multi-phase work inside one task folder:
 
 ## Classification
 
-| Classification | Use When | Template |
+| Classification | Use When | Profile |
 |---|---|---|
-| `new-feature` | Adding a capability that did not exist before | `docs/templates/tasks/new-feature/` |
-| `change-feature` | Changing existing feature behavior | `docs/templates/tasks/change-feature/` |
-| `bugfix` | Fixing incorrect behavior, regression, failing tests, or runtime errors | `docs/templates/tasks/bugfix/` |
-| `refactor` | Changing internal structure without intended behavior change | `docs/templates/tasks/refactor/` |
-| `migration` | Changing schema, data shape, dependency, framework, runtime, or infrastructure | `docs/templates/tasks/migration/` |
-| `performance` | Improving latency, throughput, memory, bundle size, query cost, or resource usage | `docs/templates/tasks/performance/` |
-| `security` | Fixing or improving auth, permissions, validation, secrets, trust boundaries, or data exposure | `docs/templates/tasks/security/` |
-| `test-improvement` | Adding or improving tests without intended product behavior change | `docs/templates/tasks/test-improvement/` |
-| `docs` | Documentation-only changes | `docs/templates/tasks/docs/` |
-| `spike` | Research, exploration, proof of concept, or decision support | `docs/templates/tasks/spike/` |
+| `new-feature` | Adding a capability that did not exist before | `docs/templates/tasks/profiles/new-feature.md` |
+| `change-feature` | Changing existing feature behavior | `docs/templates/tasks/profiles/change-feature.md` |
+| `bugfix` | Fixing incorrect behavior, regression, failing tests, or runtime errors | `docs/templates/tasks/profiles/bugfix.md` |
+| `refactor` | Changing internal structure without intended behavior change | `docs/templates/tasks/profiles/refactor.md` |
+| `migration` | Changing schema, data shape, dependency, framework, runtime, or infrastructure | `docs/templates/tasks/profiles/migration.md` |
+| `performance` | Improving latency, throughput, memory, bundle size, query cost, or resource usage | `docs/templates/tasks/profiles/performance.md` |
+| `security` | Fixing or improving auth, permissions, validation, secrets, trust boundaries, or data exposure | `docs/templates/tasks/profiles/security.md` |
+| `test-improvement` | Adding or improving tests without intended product behavior change | `docs/templates/tasks/profiles/test-improvement.md` |
+| `docs` | Documentation-only changes | `docs/templates/tasks/profiles/docs.md` |
+| `spike` | Research, exploration, proof of concept, or decision support | `docs/templates/tasks/profiles/spike.md` |
 
 If classification is uncertain and affects workflow materially, stop and report the ambiguity.
 
@@ -116,35 +125,12 @@ Default to the smallest artifact set that preserves state safely.
 
 Prefer a single `task.md` unless splitting improves continuation, review, or verification.
 
-### Suggested `task.md` Sections
+Use:
 
-Use only sections that add value:
-
-- Status
-- Request / Goal
-- Classification
-- Scope / Non-goals
-- Context / Findings
-- Plan
-- Changes
-- Verification
-- Decisions / Risks
-- Next Action
-
-### Classification-Specific Focus
-
-| Classification | Focus |
-|---|---|
-| `new-feature` | request, expected behavior, impact, plan, verification, durable docs |
-| `change-feature` | current behavior, proposed behavior, impact, preserved behavior, verification |
-| `bugfix` | expected vs actual behavior, reproduction, root cause or hypothesis, regression coverage |
-| `refactor` | motivation, scope, non-goals, preserved behavior, verification |
-| `migration` | current state, target state, compatibility, rollback, verification |
-| `performance` | symptom, baseline, bottleneck, correctness, before/after evidence |
-| `security` | asset, trust boundary, risk, remediation, negative/security verification |
-| `test-improvement` | test gap, expected behavior, coverage added, remaining gaps |
-| `docs` | owning source of truth, changed docs, consistency check |
-| `spike` | question, findings, options, tradeoffs, recommendation |
+- `docs/templates/tasks/task.template.md` for base task structure
+- `docs/templates/tasks/verification.template.md` only when verification needs a separate artifact
+- `docs/templates/tasks/handoff.template.md` only when handoff needs a separate artifact
+- `docs/templates/tasks/profiles/[classification].md` for classification-specific attention
 
 ---
 
@@ -222,7 +208,7 @@ When reclassifying, record the reason, switch workflow, add needed artifacts, an
 Stop and report when:
 
 - task classification is uncertain and affects workflow
-- required artifacts cannot be completed because expected behavior is unclear
+- required task state cannot be captured because expected behavior is unclear
 - selected workflow conflicts with context policy, architecture docs, or ADRs
 - verification required by the workflow is impossible or unreliable
 
