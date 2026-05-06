@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This file is the canonical source for task classification, workflows, skills, templates, and required task artifacts.
+This file is the canonical source for task classification, workflows, skills, templates, and task artifact guidance.
 
 Use it after:
 
@@ -43,13 +43,13 @@ For non-trivial tasks:
 1. Classify the task.
 2. Load context using `docs/agent/context-policy.md`.
 3. Create or update `docs/tasks/[YYYY-MM-DD-task-slug]/`.
-4. Use the matching task template when available.
+4. Keep task artifacts proportional to risk.
 5. Plan before implementation.
 6. Verify before completion.
 7. Update durable docs only when durable truth changes.
 8. Update handoff when work is incomplete, risky, long-running, or non-obvious.
 
-Keep artifacts proportional to risk. Do not create verbose docs just to satisfy a template.
+Do not create verbose docs just to satisfy a template.
 
 ## Task Folder Granularity
 
@@ -78,8 +78,8 @@ Create a new task folder when:
 
 For multi-phase work inside one task folder:
 
-- record phases or workstreams in `plan.md`
-- update `implementation-log.md` as each phase progresses
+- record phases or workstreams in `task.md` or `plan.md`
+- update task state as each phase progresses
 - use `handoff.md` to show what is done, what remains, and whether the overall outcome is complete
 - mark the task `completed` only when the whole outcome is complete
 
@@ -104,22 +104,47 @@ If classification is uncertain and affects workflow materially, stop and report 
 
 ---
 
-## Required Artifacts
+## Task Artifact Levels
 
-| Classification | Key Artifacts |
+Default to the smallest artifact set that preserves state safely.
+
+| Level | Use When | Files |
+|---|---|---|
+| Minimal | small or low-risk non-trivial task | `task.md` |
+| Standard | implementation needs explicit verification or progress tracking | `task.md`, optional `verification.md` |
+| Handoff / Risky | task is incomplete, risky, long-running, multi-session, or decision-heavy | `task.md`, optional `plan.md`, `verification.md`, `handoff.md` |
+
+Prefer a single `task.md` unless splitting improves continuation, review, or verification.
+
+### Suggested `task.md` Sections
+
+Use only sections that add value:
+
+- Status
+- Request / Goal
+- Classification
+- Scope / Non-goals
+- Context / Findings
+- Plan
+- Changes
+- Verification
+- Decisions / Risks
+- Next Action
+
+### Classification-Specific Focus
+
+| Classification | Focus |
 |---|---|
-| `new-feature` | request, feature-draft, impact-analysis, plan, decisions, implementation-log, verification, handoff |
-| `change-feature` | request, current-behavior, proposed-behavior, impact-analysis, plan, decisions, implementation-log, verification, handoff |
-| `bugfix` | report, reproduction, investigation, root-cause, plan, regression-test, implementation-log, verification, handoff |
-| `refactor` | motivation, scope, constraints, behavior-preservation, plan, implementation-log, verification, handoff |
-| `migration` | motivation, current-state, target-state, plan, rollback-plan, implementation-log, verification, handoff |
-| `performance` | report, baseline, bottleneck-analysis, plan, implementation-log, verification, handoff |
-| `security` | report, threat-analysis, plan, implementation-log, verification, handoff |
-| `test-improvement` | scope, coverage-analysis, plan, implementation-log, verification, handoff |
-| `docs` | scope, source-analysis, plan, implementation-log, verification, handoff |
-| `spike` | question, context, plan, findings, options, recommendation, verification, handoff |
-
-For small tasks, mark non-applicable sections as `N/A`.
+| `new-feature` | request, expected behavior, impact, plan, verification, durable docs |
+| `change-feature` | current behavior, proposed behavior, impact, preserved behavior, verification |
+| `bugfix` | expected vs actual behavior, reproduction, root cause or hypothesis, regression coverage |
+| `refactor` | motivation, scope, non-goals, preserved behavior, verification |
+| `migration` | current state, target state, compatibility, rollback, verification |
+| `performance` | symptom, baseline, bottleneck, correctness, before/after evidence |
+| `security` | asset, trust boundary, risk, remediation, negative/security verification |
+| `test-improvement` | test gap, expected behavior, coverage added, remaining gaps |
+| `docs` | owning source of truth, changed docs, consistency check |
+| `spike` | question, findings, options, tradeoffs, recommendation |
 
 ---
 
