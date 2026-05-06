@@ -5,8 +5,8 @@ Define canonical domain terminology.
 
 | Term | Meaning | Notes |
 |---|---|---|
-| User | Authenticated account | May own resources |
-| Workspace | Collaboration boundary | Multi-user |
+| Actor | Human or system participant | May perform actions |
+| Resource | Managed object within the domain | May have ownership or lifecycle |
 
 ## Rules
 
