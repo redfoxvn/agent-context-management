@@ -51,18 +51,36 @@ Task docs are working/history records. Feature docs describe what is true now.
 
 ---
 
-## Default Read Order
+## Read Path
+
+### Required
 
 For non-trivial tasks:
 
 1. `AGENTS.md`
 2. `docs/index.md`
-3. `docs/agent/operating-manual.md`
-4. `docs/agent/context-policy.md`
-5. `docs/agent/task-workflow.md`
-6. Relevant feature, architecture, decision, or task docs
-7. Relevant source code
-8. Relevant tests
+3. `docs/agent/context-policy.md`
+4. `docs/agent/task-workflow.md`
+5. Relevant durable docs, source code, and tests
+
+### Conditional
+
+Read only when relevant:
+
+| File | Read When |
+|---|---|
+| `docs/agent/tool-policy.md` | before risky commands or mutating tools |
+| `docs/agent/review-checklist.md` | before reporting completion |
+| `docs/agent/session-handoff.md` | continuing or preserving incomplete/risky work |
+| `docs/agent/skills/index.md` | locating a reusable procedure |
+| `docs/agent/skills/*/SKILL.md` | task requires that specific procedure |
+
+### Optional Reference
+
+| File | Purpose |
+|---|---|
+| `docs/agent/operating-manual.md` | overview of the default operating loop |
+| `docs/agent/failure-modes.md` | common agent mistakes and reminders |
 
 Load only context relevant to the task. Do not read the entire repository by default.
 
