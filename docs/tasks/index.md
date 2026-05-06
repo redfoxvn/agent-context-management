@@ -10,7 +10,7 @@ Task folders under `docs/tasks/` record work history. Durable feature behavior b
 
 | Task | Classification | Status | Notes |
 |---|---|---|---|
-| `2026-05-05-refine-task-folder-granularity` | docs | completed | Refined workflow guidance to prefer one task folder per user outcome and track related phases inside it. |
+| `2026-05-06-write-readme` | `docs` | completed | Added root `README.md` describing the framework purpose, context layers, workflow model, and adoption guidance. |
 
 ## When Adding a Task Folder
 
