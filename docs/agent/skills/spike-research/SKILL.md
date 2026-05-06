@@ -1,39 +1,28 @@
 # Skill: Spike Research
 
-## Purpose
-Investigate a question, compare options, and recommend a next action without silently implementing production changes.
+## Use For
 
-## Use When
-- The task is exploratory or decision-support oriented.
-- The best approach is unknown.
-- Architecture, product, dependency, or workflow options need comparison.
+Investigate options, tradeoffs, and unknowns without silently implementing production changes.
 
-## Inputs
-- Research question, decision needed, and expected output.
-- Scope, timebox or depth limit, and success criteria.
-- Relevant product, architecture, decision, source, test, and external context as allowed.
-- Known constraints, options, risks, and follow-up needs.
+## Key Moves
 
-## Procedure
-1. Define the research question and decision needed.
-2. Set scope, timebox/depth, and success criteria.
-3. Gather relevant product, architecture, decision, code, test, and external context as allowed.
-4. Record findings with evidence and confidence.
-5. Compare options, tradeoffs, risks, and reversibility.
-6. Recommend a next action.
-7. Create an ADR candidate when a durable decision is likely.
+- Define the research question and decision needed.
+- Set scope, depth, or timebox.
+- Gather relevant product, architecture, code, test, and external context.
+- Record findings with evidence and confidence.
+- Compare options by tradeoffs, reversibility, and risk.
+- Recommend a concrete next action.
 
-## Outputs
-- Question, context, plan, findings, options, recommendation, verification, and handoff artifacts.
-- ADR candidate or follow-up task list when appropriate.
+## Output
 
-## Completion Criteria
-- Research question, scope, and success criteria are explicit.
-- Findings include evidence, confidence, and known unknowns.
-- Options are compared with tradeoffs, risks, and reversibility.
-- Recommendation or concrete next action is recorded.
+- findings and evidence
+- option comparison
+- tradeoffs and risks
+- recommendation or next action
+- ADR candidate when appropriate
 
-## Do Not
-- Do not silently implement production changes during a spike.
-- Do not present low-confidence findings as facts.
-- Do not bury unknowns or decision needs.
+## Escalate When
+
+- findings remain low-confidence
+- decision impact becomes long-lived or architectural
+- production implementation pressure appears during exploration
