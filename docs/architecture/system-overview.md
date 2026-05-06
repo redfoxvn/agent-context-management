@@ -15,10 +15,10 @@ Keep concise.
 ## Runtime Structure
 
 ```txt
-Client
-  -> UI Server
-  -> API
-  -> Database
+Client or External Actor
+  -> Application Runtime
+  -> Service or API Layer
+  -> Persistence or External Systems
 ```
 
 ---
@@ -27,9 +27,9 @@ Client
 
 | Component | Responsibility |
 |---|---|
-| UI | User interaction |
-| API | Business logic |
-| Database | Persistent storage |
+| Interface Layer | User or system interaction |
+| Application Layer | Coordination and business behavior |
+| Persistence Layer | Data storage and retrieval |
 
 ---
 
@@ -37,12 +37,12 @@ Client
 
 | Flow | Summary |
 |---|---|
-| Authentication | Cookie -> session -> API auth |
-| Data Fetching | UI server calls backend API |
+| Authentication or Identity | Actor identity is established and validated |
+| Request Processing | Requests flow through application boundaries and validation |
 
 ---
 
 ## Constraints
 
-- Example: UI must not access database directly.
-- Example: Feature modules communicate through service layer only.
+- Example: Interface layers should not bypass application boundaries.
+- Example: Cross-module interaction should use stable public interfaces.
