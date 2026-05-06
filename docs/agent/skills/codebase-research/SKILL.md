@@ -1,41 +1,26 @@
 # Skill: Codebase Research
 
-## Purpose
-Identify the smallest relevant part of the codebase before planning changes.
+## Use For
 
-## Use When
-- Starting a non-trivial implementation task.
-- The affected module, feature, or test area is not yet confirmed.
-- Docs, code, and tests need to be reconciled before editing.
+Find the smallest source/test area needed to plan a change safely.
 
-## Inputs
-- Task request, scope, or handoff.
-- `docs/index.md`.
-- `docs/agent/context-policy.md`.
-- `docs/architecture/source-map.md`.
-- Relevant feature, architecture, decision, and task indexes.
+## Key Moves
 
-## Procedure
-1. Read `docs/index.md` and use it to locate the owning docs.
-2. Read relevant feature, architecture, decision, or task docs.
-3. Read `docs/architecture/source-map.md` to identify likely source areas.
-4. Search code by domain terms, API names, error names, and paths from the source map.
-5. Inspect related tests before implementation.
-6. Summarize the affected files, current behavior, relevant tests, and open questions before writing or updating a plan.
+- Start from `docs/index.md` and `docs/architecture/source-map.md`.
+- Read only relevant durable docs.
+- Search by domain terms, API names, errors, and known paths.
+- Inspect nearby tests before planning.
+- Stop when affected files, expected behavior, verification path, and open risks are known.
 
-## Outputs
-- A context summary in the task folder when useful.
-- Inputs for `impact-analysis` or `implementation-planning`.
-- A list of relevant source files and tests.
-- Known docs/code/tests conflicts, if any.
+## Output
 
-## Completion Criteria
-- Affected feature/module or likely search area is identified.
-- Relevant durable docs, source files, and tests are listed.
-- Known conflicts or unknowns are explicit.
-- Agent has enough context to run impact analysis or write a safe plan.
+- affected files
+- relevant docs/tests
+- current behavior summary
+- conflicts or unknowns
 
-## Do Not
-- Do not start editing before identifying affected tests or a verification strategy.
-- Do not assume naming from docs exactly matches code.
-- Do not read the whole repository unless the impact area is genuinely unknown.
+## Escalate When
+
+- docs/code/tests disagree
+- ownership or behavior is unclear
+- impact area keeps expanding
