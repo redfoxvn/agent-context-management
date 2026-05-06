@@ -97,11 +97,24 @@ This keeps execution disciplined without forcing the agent to read the whole rep
 
 ## Task Workflow Model
 
-The workflow system separates three concerns:
+The workflow system separates four concerns:
 
 - workflow: the lifecycle of a task
-- skill: a reusable procedure used inside one or more workflow steps
-- template: the artifact schema for a task classification
+- template: the artifact structure
+- profile: classification-specific attention
+- skill: reusable tactical heuristics
+
+Base task templates live under:
+
+```txt
+docs/templates/tasks/*.template.md
+```
+
+Task profiles live under:
+
+```txt
+docs/templates/tasks/profiles/
+```
 
 Examples of supported task classifications:
 
