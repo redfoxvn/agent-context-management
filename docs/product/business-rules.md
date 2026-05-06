@@ -7,16 +7,16 @@ Describe stable business behavior and constraints.
 
 | Area | Rule |
 |---|---|
-| Authentication | Only verified users may access protected resources |
-| Billing | Subscription required for premium features |
-| Collaboration | Only workspace members may modify workspace resources |
+| Access Control | Only authorized actors may access protected resources |
+| Entitlement | Restricted capabilities require valid entitlement or approval |
+| Collaboration | Only actors with sufficient role may modify shared resources |
 
 ---
 
 ## Validation / Constraints
 
-- Emails must be unique.
-- Deleted resources may remain recoverable for a retention period.
+- Canonical identifiers should remain unique within their scope.
+- Deleted or archived resources may remain recoverable for a retention period.
 
 ---
 
