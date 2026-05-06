@@ -1,41 +1,26 @@
 # Skill: Implementation Planning
 
-## Purpose
-Convert understood requirements and impact into a concise, executable plan.
+## Use For
 
-## Use When
-- Before non-trivial implementation.
-- After requirement analysis, codebase research, and impact analysis are sufficient.
-- A task needs sequencing, verification, rollback, or risk control.
+Convert context and impact understanding into a safe implementation approach.
 
-## Inputs
-- Requirement/scope summary.
-- Codebase research findings.
-- Impact analysis.
-- Relevant task template under `docs/templates/tasks/[task-classification]/`.
-- Known risks, assumptions, open questions, and verification constraints.
+## Key Moves
 
-## Procedure
-1. State task summary and classification.
-2. Define intended behavior change or intended non-behavior-change.
-3. List affected files, directories, and docs.
-4. Break implementation into small ordered steps.
-5. Define test and verification strategy.
-6. Record risks, assumptions, open questions, and rollback/recovery notes when relevant.
-7. Stop if the plan depends on unresolved behavior-affecting assumptions.
+- Define the minimal change set.
+- Identify affected files, boundaries, and verification steps.
+- Break risky work into smaller stages when useful.
+- Record assumptions, unknowns, and rollback considerations.
+- Prefer existing patterns and localized edits.
 
-## Outputs
-- `plan.md` in the task folder.
-- Updated plan when scope or classification changes.
-- Clear verification strategy and affected files/directories.
+## Output
 
-## Completion Criteria
-- Plan states classification, scope, affected files/docs, implementation steps, verification, and risks.
-- Behavior change or intended non-behavior-change is explicit.
-- Open questions do not block safe implementation, or the task is stopped.
-- Plan aligns with the selected task template and context policy.
+- implementation plan
+- affected files/modules
+- verification strategy
+- risks and assumptions
 
-## Do Not
-- Do not plan broad rewrites unless explicitly required.
-- Do not skip tests/checks for behavior, data, API, security, or migration work.
-- Do not continue with an invalid plan after discovering new scope.
+## Escalate When
+
+- implementation requires broad rewrite
+- architecture boundaries become unclear
+- verification strategy is unreliable
