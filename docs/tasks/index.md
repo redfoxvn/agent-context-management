@@ -50,7 +50,25 @@ handoff.md
 
 Prefer a single `task.md` unless splitting improves continuation, review, or verification.
 
-Use the matching template under `docs/templates/tasks/[task-classification]/` when available.
+---
+
+## Templates And Profiles
+
+Use templates for artifact structure:
+
+| Artifact | Template |
+|---|---|
+| Task state | `docs/templates/tasks/task.template.md` |
+| Separate verification | `docs/templates/tasks/verification.template.md` |
+| Separate handoff | `docs/templates/tasks/handoff.template.md` |
+
+Use profiles for classification-specific attention:
+
+```txt
+docs/templates/tasks/profiles/[classification].md
+```
+
+Templates define structure. Profiles define what each task classification must pay attention to.
 
 ---
 
