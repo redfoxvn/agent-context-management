@@ -2,9 +2,11 @@
 
 ## Purpose
 
-This file is the registry for reusable agent procedures.
+This file is the registry for reusable tactical heuristics.
 
-Skills are not task types. Workflows call skills for specific steps.
+Skills are not task types. Workflows may use skills for focused reasoning or risk handling.
+
+Do not read all skills by default.
 
 ---
 
@@ -24,28 +26,38 @@ Skill names must match the names used in `docs/agent/task-workflow.md`.
 
 | Skill | Purpose |
 |---|---|
-| `bugfix` | Diagnose a defect and define a minimal fix path |
+| `bugfix` | Diagnose a defect and define a minimal verified fix path |
 | `codebase-research` | Find the smallest relevant docs/code/tests before planning |
 | `decision-recording` | Record durable decisions or ADRs when needed |
-| `documentation-update` | Update the correct task or durable documentation layer |
 | `impact-analysis` | Identify affected features, modules, contracts, data, tests, and risks |
-| `implementation` | Apply scoped changes while preserving architecture and safety constraints |
-| `implementation-planning` | Convert context and impact into an actionable implementation plan |
-| `migration` | Plan and execute schema, data, dependency, runtime, or infrastructure migrations safely |
+| `implementation-planning` | Convert context and impact into a safe implementation approach |
+| `migration` | Plan schema, data, dependency, runtime, or infrastructure changes safely |
 | `performance-optimization` | Improve performance while preserving correctness and measuring results |
 | `refactor` | Improve internal structure without changing behavior |
-| `requirement-analysis` | Clarify request, scope, actors, acceptance criteria, and ambiguity |
+| `requirement-analysis` | Clarify scope, actors, acceptance criteria, and ambiguity |
 | `security-remediation` | Analyze and remediate auth, permission, validation, secret, or data exposure risks |
-| `session-handoff` | Preserve working state for continuation |
 | `spike-research` | Investigate options and produce decision support |
 | `test-design` | Design meaningful behavior and regression tests |
-| `verification` | Run and record checks without overstating certainty |
+
+---
+
+## Removed Generic Skills
+
+These former skills were removed because their guidance is now covered by core workflow, review, or routing docs:
+
+| Removed Skill | Covered By |
+|---|---|
+| `implementation` | `implementation-planning` + workflow summary |
+| `verification` | `review-checklist.md` + workflow summary |
+| `documentation-update` | `docs/index.md` write locations + promotion rule |
+| `session-handoff` | `docs/agent/session-handoff.md` |
 
 ---
 
 ## Maintenance Rules
 
-- Add a skill here when adding it to `docs/agent/task-workflow.md`.
-- Remove or deprecate a skill here when removing it from workflows.
-- Keep skill docs procedural and concise.
+- Add a skill only if it contains non-obvious tactical heuristics.
+- Do not create skills for generic engineering behavior.
+- Remove or merge skills when their guidance becomes duplicated elsewhere.
+- Keep skill docs concise and tactical.
 - Do not store feature truth in skill docs.
