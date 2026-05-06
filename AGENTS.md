@@ -60,7 +60,8 @@ For non-trivial tasks:
 - Update durable docs only when durable truth changes.
 - Update `handoff.md` when work is incomplete, risky, long-running, or non-obvious.
 
-Use templates from `docs/templates/tasks/[task-classification]/` when available.
+Use base templates from `docs/templates/tasks/*.template.md` for artifact structure.
+Use task profiles from `docs/templates/tasks/profiles/[classification].md` for classification-specific attention.
 
 ---
 
