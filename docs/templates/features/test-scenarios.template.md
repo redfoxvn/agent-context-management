@@ -4,6 +4,7 @@ Purpose:
 Describe durable expected test coverage for this feature.
 
 Focus on important behavior, regressions, and critical flows.
+Describe expected coverage, not test file implementation details.
 
 ---
 
