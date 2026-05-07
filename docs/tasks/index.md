@@ -12,7 +12,8 @@ Task folders under `docs/tasks/` record work history. Durable feature behavior b
 
 | Task | Classification | Status | Notes |
 |---|---|---|---|
-| `2026-05-06-write-readme` | `docs` | completed | Added root `README.md` describing the framework purpose, context layers, workflow model, and adoption guidance. |
+
+No task docs have been added yet
 
 ---
 
