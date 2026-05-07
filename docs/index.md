@@ -47,7 +47,8 @@ Do not put workflow details here. Use `docs/agent/task-workflow.md` for task lif
 | Task working state and history | `docs/tasks/[task-folder]/` |
 | Agent workflow and policies | `docs/agent/` |
 
-Task docs are working/history records. Feature docs describe what is true now.
+Task docs are working/history records.
+Feature docs describe verified current truth.
 
 ---
 
@@ -111,6 +112,8 @@ Update index files when adding, renaming, deprecating, or completing important a
 | Agent workflow/policy/skills | `docs/agent/` |
 | Reusable artifact schema | `docs/templates/` |
 
+Use `docs/templates/features/` when creating or refreshing durable feature docs.
+
 Do not write scratch notes into durable docs.
 
 ---
@@ -129,7 +132,9 @@ After verification:
 docs/features/[feature-name]/ = current durable feature truth
 ```
 
-Promote task outputs into durable docs only when they describe verified current truth, unless the task is documentation-only or planning-only.
+Promote task outputs into durable docs only when they describe verified current truth or explicitly accepted intended truth.
+
+Do not promote investigation notes, implementation logs, or unverified assumptions into feature docs.
 
 ---
 
