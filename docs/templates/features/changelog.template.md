@@ -3,6 +3,7 @@
 Purpose:
 Record durable feature-level changes.
 
+Record only durable behavior, contract, or lifecycle changes.
 Do not duplicate task implementation logs.
 
 ---
