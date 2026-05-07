@@ -1,4 +1,11 @@
-# [Feature Name] Data Model
+# Feature Data Model: [Feature Name]
+
+Purpose:
+Describe the durable data shape and lifecycle relevant to this feature.
+
+Do not store migration plans or task history here.
+
+---
 
 ## Entities
 
@@ -6,34 +13,31 @@
 
 | Field | Type | Required | Notes |
 |---|---|---:|---|
-| id | string | yes | ... |
+| id | string | yes | [Description] |
+
+---
 
 ## Relationships
 
-- ...
+- [Relationship or ownership rule]
 
-## Constraints
+---
 
-- ...
+## Important Constraints
 
-## Indexes
+- [Validation or integrity rule]
 
-- ...
+---
 
-## Data Lifecycle
+## Lifecycle
 
-- Created when:
-- Updated when:
-- Deleted / archived when:
+| State | Meaning |
+|---|---|
+| [State] | [Meaning] |
 
-## Data Integrity Rules
+---
 
-- ...
+## Verification Source
 
-## Migration Notes
-
-- ...
-
-## Privacy / Security Notes
-
-- ...
+- Last verified by: [task/PR/reference]
+- Last updated: [YYYY-MM-DD]
