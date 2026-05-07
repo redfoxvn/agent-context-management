@@ -4,6 +4,7 @@ Purpose:
 Describe the durable data shape and lifecycle relevant to this feature.
 
 Do not store migration plans or task history here.
+Keep this feature-level. Link to schema/source when needed instead of duplicating every field.
 
 ---
 
