@@ -2,28 +2,72 @@
 
 ## Purpose
 
-This index lists durable feature documentation.
+This index tracks durable feature documentation.
 
-Feature folders under `docs/features/` describe the current expected behavior of active or deprecated features. Task folders under `docs/tasks/` may explain how that behavior changed, but task docs are not the final source of truth.
+Feature folders under `docs/features/` describe verified current behavior.
+Task folders under `docs/tasks/` describe how work happened.
 
-## Features
+Do not treat task history as the final source of truth.
 
-No feature docs have been added yet.
+---
 
-## When Adding a Feature Folder
+## Feature Folder Structure
 
-Create a folder:
+Feature folders live at:
 
 ```txt
 docs/features/[feature-name]/
 ```
 
 Recommended files:
-- `spec.md`
+
 - `behavior.md`
 - `api.md`
 - `data-model.md`
 - `test-scenarios.md`
 - `changelog.md`
 
-Update this index when adding, renaming, deprecating, or removing feature docs.
+Use templates from:
+
+```txt
+docs/templates/features/
+```
+
+Create only the feature files that preserve useful durable truth.
+Small features may only need `behavior.md` and `test-scenarios.md`.
+
+---
+
+## Features
+
+No feature docs have been added yet.
+
+---
+
+## Promotion Rule
+
+Promote task findings into feature docs only after:
+
+- behavior is verified
+- tests confirm expected behavior
+- or behavior is explicitly accepted as intended truth
+
+Do not promote:
+
+- implementation logs
+- temporary investigation notes
+- unverified assumptions
+- speculative future behavior
+
+---
+
+## Update Rules
+
+Update this index when:
+
+- adding a feature folder
+- renaming a feature
+- deprecating a feature
+- removing durable feature docs
+
+Keep feature docs concise and behavior-centered.

@@ -1,52 +1,55 @@
-# [Feature Name] API
+# Feature API: [Feature Name]
 
-## Endpoints / Interfaces
+Purpose:
+Describe stable external or internal interface contracts for this feature.
 
-### `[METHOD] /path`
+API may mean HTTP endpoints, public functions, events, commands, schemas, or other stable interfaces.
 
-## Purpose
-
-...
-
-## Request
-
-```json
-{}
-```
-
-## Response
-
-```json
-{}
-```
-
-## Errors
-
-| Status / Code | Meaning |
-|---|---|
-| ... | ... |
-
-## Auth / Permission
-
-...
+Keep concise and behavior-centered.
 
 ---
 
-## Internal Interfaces / Functions
+## Interfaces
 
-| Name | Location | Purpose |
-|---|---|---|
-| ... | ... | ... |
+| Interface | Purpose |
+|---|---|
+| `[METHOD] /path` | [Purpose] |
 
-## Contracts
+---
 
-- Input validation:
-- Output guarantees:
-- Backward compatibility:
-- Idempotency:
-- Rate limits:
-- Side effects:
+## Request / Input
 
-## Notes
+```json
+{}
+```
 
-...
+---
+
+## Response / Output
+
+```json
+{}
+```
+
+---
+
+## Validation / Constraints
+
+- [Input validation]
+- [Compatibility expectations]
+- [Important side effects]
+
+---
+
+## Error Cases
+
+| Case | Expected Result |
+|---|---|
+| [Case] | [Expected result] |
+
+---
+
+## Verification Source
+
+- Last verified by: [task/PR/reference]
+- Last updated: [YYYY-MM-DD]

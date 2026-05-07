@@ -129,6 +129,33 @@ Examples of supported task classifications:
 - `docs`
 - `spike`
 
+## Feature Documentation Model
+
+Feature docs describe verified current behavior.
+Task docs describe how work happened.
+
+Recommended feature files:
+
+```txt
+docs/features/[feature-name]/
+├── behavior.md
+├── api.md
+├── data-model.md
+├── test-scenarios.md
+└── changelog.md
+```
+
+Use templates from:
+
+```txt
+docs/templates/features/
+```
+
+Create only the feature files that preserve useful durable truth.
+Small features may only need `behavior.md` and `test-scenarios.md`.
+
+Promote task findings into feature docs only after verification or explicit acceptance as intended truth.
+
 ## Adapting This To A Real Project
 
 When applying this framework to a real software repository:
