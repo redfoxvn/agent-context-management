@@ -33,11 +33,31 @@ Use templates from:
 docs/templates/features/
 ```
 
+Create only the feature files that preserve useful durable truth.
+Small features may only need `behavior.md` and `test-scenarios.md`.
+
 ---
 
 ## Features
 
 No feature docs have been added yet.
+
+---
+
+## Promotion Rule
+
+Promote task findings into feature docs only after:
+
+- behavior is verified
+- tests confirm expected behavior
+- or behavior is explicitly accepted as intended truth
+
+Do not promote:
+
+- implementation logs
+- temporary investigation notes
+- unverified assumptions
+- speculative future behavior
 
 ---
 
