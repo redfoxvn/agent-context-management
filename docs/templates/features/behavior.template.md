@@ -1,45 +1,48 @@
-# [Feature Name] Behavior
+# Feature Behavior: [Feature Name]
+
+Purpose:
+Describe verified current behavior for this feature.
+
+This file is durable feature truth.
+Do not store task history, investigation notes, or speculative behavior here.
+
+---
+
+## Actor Goal
+
+- [What the actor is trying to accomplish]
+
+---
 
 ## Expected Behavior
 
-- ...
-
-## User Flows
-
-### Flow: [Name]
-
-1. ...
-2. ...
-3. ...
-
-## Business Rules
-
-- ...
-
-## Validation Rules
-
-- ...
-
-## State / Lifecycle
-
-| State | Meaning | Created By | Next Possible States |
-|---|---|---|---|
-| ... | ... | ... | ... |
-
-## Error Cases
-
-| Case | Expected Result |
+| Scenario | Expected Behavior |
 |---|---|
-| ... | ... |
+| [Scenario] | [Expected result] |
 
-## Edge Cases
+---
 
-- ...
+## Important Rules
 
-## Permissions / Access Control
+- [Durable behavior or validation rule]
 
-- ...
+---
 
-## Notes
+## Edge / Error Cases
 
-- ...
+| Case | Expected Behavior |
+|---|---|
+| [Case] | [Expected result] |
+
+---
+
+## Out of Scope
+
+- [Behavior this feature intentionally does not support]
+
+---
+
+## Verification Source
+
+- Last verified by: [task/PR/reference]
+- Last updated: [YYYY-MM-DD]
