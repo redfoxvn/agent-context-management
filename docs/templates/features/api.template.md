@@ -3,6 +3,8 @@
 Purpose:
 Describe stable external or internal interface contracts for this feature.
 
+API may mean HTTP endpoints, public functions, events, commands, schemas, or other stable interfaces.
+
 Keep concise and behavior-centered.
 
 ---
