@@ -9,6 +9,87 @@ Do not create empty docs just to mirror the framework structure.
 
 ---
 
+## Adoption Scenarios
+
+### Greenfield Adoption
+
+Use this path when adopting the framework at the start of a new project.
+
+Goal:
+
+```txt
+Set up context routing before code and docs become fragmented.
+```
+
+Recommended approach:
+
+1. Copy the minimal framework skeleton.
+2. Fill product and architecture context only at skeleton level.
+3. Use task docs from the first non-trivial task.
+4. Let feature docs grow from verified work.
+5. Record decisions only for durable tradeoffs.
+
+Greenfield rule:
+
+```txt
+Start with minimal skeleton and let durable docs grow from verified work.
+Do not pre-fill imaginary architecture, product, or feature docs.
+```
+
+---
+
+### Brownfield Adoption
+
+Use this path when adopting the framework into an existing project.
+
+Goal:
+
+```txt
+Create safe entry points for agents without documenting the entire system upfront.
+```
+
+Recommended approach:
+
+1. Install the framework skeleton.
+2. Build `docs/architecture/source-map.md` first.
+3. Capture only critical product terms and business rules.
+4. Treat existing docs as unverified unless they are known to be current.
+5. Grow feature docs task-by-task from touched areas.
+6. Promote durable truth only after verification against current code and tests.
+
+Brownfield rule:
+
+```txt
+Do not document everything upfront.
+Build context through task-driven verification.
+Code and tests remain primary evidence until durable docs are verified.
+```
+
+---
+
+### Legacy Docs Migration
+
+Use this when the project already has README files, wiki pages, Notion docs, Confluence pages, or scattered notes.
+
+Do not bulk-import old docs.
+
+Triage existing docs into:
+
+| Category | Action |
+|---|---|
+| Verified durable truth | Promote into product, architecture, feature, or decision docs |
+| Useful historical context | Link from task or decision docs when relevant |
+| Stale or conflicting docs | Archive, mark stale, or remove |
+| Task-specific notes | Move or summarize into task docs only if still useful |
+
+Migration rule:
+
+```txt
+Only promote legacy docs after checking them against current code, tests, or accepted product truth.
+```
+
+---
+
 ## Recommended Adoption Order
 
 ### 1. Copy The Bootstrap Files
