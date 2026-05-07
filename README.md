@@ -156,6 +156,45 @@ Small features may only need `behavior.md` and `test-scenarios.md`.
 
 Promote task findings into feature docs only after verification or explicit acceptance as intended truth.
 
+## Decision Record Model
+
+Decision docs record durable choices and rationale.
+Task docs record how the decision was reached.
+Architecture, product, and feature docs record the resulting current truth.
+
+Recommended decision file format:
+
+```txt
+docs/decisions/YYYY-MM-DD-short-title.md
+```
+
+Use template:
+
+```txt
+docs/templates/decisions/adr.template.md
+```
+
+Create decision records only when future agents or developers need to understand why an important choice was made.
+
+Good candidates include:
+
+- architecture boundaries
+- public API direction
+- technology choices
+- migration strategies
+- security or auth tradeoffs
+- long-term constraints
+
+Avoid creating decision records for:
+
+- minor implementation details
+- temporary workarounds
+- task-local choices
+- small style preferences
+- obvious bugfix decisions
+
+Keep decision records concise and consequence-focused.
+
 ## Adapting This To A Real Project
 
 When applying this framework to a real software repository:

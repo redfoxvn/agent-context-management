@@ -26,7 +26,7 @@ Do not put workflow details here. Use `docs/agent/task-workflow.md` for task lif
 | Feature truth | `docs/features/` | Current expected behavior of active features |
 | Task history | `docs/tasks/` | Work records, plans, investigations, verification, handoffs |
 | Architecture | `docs/architecture/` | Technical structure, boundaries, flows, conventions, testing |
-| Decisions | `docs/decisions/` | Durable decisions and reasoning |
+| Decisions | `docs/decisions/` | Durable decisions and rationale |
 | Agent operations | `docs/agent/` | Context policy, workflows, tool policy, review, handoff, skills |
 | Templates | `docs/templates/` | Schemas for task, feature, and ADR artifacts |
 
@@ -43,12 +43,13 @@ Do not put workflow details here. Use `docs/agent/task-workflow.md` for task lif
 | Feature test expectations | `docs/features/[feature-name]/test-scenarios.md` |
 | Feature history | `docs/features/[feature-name]/changelog.md` |
 | Architecture constraints, flows, conventions | `docs/architecture/` |
-| Long-lived decisions | `docs/decisions/` |
+| Durable decision rationale | `docs/decisions/` |
 | Task working state and history | `docs/tasks/[task-folder]/` |
 | Agent workflow and policies | `docs/agent/` |
 
 Task docs are working/history records.
 Feature docs describe verified current truth.
+Decision docs explain why durable choices were made.
 
 ---
 
@@ -75,6 +76,7 @@ Read only when relevant:
 | `docs/agent/session-handoff.md` | continuing or preserving incomplete/risky work |
 | `docs/agent/skills/index.md` | locating a reusable procedure |
 | `docs/agent/skills/*/SKILL.md` | task requires that specific procedure |
+| `docs/decisions/index.md` | understanding durable tradeoffs or historical rationale |
 
 ### Optional Reference
 
@@ -108,11 +110,12 @@ Update index files when adding, renaming, deprecating, or completing important a
 | Current feature behavior/API/data/tests | `docs/features/[feature-name]/` |
 | Architecture structure, boundaries, flows, conventions | `docs/architecture/` |
 | Product/domain meaning | `docs/product/` |
-| Long-lived decision | `docs/decisions/` |
+| Durable decision rationale | `docs/decisions/` |
 | Agent workflow/policy/skills | `docs/agent/` |
 | Reusable artifact schema | `docs/templates/` |
 
 Use `docs/templates/features/` when creating or refreshing durable feature docs.
+Use `docs/templates/decisions/adr.template.md` when recording durable decisions.
 
 Do not write scratch notes into durable docs.
 
@@ -130,6 +133,12 @@ After verification:
 
 ```txt
 docs/features/[feature-name]/ = current durable feature truth
+```
+
+For durable tradeoffs or long-term rationale:
+
+```txt
+docs/decisions/ = why an important choice was made
 ```
 
 Promote task outputs into durable docs only when they describe verified current truth or explicitly accepted intended truth.
