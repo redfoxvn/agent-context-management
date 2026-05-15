@@ -90,6 +90,37 @@ Only promote legacy docs after checking them against current code, tests, or acc
 
 ---
 
+## Bootstrap Boundary
+
+Before the framework exists in a target repository, the first skeleton copy is a bootstrap step.
+
+This step should be performed by a human or explicitly approved by a human.
+
+Minimum bootstrap set:
+
+```txt
+AGENTS.md
+docs/index.md
+docs/agent/
+docs/templates/
+docs/tasks/index.md
+docs/features/index.md
+docs/decisions/index.md
+docs/architecture/
+docs/product/
+```
+
+After these files exist, continue adoption through the normal task workflow.
+
+Bootstrap rule:
+
+```txt
+Manual bootstrap creates the framework entry point.
+Agent-assisted adoption starts after the entry point exists.
+```
+
+---
+
 ## Adoption Workflow
 
 Framework adoption itself should be treated as a task workflow.
@@ -128,9 +159,8 @@ Agent drafts and records findings; humans confirm durable truth.
 
 ## Human And Agent Responsibilities
 
-Agent can safely:
+Agent can safely after bootstrap:
 
-- copy the framework skeleton
 - draft source maps
 - create task folders
 - inspect source code and tests
@@ -139,6 +169,7 @@ Agent can safely:
 
 Humans should confirm:
 
+- initial framework bootstrap
 - product meaning
 - business rules
 - architecture boundaries
@@ -169,6 +200,8 @@ docs/index.md
 docs/agent/
 docs/templates/
 ```
+
+This is the bootstrap boundary. Perform it manually or with explicit human approval.
 
 Keep `AGENTS.md` short and mandatory.
 Use `docs/index.md` as the context router.
