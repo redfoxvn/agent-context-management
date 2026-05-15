@@ -1,26 +1,43 @@
 # Business Rules
 
 Purpose:
-Describe stable business behavior and constraints.
+Describe stable business behavior, validation rules, and domain constraints.
+
+Keep rules durable and behavior-focused.
 
 ## Rules
 
 | Area | Rule |
 |---|---|
-| Access Control | Only authorized actors may access protected resources |
-| Entitlement | Restricted capabilities require valid entitlement or approval |
-| Collaboration | Only actors with sufficient role may modify shared resources |
+| `[business-area]` | `[stable behavior or constraint]` |
+| `[business-area]` | `[stable behavior or constraint]` |
 
 ---
 
 ## Validation / Constraints
 
-- Canonical identifiers should remain unique within their scope.
-- Deleted or archived resources may remain recoverable for a retention period.
+- `[validation or invariant]`
+- `[retention, ownership, or access rule]`
 
 ---
 
 ## Notes
 
 - Prefer durable rules over edge-case implementation details.
-- Move temporary logic discussions into task documents instead.
+- Move temporary logic discussions into task documents.
+- Avoid duplicating API validation logic unless it represents a business invariant.
+
+---
+
+## Agent Usage
+
+Agents should read this file when:
+- changing business behavior
+- validating implementation assumptions
+- reviewing edge cases tied to product rules
+- deciding whether behavior changes are backward compatible
+
+Agents should update this file when:
+- stable business rules change
+- validation constraints change
+- long-lived policy behavior changes
