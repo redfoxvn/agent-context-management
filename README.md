@@ -86,6 +86,7 @@ This keeps execution disciplined without forcing the agent to read the whole rep
     │   ├── failure-modes.md
     │   ├── session-handoff.md
     │   └── skills/
+    ├── adoption.md
     ├── architecture/
     ├── decisions/
     ├── features/
@@ -195,7 +196,23 @@ Avoid creating decision records for:
 
 Keep decision records concise and consequence-focused.
 
-## Adapting This To A Real Project
+## Adopting This Framework
+
+For practical adoption guidance, see:
+
+```txt
+docs/adoption.md
+```
+
+The adoption guide covers:
+
+- greenfield adoption
+- brownfield adoption
+- legacy docs migration
+- recommended adoption order
+- promotion rules between context layers
+- anti-bloat rules
+- agent usage protocol
 
 When applying this framework to a real software repository:
 
@@ -227,6 +244,7 @@ Read conditionally:
 - `review-checklist.md` before completion
 - `session-handoff.md` when continuing incomplete/risky work
 - relevant skill docs only when needed
+- `docs/adoption.md` when onboarding the framework into a real repository
 
 Optional reference:
 

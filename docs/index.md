@@ -77,6 +77,7 @@ Read only when relevant:
 | `docs/agent/skills/index.md` | locating a reusable procedure |
 | `docs/agent/skills/*/SKILL.md` | task requires that specific procedure |
 | `docs/decisions/index.md` | understanding durable tradeoffs or historical rationale |
+| `docs/adoption.md` | onboarding this framework into a real repository |
 
 ### Optional Reference
 
