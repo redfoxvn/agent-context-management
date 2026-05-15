@@ -90,6 +90,42 @@ Only promote legacy docs after checking them against current code, tests, or acc
 
 ---
 
+## Adoption Workflow
+
+Framework adoption itself should be treated as a task workflow.
+
+For a real repository, do not treat adoption as a one-time documentation dump. Split it into small tasks that can be investigated, verified, reviewed, and promoted safely.
+
+Example adoption tasks:
+
+- add framework skeleton
+- build source map
+- migrate glossary
+- verify business rules
+- recover architecture boundaries
+- migrate durable decisions
+- review legacy docs
+
+Use task docs to record:
+
+- findings
+- uncertainty
+- verification
+- migration progress
+- remaining risks
+- next actions
+
+Promote durable truth only after verification.
+
+Adoption rule:
+
+```txt
+Adoption work uses the same task workflow as implementation work.
+Agent drafts and records findings; humans confirm durable truth.
+```
+
+---
+
 ## Recommended Adoption Order
 
 ### 1. Copy The Bootstrap Files
