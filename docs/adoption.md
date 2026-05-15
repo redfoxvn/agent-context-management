@@ -126,7 +126,38 @@ Agent drafts and records findings; humans confirm durable truth.
 
 ---
 
-## Recommended Adoption Order
+## Human And Agent Responsibilities
+
+Agent can safely:
+
+- copy the framework skeleton
+- draft source maps
+- create task folders
+- inspect source code and tests
+- record findings and uncertainty
+- draft durable docs after verification
+
+Humans should confirm:
+
+- product meaning
+- business rules
+- architecture boundaries
+- accepted decisions
+- whether legacy behavior is intended or stale
+
+Responsibility rule:
+
+```txt
+Agent drafts and verifies evidence.
+Humans confirm durable truth.
+```
+
+---
+
+## Default Adoption Order
+
+Use this as a default sequence.
+For brownfield projects, prioritize `source-map.md` and task-driven verification before expanding durable docs.
 
 ### 1. Copy The Bootstrap Files
 
@@ -276,7 +307,7 @@ docs/templates/decisions/adr.template.md
 
 ---
 
-## First Task Checklist For A New Repo
+## Initial Adoption Checklist
 
 Before asking an agent to implement real changes, ensure:
 
@@ -286,6 +317,7 @@ Before asking an agent to implement real changes, ensure:
 - `docs/product/glossary.md` defines common domain terms
 - `docs/tasks/index.md` exists
 - templates are available under `docs/templates/`
+- existing docs are treated as unverified unless confirmed current
 
 ---
 
@@ -313,3 +345,5 @@ For non-trivial tasks, agents should:
 7. Verify before completion.
 8. Promote durable truth only after verification.
 9. Update handoff when work remains incomplete or risky.
+
+During adoption tasks, agents should record uncertainty explicitly instead of promoting assumptions into durable docs.
