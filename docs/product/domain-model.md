@@ -1,27 +1,43 @@
 # Domain Model
 
 Purpose:
-Describe core entities and relationships.
+Describe core entities, relationships, and lifecycle at the business/domain level.
+
+Keep this file behavior-oriented and implementation-agnostic.
 
 ## Core Entities
 
 | Entity | Description | Relationships |
 |---|---|---|
-| Actor | Human or system participant | Interacts with Resource |
-| Resource | Domain-managed object | May belong to a Collection |
-| Collection | Logical grouping boundary | Contains Resources |
+| `[entity]` | `[business meaning]` | `[relationships]` |
+| `[entity]` | `[business meaning]` | `[relationships]` |
 
 ---
 
-## Important State/Lifecycle
+## Important Lifecycle / States
 
 | Entity | States |
 |---|---|
-| Resource | draft -> active -> archived |
+| `[entity]` | `[state-a] -> [state-b] -> [state-c]` |
 
 ---
 
 ## Constraints
 
-- Actors may interact with multiple collections or resources.
-- Archived entities may remain readable.
+- `[durable business constraint]`
+- `[ownership or lifecycle rule]`
+
+---
+
+## Agent Usage
+
+Agents should read this file when:
+- implementing behavior tied to domain entities
+- validating lifecycle assumptions
+- performing impact analysis across related concepts
+- translating business rules into implementation
+
+Agents should update this file when:
+- entity relationships change
+- lifecycle rules change
+- durable domain concepts are introduced or removed

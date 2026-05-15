@@ -1,30 +1,38 @@
 # Product
 
 Purpose:
-Provide durable domain and business context.
+Provide durable domain and business context that helps agents understand system behavior beyond implementation details.
 
-Keep this directory:
-- concise
-- stable
-- behavior-focused
-
-Do not store:
-- implementation details
-- task history
-- speculative product ideas unless marked as draft
+This directory is a project-specific template layer. Replace placeholders with real product/domain concepts during adoption, but keep the content concise and stable.
 
 ## Files
 
-| File | Purpose |
-|---|---|
-| glossary.md | Canonical terminology |
-| domain-model.md | Main entities and relationships |
-| business-rules.md | Stable business behavior and constraints |
+| File | Role | Read When | Write When |
+|---|---|---|---|
+| `glossary.md` | Canonical business terminology | terminology is unclear or conflicting | terminology changes |
+| `domain-model.md` | Core entities, relationships, and lifecycle | understanding business structure | entities or lifecycle rules change |
+| `business-rules.md` | Stable behavioral constraints and policies | implementing or validating behavior | stable rules or constraints change |
 
-## Update Rules
+## What Belongs Here
 
-Update product docs when:
-- domain meaning changes
-- business rules change
-- terminology changes
-- entity lifecycle changes
+- stable domain terminology
+- business behavior and constraints
+- entity relationships and lifecycle
+- durable product concepts
+
+## What Does Not Belong Here
+
+- implementation details
+- API payload details
+- task history
+- temporary product discussions
+- speculative ideas unless marked as draft
+
+## Agent Usage
+
+Before changing behavior, agents should use these files to answer:
+
+- What business meaning does this feature have?
+- Which rules must remain preserved?
+- Which terminology is canonical?
+- Is this a behavior change or only an implementation change?
