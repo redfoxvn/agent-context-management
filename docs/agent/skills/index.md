@@ -10,6 +10,28 @@ Do not read all skills by default.
 
 ---
 
+## Invocation Model
+
+Skills are tactical heuristics, not standalone workflows.
+
+Agents should normally load skills through task classification and workflow routing rather than treating skills as independent procedures.
+
+Expected flow:
+
+```txt
+User request
+    ↓
+Workflow classifies task
+    ↓
+Workflow selects relevant profiles and skills
+    ↓
+Agent loads only the tactical heuristics needed for the task
+```
+
+Direct skill invocation is allowed as an advanced manual override, but it is not the recommended default path for users or agents.
+
+---
+
 ## Convention
 
 Each skill lives at:
