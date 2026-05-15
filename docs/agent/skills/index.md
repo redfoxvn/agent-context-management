@@ -29,6 +29,7 @@ Skill names must match the names used in `docs/agent/task-workflow.md`.
 | `bugfix` | Diagnose a defect and define a minimal verified fix path |
 | `codebase-research` | Find the smallest relevant docs/code/tests before planning |
 | `decision-recording` | Record durable decisions or ADRs when needed |
+| `framework-adoption` | Adopt this framework into a real repository safely and incrementally |
 | `impact-analysis` | Identify affected features, modules, contracts, data, tests, and risks |
 | `implementation-planning` | Convert context and impact into a safe implementation approach |
 | `migration` | Plan schema, data, dependency, runtime, or infrastructure changes safely |
