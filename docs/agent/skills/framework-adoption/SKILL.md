@@ -22,6 +22,33 @@ Do not use this skill for ordinary documentation edits.
 
 ---
 
+## Bootstrap Boundary
+
+This skill assumes the target repository already contains the minimal framework skeleton.
+
+Minimum bootstrap set:
+
+```txt
+AGENTS.md
+docs/index.md
+docs/agent/
+docs/templates/
+docs/tasks/index.md
+docs/features/index.md
+docs/decisions/index.md
+docs/architecture/
+docs/product/
+```
+
+If these files do not exist yet:
+
+- ask the user to bootstrap them manually
+- or require explicit approval before creating them
+
+After the bootstrap boundary exists, continue adoption through the normal task workflow.
+
+---
+
 ## Inputs
 
 Identify:
@@ -75,27 +102,7 @@ Use `handoff.md` if adoption is incomplete, multi-session, or risky.
 
 ---
 
-### 3. Install Minimal Skeleton
-
-Add only the context framework pieces needed for safe operation:
-
-```txt
-AGENTS.md
-docs/index.md
-docs/agent/
-docs/templates/
-docs/tasks/index.md
-docs/features/index.md
-docs/decisions/index.md
-docs/architecture/
-docs/product/
-```
-
-Do not create empty feature docs just to mirror the framework.
-
----
-
-### 4. Build Initial Source Map
+### 3. Build Initial Source Map
 
 For brownfield adoption, prioritize:
 
@@ -115,7 +122,7 @@ Mark uncertain mappings explicitly.
 
 ---
 
-### 5. Capture Critical Product Context
+### 4. Capture Critical Product Context
 
 Draft only high-value product context:
 
@@ -136,7 +143,7 @@ Do not treat inferred business rules as durable truth until confirmed.
 
 ---
 
-### 6. Triage Legacy Docs
+### 5. Triage Legacy Docs
 
 If legacy docs exist, classify them:
 
@@ -151,7 +158,7 @@ Do not bulk-import legacy docs.
 
 ---
 
-### 7. Promote Verified Durable Truth
+### 6. Promote Verified Durable Truth
 
 After verification, promote durable truth into the correct layer:
 
@@ -170,6 +177,7 @@ Do not promote implementation logs, scratch notes, or unverified assumptions.
 
 Humans should confirm:
 
+- initial framework bootstrap
 - product meaning
 - business rules
 - architecture boundaries
@@ -187,6 +195,7 @@ Humans confirm durable truth.
 Stop and report when:
 
 - adoption mode is unclear and affects the workflow
+- framework bootstrap has not happened yet
 - existing docs conflict with code or tests
 - legacy docs may describe intended behavior but code differs
 - product terms cannot be inferred safely
@@ -201,7 +210,7 @@ Stop and report when:
 
 A good adoption pass should produce:
 
-- framework skeleton installed or confirmed
+- framework skeleton confirmed
 - adoption task state recorded
 - initial source map draft or update
 - critical product context draft or update
