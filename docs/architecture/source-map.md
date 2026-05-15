@@ -1,19 +1,33 @@
 # Source Map
 
 Purpose:
-Help agents quickly locate the correct implementation areas.
+Help agents quickly locate the correct implementation areas without scanning the entire repository.
 
-Update when:
-- major modules move
-- ownership changes
-- new stable feature or module is introduced
+Keep mappings coarse-grained, stable, and navigation-oriented.
 
-| Domain / Feature | Main Modules | Entry Points | Key Files | Tests |
+## Mapping
+
+| Product / Domain Area | Main Modules | Entry Points | Key Files / Directories | Tests |
 |---|---|---|---|---|
-| Example Feature | apps/api | api/routes | feature.service.ts | tests/feature/* |
+| `[example-domain-area]` | `apps/api` | `api/routes/...` | `services/...` | `tests/...` |
 
-## Notes
+## Rules
 
-- Prefer updating existing mappings over adding duplicates.
-- Keep mappings coarse-grained and stable.
-- Avoid listing every file.
+- Prefer stable directories or modules over individual files.
+- Avoid listing every implementation file.
+- Update existing mappings instead of creating near-duplicates.
+- Remove stale mappings after major refactors.
+
+## Agent Usage
+
+Agents should read this file when:
+- locating the owner of a behavior
+- planning impact analysis
+- searching for related tests
+- onboarding into an unfamiliar codebase area
+
+Agents should update this file when:
+- modules move
+- ownership changes
+- stable entry points change
+- a new long-lived subsystem is introduced
