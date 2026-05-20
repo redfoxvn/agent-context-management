@@ -2,37 +2,33 @@
 
 Use this profile with `docs/templates/tasks/task.template.md`.
 
-## Required Focus
+## Purpose
 
-- user goal
+Use this profile when adding a capability that did not previously exist.
+
+## Additional Required Context
+
+Capture:
+- user goal and actor
 - expected behavior
-- affected flows or modules
-- implementation scope
-- verification of new behavior
-- durable docs impacted
+- affected flows, modules, or contracts
+- rollout or compatibility considerations
+- verification strategy for the new behavior
+- durable docs likely to change
 
-## Suggested Sections
+## Definition of Ready
 
-### User Goal
+Before implementation:
+- user-visible behavior is understandable
+- affected boundaries and dependencies are known
+- overlap with existing features is checked
+- verification approach exists for the new capability
+- durable docs requiring updates are identified
 
-...
+## Common Mistakes
 
-### Expected Behavior
-
-...
-
-### Scope
-
-...
-
-### Implementation Plan
-
-...
-
-### Verification
-
-...
-
-### Durable Docs Updated
-
-...
+Avoid:
+- implementing behavior without defining expected outcomes
+- duplicating an existing capability unknowingly
+- coupling unrelated cleanup into the feature task
+- forgetting to promote verified durable truth into feature docs
