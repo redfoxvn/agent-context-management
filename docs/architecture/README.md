@@ -28,6 +28,44 @@ This directory is a project-specific template layer. Replace placeholders with r
 - exhaustive file listings
 - implementation logs
 
+## Minimum Useful Architecture Context
+
+Before agents perform non-trivial work safely, architecture context should minimally answer:
+
+- Which major modules or subsystems exist?
+- Which runtime components interact?
+- Which boundaries must not be crossed?
+- Which source locations and tests are relevant?
+- Which flows are operationally important?
+
+A minimally useful architecture layer normally includes:
+
+- a usable `source-map.md`
+- a high-level `system-overview.md`
+- module dependency or ownership guidance
+- stable runtime and integration boundaries
+
+The goal is routing and safe reasoning, not exhaustive documentation.
+
+---
+
+## Architecture Context Readiness Checklist
+
+Before considering architecture context operationally usable for agents:
+
+- major subsystems are identifiable
+- source-map entries point to real code locations
+- important runtime flows are summarized
+- module boundaries are understandable
+- stale placeholders are removed or clearly marked
+- important external systems are named
+- architecture docs route agents toward relevant tests or entry points
+
+The architecture layer does not need complete system documentation.
+It only needs enough stable structure to support safe onboarding and change planning.
+
+---
+
 ## Update Rules
 
 Update architecture docs when:

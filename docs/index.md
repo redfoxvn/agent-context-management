@@ -28,7 +28,7 @@ Do not put workflow details here. Use `docs/agent/task-workflow.md` for task lif
 | Architecture | `docs/architecture/` | Technical structure, boundaries, flows, conventions, testing |
 | Decisions | `docs/decisions/` | Durable decisions and rationale |
 | Agent operations | `docs/agent/` | Context policy, workflows, tool policy, review, handoff, skills |
-| Templates | `docs/templates/` | Schemas for task, feature, and ADR artifacts |
+| Templates | `docs/templates/` | Schemas and execution contracts for reusable artifacts |
 
 ---
 
@@ -74,10 +74,12 @@ Read only when relevant:
 | `docs/agent/tool-policy.md` | before risky commands or mutating tools |
 | `docs/agent/review-checklist.md` | before reporting completion |
 | `docs/agent/session-handoff.md` | continuing or preserving incomplete/risky work |
+| `docs/agent/memory-policy.md` | deciding what should become durable knowledge |
 | `docs/agent/skills/index.md` | locating a reusable procedure |
 | `docs/agent/skills/*/SKILL.md` | task requires that specific procedure |
 | `docs/decisions/index.md` | understanding durable tradeoffs or historical rationale |
 | `docs/adoption.md` | onboarding this framework into a real repository |
+| `docs/templates/tasks/README.md` | understanding task artifact semantics and readiness expectations |
 
 ### Optional Reference
 
@@ -145,6 +147,12 @@ docs/decisions/ = why an important choice was made
 Promote task outputs into durable docs only when they describe verified current truth or explicitly accepted intended truth.
 
 Do not promote investigation notes, implementation logs, or unverified assumptions into feature docs.
+
+See also:
+
+```txt
+docs/agent/memory-policy.md
+```
 
 ---
 
