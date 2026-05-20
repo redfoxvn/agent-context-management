@@ -2,41 +2,33 @@
 
 Use this profile with `docs/templates/tasks/task.template.md`.
 
-## Required Focus
+## Purpose
 
-- performance symptom
-- target metric
-- baseline
+Use this profile when improving latency, throughput, memory usage, bundle size, query cost, or runtime efficiency.
+
+## Additional Required Context
+
+Capture:
+- performance symptom and impact
+- target metric or expectation
+- baseline measurements
 - suspected bottleneck
-- correctness risk
-- before/after evidence
+- correctness and regression risks
+- before/after verification approach
 
-## Suggested Sections
+## Definition of Ready
 
-### Symptom / Impact
+Before implementation:
+- performance problem is observable or measurable
+- baseline exists or missing baseline is explicitly acknowledged
+- likely bottleneck areas are identified
+- correctness risks are understood
+- verification strategy includes before/after comparison when feasible
 
-...
+## Common Mistakes
 
-### Baseline
-
-...
-
-### Bottleneck Hypothesis
-
-...
-
-### Optimization Plan
-
-...
-
-### Correctness Risks
-
-...
-
-### Before / After Result
-
-...
-
-### Verification
-
-...
+Avoid:
+- optimizing without a measurable problem
+- changing behavior unintentionally during optimization
+- relying only on intuition without evidence
+- reporting improvements without comparable measurements
