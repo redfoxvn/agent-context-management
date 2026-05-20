@@ -2,37 +2,33 @@
 
 Use this profile with `docs/templates/tasks/task.template.md`.
 
-## Required Focus
+## Purpose
 
+Use this profile when changing behavior of an existing feature.
+
+## Additional Required Context
+
+Capture:
 - current behavior
 - proposed behavior
-- preserved behavior
-- affected flows or contracts
-- compatibility or regression risk
-- verification result
+- behavior that must be preserved
+- affected flows, contracts, data, or tests
+- compatibility and regression risks
+- durable docs likely to change
 
-## Suggested Sections
+## Definition of Ready
 
-### Current Behavior
+Before implementation:
+- current behavior is grounded in feature docs, code, tests, or user clarification
+- proposed behavior is explicit
+- preserved behavior is identified
+- affected contracts and regression risks are known
+- docs/code/tests conflicts are recorded instead of silently resolved
 
-...
+## Common Mistakes
 
-### Proposed Behavior
-
-...
-
-### Preserved Behavior
-
-...
-
-### Impact / Compatibility
-
-...
-
-### Change Summary
-
-...
-
-### Verification
-
-...
+Avoid:
+- treating a behavior change as a refactor
+- changing adjacent behavior without documenting intent
+- updating code before understanding current behavior
+- forgetting to update durable feature docs after verification

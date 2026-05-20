@@ -2,41 +2,33 @@
 
 Use this profile with `docs/templates/tasks/task.template.md`.
 
-## Required Focus
+## Purpose
 
-- affected asset
-- actors and trust boundary
-- risk or exposure path
-- remediation approach
-- negative/security-focused verification
-- residual risk
+Use this profile when addressing auth, permissions, validation, secrets, trust boundaries, or data exposure risks.
 
-## Suggested Sections
+## Additional Required Context
 
-### Security Concern
+Capture:
+- affected asset or actor
+- trust boundaries
+- exposure or attack path
+- remediation strategy
+- security-focused verification
+- residual risk after remediation
 
-...
+## Definition of Ready
 
-### Affected Asset / Actors
+Before implementation:
+- trust boundaries are identified
+- affected assets and actors are explicit
+- remediation intent is clear
+- verification includes negative or abuse-oriented checks when relevant
+- unresolved security uncertainty is documented instead of implied safe
 
-...
+## Common Mistakes
 
-### Trust Boundary
-
-...
-
-### Risk / Exposure
-
-...
-
-### Remediation
-
-...
-
-### Security Verification
-
-...
-
-### Residual Risk
-
-...
+Avoid:
+- weakening validation or authorization during remediation
+- assuming internal callers are trusted automatically
+- focusing only on happy-path verification
+- hiding residual risk after partial remediation

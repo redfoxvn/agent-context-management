@@ -2,41 +2,33 @@
 
 Use this profile with `docs/templates/tasks/task.template.md`.
 
-## Required Focus
+## Purpose
 
-- current state
-- target state
-- compatibility risk
+Use this profile for schema, dependency, runtime, infrastructure, framework, or data-shape migrations.
+
+## Additional Required Context
+
+Capture:
+- current and target state
+- compatibility constraints
+- rollout sequencing
 - rollback or recovery path
-- deployment or sequencing considerations
-- verification result
+- operational and verification risks
+- affected contracts, environments, or data flows
 
-## Suggested Sections
+## Definition of Ready
 
-### Current State
+Before implementation:
+- current and target states are explicit
+- compatibility and rollback implications are understood
+- rollout sequencing is identified
+- verification strategy covers migration correctness and recovery
+- risky assumptions are documented instead of implied
 
-...
+## Common Mistakes
 
-### Target State
-
-...
-
-### Compatibility Risks
-
-...
-
-### Migration Plan
-
-...
-
-### Rollback / Recovery
-
-...
-
-### Deployment Notes
-
-...
-
-### Verification
-
-...
+Avoid:
+- performing irreversible changes without rollback planning
+- assuming compatibility without verification
+- coupling unrelated refactors into migration work
+- skipping operational verification after rollout-sensitive changes
