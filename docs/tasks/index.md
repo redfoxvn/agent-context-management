@@ -10,10 +10,34 @@ Task folders under `docs/tasks/` record work history. Durable feature behavior b
 
 ## Active / Recent Tasks
 
-| Task | Classification | Status | Notes |
-|---|---|---|---|
+Use this section as the primary task continuation and routing index.
 
-No task docs have been added yet
+Update when:
+- a non-trivial task starts
+- task status changes materially
+- a task becomes blocked, handed off, or completed
+- a task is no longer operationally relevant
+
+Prefer keeping only active or recently important tasks visible.
+Archive or remove stale entries when they no longer help continuation.
+
+| Task | Classification | Status | Last Updated | Notes |
+|---|---|---|---|---|
+
+| `[YYYY-MM-DD-task-slug]` | bugfix / feature / migration / ... | in-progress | YYYY-MM-DD | short continuation note |
+
+---
+
+## Active Task Rule
+
+For non-trivial work:
+
+- there should normally be a single clearly active task
+- parallel active tasks should be intentional and limited
+- blocked tasks should explicitly say why they are blocked
+- completed tasks may remain temporarily for continuity, then be removed from the active section
+
+Task folders remain as historical records even after removal from the active list.
 
 ---
 
@@ -69,7 +93,14 @@ Use profiles for classification-specific attention:
 docs/templates/tasks/profiles/[classification].md
 ```
 
-Templates define structure. Profiles define what each task classification must pay attention to.
+Templates define structure and section semantics.
+Profiles define what each task classification must pay attention to.
+
+See also:
+
+```txt
+docs/templates/tasks/README.md
+```
 
 ---
 
@@ -87,5 +118,6 @@ Common sections:
 - Plan
 - Changes
 - Verification
+- Conflicts / Ambiguity
 - Decisions / Risks
 - Next Action
