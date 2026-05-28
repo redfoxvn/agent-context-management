@@ -38,14 +38,16 @@ This project provides a structured documentation system to reduce those failures
 The repository separates context into distinct layers:
 
 - `AGENTS.md`: bootstrap rules for agents
-- `docs/index.md`: context router and source-of-truth map
-- `docs/agent/`: operating policies, workflow rules, safety, review, handoff, reusable skills
-- `docs/tasks/`: task-scoped working memory and history
-- `docs/features/`: current durable feature truth
-- `docs/architecture/`: durable technical structure, constraints, and conventions
-- `docs/product/`: project-specific product and domain context
-- `docs/decisions/`: long-lived decisions and ADR-style reasoning
-- `docs/templates/`: reusable schemas for task and feature artifacts
+- `.acm/index.md`: context router and source-of-truth map
+- `.acm/agent/`: operating policies, workflow rules, safety, review, handoff, reusable skills
+- `.acm/tasks/`: task-scoped working memory and history
+- `.acm/features/`: current durable feature truth
+- `.acm/architecture/`: durable technical structure, constraints, and conventions
+- `.acm/product/`: project-specific product and domain context
+- `.acm/decisions/`: long-lived decisions and ADR-style reasoning
+- `.acm/templates/`: reusable schemas for task and feature artifacts
+
+`.acm` stands for Agent Context Management. It is hidden to reduce conflicts with project folders while still being named after the framework.
 
 The main rule is:
 
@@ -76,7 +78,7 @@ This keeps execution disciplined without forcing the agent to read the whole rep
 .
 ├── AGENTS.md
 ├── CLAUDE.md
-└── docs/
+└── .acm/
     ├── agent/
     │   ├── operating-manual.md
     │   ├── context-policy.md
@@ -108,13 +110,13 @@ The workflow system separates four concerns:
 Base task templates live under:
 
 ```txt
-docs/templates/tasks/*.template.md
+.acm/templates/tasks/*.template.md
 ```
 
 Task profiles live under:
 
 ```txt
-docs/templates/tasks/profiles/
+.acm/templates/tasks/profiles/
 ```
 
 Examples of supported task classifications:
@@ -138,7 +140,7 @@ Task docs describe how work happened.
 Recommended feature files:
 
 ```txt
-docs/features/[feature-name]/
+.acm/features/[feature-name]/
 ├── behavior.md
 ├── api.md
 ├── data-model.md
@@ -149,7 +151,7 @@ docs/features/[feature-name]/
 Use templates from:
 
 ```txt
-docs/templates/features/
+.acm/templates/features/
 ```
 
 Create only the feature files that preserve useful durable truth.
@@ -166,13 +168,13 @@ Architecture, product, and feature docs record the resulting current truth.
 Recommended decision file format:
 
 ```txt
-docs/decisions/YYYY-MM-DD-short-title.md
+.acm/decisions/YYYY-MM-DD-short-title.md
 ```
 
 Use template:
 
 ```txt
-docs/templates/decisions/adr.template.md
+.acm/templates/decisions/adr.template.md
 ```
 
 Create decision records only when future agents or developers need to understand why an important choice was made.
@@ -201,7 +203,7 @@ Keep decision records concise and consequence-focused.
 For practical adoption guidance, see:
 
 ```txt
-docs/adoption.md
+.acm/adoption.md
 ```
 
 The adoption guide covers:
@@ -217,13 +219,13 @@ The adoption guide covers:
 When applying this framework to a real software repository:
 
 1. Keep `AGENTS.md` short and mandatory.
-2. Fill `docs/architecture/` with real boundaries, flows, conventions, testing guidance, and a usable `source-map.md`.
-3. Fill `docs/product/` with project-specific purpose, domain model, and glossary.
-4. Add feature folders under `docs/features/` for important behaviors and contracts.
-5. Record long-lived decisions under `docs/decisions/`.
-6. Use `docs/tasks/` only for task-scoped working state and history.
+2. Fill `.acm/architecture/` with real boundaries, flows, conventions, testing guidance, and a usable `source-map.md`.
+3. Fill `.acm/product/` with project-specific purpose, domain model, and glossary.
+4. Add feature folders under `.acm/features/` for important behaviors and contracts.
+5. Record long-lived decisions under `.acm/decisions/`.
+6. Use `.acm/tasks/` only for task-scoped working state and history.
 
-If this repo is used as a bootstrap template, it is normal for `docs/product/` and parts of `docs/architecture/` to start empty until adopted by a concrete project.
+If this repo is used as a bootstrap template, it is normal for `.acm/product/` and parts of `.acm/architecture/` to start empty until adopted by a concrete project.
 
 ## Current Status
 
@@ -234,9 +236,9 @@ This repository currently contains the framework, policies, skills, and template
 Required for non-trivial work:
 
 - [AGENTS.md](AGENTS.md)
-- [docs/index.md](docs/index.md)
-- [docs/agent/context-policy.md](docs/agent/context-policy.md)
-- [docs/agent/task-workflow.md](docs/agent/task-workflow.md)
+- [.acm/index.md](.acm/index.md)
+- [.acm/agent/context-policy.md](.acm/agent/context-policy.md)
+- [.acm/agent/task-workflow.md](.acm/agent/task-workflow.md)
 
 Read conditionally:
 
@@ -244,7 +246,7 @@ Read conditionally:
 - `review-checklist.md` before completion
 - `session-handoff.md` when continuing incomplete/risky work
 - relevant skill docs only when needed
-- `docs/adoption.md` when onboarding the framework into a real repository
+- `.acm/adoption.md` when onboarding the framework into a real repository
 
 Optional reference:
 

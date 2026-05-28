@@ -4,7 +4,7 @@
 
 This is the bootstrap file for coding agents working in this repository.
 
-Keep this file short. Detailed context loading, workflow, tool safety, review, and handoff rules live under `docs/agent/`.
+`.acm/` means Agent Context Management. Keep this file short. Detailed context loading, workflow, tool safety, review, and handoff rules live under `.acm/agent/`.
 
 ---
 
@@ -27,22 +27,22 @@ If these sources conflict in a behavior-affecting way, stop and report the confl
 
 For non-trivial tasks, read in this order:
 
-1. `docs/index.md`
-2. `docs/agent/context-policy.md`
-3. `docs/agent/task-workflow.md`
+1. `.acm/index.md`
+2. `.acm/agent/context-policy.md`
+3. `.acm/agent/task-workflow.md`
 4. Relevant docs, source code, and tests identified by those files
 
 Read conditionally:
 
-- `docs/agent/tool-policy.md` before risky commands or mutating tools
-- `docs/agent/review-checklist.md` before reporting completion
-- `docs/agent/session-handoff.md` when continuing or preserving incomplete/risky work
-- relevant `docs/agent/skills/*/SKILL.md` only when the task needs that procedure
+- `.acm/agent/tool-policy.md` before risky commands or mutating tools
+- `.acm/agent/review-checklist.md` before reporting completion
+- `.acm/agent/session-handoff.md` when continuing or preserving incomplete/risky work
+- relevant `.acm/agent/skills/*/SKILL.md` only when the task needs that procedure
 
 Optional references:
 
-- `docs/agent/operating-manual.md` for the default operating loop overview
-- `docs/agent/failure-modes.md` for common agent mistakes and reminders
+- `.acm/agent/operating-manual.md` for the default operating loop overview
+- `.acm/agent/failure-modes.md` for common agent mistakes and reminders
 
 For trivial edits, use judgment and keep changes minimal.
 
@@ -52,16 +52,16 @@ For trivial edits, use judgment and keep changes minimal.
 
 For non-trivial tasks:
 
-- Classify the task using `docs/agent/task-workflow.md`.
-- Create or update a task folder under `docs/tasks/[YYYY-MM-DD-task-slug]/`.
+- Classify the task using `.acm/agent/task-workflow.md`.
+- Create or update a task folder under `.acm/tasks/[YYYY-MM-DD-task-slug]/`.
 - Prefer one task folder per user outcome or logical feature/change; track tightly related phases inside that folder unless there is a real boundary that requires a separate task.
 - Create a concise plan before implementation.
 - Record verification in the task folder.
 - Update durable docs only when durable truth changes.
 - Update `handoff.md` when work is incomplete, risky, long-running, or non-obvious.
 
-Use base templates from `docs/templates/tasks/*.template.md` for artifact structure.
-Use task profiles from `docs/templates/tasks/profiles/[classification].md` for classification-specific attention.
+Use base templates from `.acm/templates/tasks/*.template.md` for artifact structure.
+Use task profiles from `.acm/templates/tasks/profiles/[classification].md` for classification-specific attention.
 
 ---
 
