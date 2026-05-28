@@ -1,216 +1,111 @@
 # Product Overview
 
-## Plain Explanation
+Purpose:
+Provide the high-level product mental model so agents understand what the system is, who it serves, and what outcomes it optimizes for.
 
-This file explains what the product actually is and why it exists.
+This file should explain product intent, not feature details or implementation design.
 
-Read this file when you need to answer:
+Use this file to answer:
 
-> "What problem is this system trying to solve, who is it for, and what should the implementation optimize for?"
-
-This file helps coding agents avoid a common failure mode:
-
-> technically correct implementation but product-wrong behavior.
-
-Use this file for:
-
-- product purpose
-- user and operator understanding
-- important terminology
-- high-level goals
-- major constraints
-- non-goals and scope boundaries
-
-Do not use this file for:
-
-- implementation details
-- endpoint documentation
-- task history
-- detailed feature specs
-- low-level architecture design
-
-Think of this file as:
-
-```txt
-overview.md = why the system exists
-architecture docs = how the system is built
-feature docs = what a specific feature does
-```
+- What is this product or system?
+- Who uses or operates it?
+- What problems does it solve?
+- What goals and non-goals shape implementation decisions?
 
 ---
 
-## Purpose
+## Relationship To Product Files
 
-This file explains the product-level mental model of the system.
-
-It should help humans and coding agents understand:
-
-- what the system is trying to achieve
-- who the system serves
-- what major problems it solves
-- which domain concepts matter
-- which constraints influence implementation decisions
-
-This file exists to provide product and domain context.
-It should not become a feature specification dump.
-
----
-
-## Context Contract
-
-| Field | Value |
+| File | Role |
 |---|---|
-| Context type | Durable product and domain context |
-| Source of truth for | Product purpose, terminology, and high-level behavior |
-| Read when | Planning features, reviewing UX behavior, onboarding, prioritizing tradeoffs |
-| Write when | Product understanding changes materially |
-| Do not use for | Detailed feature specs, implementation details, task logs |
+| `overview.md` | High-level product purpose, users, goals, and non-goals |
+| `glossary.md` | Canonical terminology |
+| `domain-model.md` | Core entities, relationships, and lifecycle |
+| `business-rules.md` | Stable behavioral constraints and policies |
 
-In simpler terms:
-
-- read this before making product-impacting decisions
-- update it when the product direction changes
-- do not turn it into a giant requirements document
+Keep this file broad and concise.
+Put detailed terminology, entities, and rules in the more specific product files.
 
 ---
 
-## Relationship To Other Files
-
-| File | Boundary |
-|---|---|
-| `docs/features/` | detailed feature behavior and accepted implementation expectations |
-| `docs/architecture/` | technical structure and runtime behavior |
-| `docs/decisions/` | rationale behind important tradeoffs |
-| `docs/tasks/` | temporary execution history |
-
-Use this file to explain:
-
-- why the system exists
-- how users think about the system
-- what concepts matter operationally
-
-Do not duplicate detailed requirements already maintained elsewhere.
-
-Example:
-
-```txt
-overview.md:
-- what the product tries to achieve
-- important terminology
-- major goals and constraints
-
-feature docs:
-- exact behavior of a specific feature
-
-tasks:
-- what changed during a specific implementation task
-```
-
----
-
-## Product Summary
-
-Template:
+## Summary
 
 ```md
 [System name] is a [type of system] that helps [target users] achieve [goal].
 
-The system primarily focuses on:
+It primarily focuses on:
 
 - [capability]
 - [capability]
 - [capability]
 ```
 
-Example placeholder:
+Example:
 
 ```md
-This project provides a context operating layer for coding agents.
+This project provides a repo-native context management layer for coding agents.
 
-The system helps:
+It primarily focuses on:
 
-- onboard agents into repositories
-- preserve operational continuity across sessions
-- reduce context loss and duplicated reasoning
-- standardize execution and handoff workflows
+- helping agents onboard into repositories
+- preserving operational continuity across sessions
+- reducing context loss and duplicated reasoning
+- standardizing task execution and handoff workflows
 ```
 
 ---
 
-## Target Users
+## Users / Operators
 
-Document the primary users or operators.
-
-Template:
-
-```md
-| User Type | Goals | Important Constraints |
+| User Type | Goals | Constraints |
 |---|---|---|
-| [role] | [goal] | [constraint] |
-```
-
-Example placeholder:
-
-| User Type | Goals | Important Constraints |
-|---|---|---|
-| Developers | reliable coding assistance | low operational overhead |
-| Coding agents | safe and consistent execution | limited context window |
-| Reviewers | understand changes quickly | deterministic artifacts |
+| `[user-or-operator]` | `[what they need to accomplish]` | `[important limitation or concern]` |
 
 ---
 
 ## Core Product Concepts
 
-Document stable domain concepts agents must understand.
-
-Template:
-
-```md
 | Concept | Meaning | Notes |
 |---|---|---|
-| [term] | [definition] | [important constraint] |
-```
+| `[concept]` | `[short definition]` | `[important constraint or distinction]` |
 
-Example placeholder:
+Examples:
 
 | Concept | Meaning | Notes |
 |---|---|---|
 | Task | execution unit for work | primary continuity boundary |
-| Durable context | long-lived verified project knowledge | should outlive sessions |
+| Durable context | verified long-lived project knowledge | should outlive sessions |
 | Skill | tactical heuristic package | workflow-driven, not user-driven |
-| Adoption | onboarding workflow for existing repositories | treated as a first-class workflow |
+| Adoption | onboarding workflow for existing repositories | treated as a first-class task |
+
+Move detailed terminology to `glossary.md` when this section grows too large.
 
 ---
 
-## Product Goals
+## Goals
 
-Document durable high-level goals.
+- `[durable product goal]`
+- `[durable product goal]`
+- `[durable product goal]`
 
-Template:
-
-```md
-- [goal]
-- [goal]
-- [goal]
-```
-
-Example placeholder:
+Examples:
 
 - Reduce context loss across coding sessions.
 - Improve implementation consistency.
-- Make agent execution more reviewable and deterministic.
+- Make agent work more reviewable and deterministic.
 - Support multi-session and multi-agent continuation.
-- Keep the system lightweight and repo-native.
+- Keep the system lightweight, repo-native, and human-readable.
 
 ---
 
 ## Non-Goals
 
-Document what the system intentionally does not try to solve.
+Use this section to prevent scope creep.
 
-This is important because agents often over-expand scope.
+- `[thing the product intentionally does not try to solve]`
+- `[thing the product intentionally does not try to solve]`
 
-Example placeholder:
+Examples:
 
 - Not a fully autonomous software engineer.
 - Not a replacement for engineering judgment.
@@ -222,36 +117,36 @@ Example placeholder:
 
 ## Product Constraints
 
-Document constraints that influence architecture and workflow.
+- `[constraint that affects product or technical decisions]`
+- `[constraint that affects product or technical decisions]`
 
 Examples:
 
-- coding agents have limited context windows
-- repository context must remain git-friendly
-- durable context should remain human-readable
-- workflows should remain tool-agnostic
-- onboarding should remain incremental
-
-Template:
-
-```md
-- [constraint]
-- [constraint]
-```
+- Coding agents have limited context windows.
+- Context must remain git-friendly and reviewable.
+- Durable context should remain human-readable.
+- Workflows should remain tool-agnostic.
+- Adoption should remain incremental.
 
 ---
 
-## Success Signals
+## What Belongs Here
 
-Document how the project informally measures success.
+- product purpose
+- target users or operators
+- high-level product goals
+- non-goals and scope boundaries
+- stable product concepts
+- product constraints that affect implementation tradeoffs
 
-Example placeholder:
+## What Does Not Belong Here
 
-- agents onboard faster into repositories
-- fewer repeated explanations are needed
-- implementation consistency improves
-- task handoff quality improves
-- durable context remains maintainable over time
+- detailed feature specs
+- implementation details
+- API payload details
+- task history
+- temporary product discussions
+- low-level architecture design
 
 ---
 
@@ -259,30 +154,17 @@ Example placeholder:
 
 Agents should read this file when:
 
-- planning product-impacting changes
+- onboarding into the product
+- planning behavior or feature changes
 - interpreting ambiguous requirements
-- evaluating tradeoffs
-- onboarding into the repository
-- reasoning about terminology or intended behavior
+- evaluating product/technical tradeoffs
+- checking whether a change matches product intent
 
-Agents should update this file only when:
+Agents should update this file when:
 
-- the product direction changes materially
-- core concepts evolve
-- durable terminology changes
-- target users or goals change significantly
+- product direction changes materially
+- target users or operators change
+- core product concepts change
+- goals, non-goals, or constraints change
 
-Minor feature changes usually belong elsewhere.
-
----
-
-## Readiness Checklist
-
-This file is useful when:
-
-- the product purpose is understandable quickly
-- important terminology is explicit
-- product goals and non-goals are visible
-- implementation constraints are discoverable
-- domain concepts are stable enough to guide decisions
-- agents can infer why the architecture exists
+Do not update this file for minor implementation changes or task-local findings.
