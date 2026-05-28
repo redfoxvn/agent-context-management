@@ -1,5 +1,39 @@
 # System Flows
 
+## Plain Explanation
+
+This file explains how important parts of the system behave at runtime.
+
+Read this file when you need to answer:
+
+> "When the system is running, how do requests, state changes, and components move and interact?"
+
+This file is especially useful for:
+
+- debugging
+- impact analysis
+- onboarding
+- authentication changes
+- async processing
+- distributed systems reasoning
+
+Do not use this file for:
+
+- detailed implementation walkthroughs
+- giant sequence diagrams for every endpoint
+- temporary debugging notes
+- task history
+- framework boilerplate
+
+Think of this file as:
+
+```txt
+system-overview.md = what components exist
+flows.md           = how those components behave together
+```
+
+---
+
 ## Purpose
 
 This file summarizes the important runtime, operational, and lifecycle flows inside the system.
@@ -33,6 +67,12 @@ This file should optimize:
 | Write when | Important flows change materially |
 | Do not use for | Low-level implementation logs or exhaustive sequence diagrams |
 
+In simpler terms:
+
+- read this when changing runtime behavior
+- update it when an important flow changes
+- do not turn it into a giant endpoint-by-endpoint dump
+
 ---
 
 ## Relationship To Other Files
@@ -47,6 +87,21 @@ This file should optimize:
 
 Use this file to explain how the system behaves.
 Use ADRs to explain why major flow decisions were accepted.
+
+Example:
+
+```txt
+flows.md:
+- login request flow
+- background job flow
+- payment callback flow
+
+source-map.md:
+- where related code lives
+
+docs/tasks/:
+- a specific debugging investigation
+```
 
 ---
 
