@@ -1,5 +1,27 @@
 # Architecture Conventions
 
+## Plain Explanation
+
+This file is the project rulebook for how code should be written and organized.
+
+Read this file when you need to answer:
+
+> "If I change or add code in this repo, what rules should I follow so the result stays consistent?"
+
+Use this file for stable engineering rules such as naming, code placement, layer boundaries, API patterns, and testing expectations.
+
+Do not use this file for:
+
+- notes from a single task
+- temporary preferences
+- unresolved debates
+- detailed feature behavior
+- long explanations of why a decision was made
+
+If a rule exists because of an important tradeoff, keep the short rule here and record the rationale in `docs/decisions/`.
+
+---
+
 ## Purpose
 
 This file records stable engineering conventions that apply across the project.
@@ -25,6 +47,12 @@ This file should answer:
 | Write when | A stable convention is discovered, changed, or explicitly accepted |
 | Do not use for | Task logs, temporary preferences, unresolved debates, feature specs |
 
+In simpler terms:
+
+- read this before making non-trivial code changes
+- update it only when a convention should guide future work
+- do not turn it into a task diary or feature spec
+
 ---
 
 ## Relationship To Other Files
@@ -38,6 +66,19 @@ This file should answer:
 | `docs/tasks/` | records task-local investigation and implementation history |
 
 If a convention exists because of an important tradeoff, link the relevant ADR instead of duplicating the rationale here.
+
+Example:
+
+```txt
+Rule lives here:
+- Frontend must not write directly to the database.
+
+Rationale lives in an ADR:
+- Why backend owns protected writes.
+
+Task history lives in docs/tasks/:
+- How a specific bug or refactor changed related code.
+```
 
 ---
 
