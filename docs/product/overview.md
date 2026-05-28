@@ -1,5 +1,44 @@
 # Product Overview
 
+## Plain Explanation
+
+This file explains what the product actually is and why it exists.
+
+Read this file when you need to answer:
+
+> "What problem is this system trying to solve, who is it for, and what should the implementation optimize for?"
+
+This file helps coding agents avoid a common failure mode:
+
+> technically correct implementation but product-wrong behavior.
+
+Use this file for:
+
+- product purpose
+- user and operator understanding
+- important terminology
+- high-level goals
+- major constraints
+- non-goals and scope boundaries
+
+Do not use this file for:
+
+- implementation details
+- endpoint documentation
+- task history
+- detailed feature specs
+- low-level architecture design
+
+Think of this file as:
+
+```txt
+overview.md = why the system exists
+architecture docs = how the system is built
+feature docs = what a specific feature does
+```
+
+---
+
 ## Purpose
 
 This file explains the product-level mental model of the system.
@@ -27,6 +66,12 @@ It should not become a feature specification dump.
 | Write when | Product understanding changes materially |
 | Do not use for | Detailed feature specs, implementation details, task logs |
 
+In simpler terms:
+
+- read this before making product-impacting decisions
+- update it when the product direction changes
+- do not turn it into a giant requirements document
+
 ---
 
 ## Relationship To Other Files
@@ -45,6 +90,21 @@ Use this file to explain:
 - what concepts matter operationally
 
 Do not duplicate detailed requirements already maintained elsewhere.
+
+Example:
+
+```txt
+overview.md:
+- what the product tries to achieve
+- important terminology
+- major goals and constraints
+
+feature docs:
+- exact behavior of a specific feature
+
+tasks:
+- what changed during a specific implementation task
+```
 
 ---
 
