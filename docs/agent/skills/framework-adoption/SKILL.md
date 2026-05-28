@@ -102,23 +102,39 @@ Use `handoff.md` if adoption is incomplete, multi-session, or risky.
 
 ---
 
-### 3. Build Initial Source Map
+### 3. Build Initial Architecture Context
 
-For brownfield adoption, prioritize:
+Prioritize:
 
 ```txt
 docs/architecture/source-map.md
 ```
 
-Draft mappings from product/domain concepts to:
+Then expand into:
 
-- modules
-- entry points
-- key files
-- tests
+```txt
+docs/architecture/system-overview.md
+docs/architecture/module-boundaries.md
+docs/architecture/flows.md
+docs/architecture/conventions.md
+```
 
-Keep mappings coarse-grained.
-Mark uncertain mappings explicitly.
+Populate:
+
+| File | Focus |
+|---|---|
+| `system-overview.md` | runtime shape, major components, external systems |
+| `source-map.md` | stable mapping from product/domain areas to code and tests |
+| `module-boundaries.md` | ownership and dependency constraints |
+| `flows.md` | important runtime, auth, async, integration, or deployment flows |
+| `conventions.md` | stable naming, organization, API, integration, testing, and documentation conventions |
+
+Rules:
+
+- keep mappings coarse-grained
+- mark uncertain findings explicitly
+- do not document every file or endpoint
+- do not convert weak observations into durable conventions
 
 ---
 
@@ -126,6 +142,9 @@ Mark uncertain mappings explicitly.
 
 Draft only high-value product context:
 
+- product purpose
+- target users or operators
+- goals and non-goals
 - domain terms
 - core entities
 - business rules
@@ -134,12 +153,22 @@ Draft only high-value product context:
 Use:
 
 ```txt
+docs/product/overview.md
 docs/product/glossary.md
 docs/product/domain-model.md
 docs/product/business-rules.md
 ```
 
-Do not treat inferred business rules as durable truth until confirmed.
+Populate:
+
+| File | Focus |
+|---|---|
+| `overview.md` | product purpose, users, goals, non-goals, and constraints |
+| `glossary.md` | canonical terminology |
+| `domain-model.md` | entities, relationships, and lifecycle |
+| `business-rules.md` | stable behavioral constraints and policies |
+
+Do not treat inferred product meaning or business rules as durable truth until confirmed.
 
 ---
 
@@ -165,8 +194,8 @@ After verification, promote durable truth into the correct layer:
 | Finding | Destination |
 |---|---|
 | current feature behavior | `docs/features/[feature-name]/` |
-| technical boundary or flow | `docs/architecture/` |
-| domain meaning or business rule | `docs/product/` |
+| technical boundary, convention, or flow | `docs/architecture/` |
+| product purpose, domain meaning, or business rule | `docs/product/` |
 | durable tradeoff or rationale | `docs/decisions/` |
 
 Do not promote implementation logs, scratch notes, or unverified assumptions.
@@ -181,6 +210,7 @@ Humans should confirm:
 - product meaning
 - business rules
 - architecture boundaries
+- accepted conventions
 - public API/product behavior decisions
 - accepted ADRs
 - whether legacy behavior is intended or stale
@@ -212,8 +242,9 @@ A good adoption pass should produce:
 
 - framework skeleton confirmed
 - adoption task state recorded
-- initial source map draft or update
-- critical product context draft or update
+- initial architecture context draft or update
+- initial product context draft or update
+- important flows and conventions identified when possible
 - legacy docs triage notes, if applicable
 - explicit uncertainty and human-review items
 - no unverified assumptions promoted into durable docs

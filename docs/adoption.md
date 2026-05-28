@@ -52,10 +52,11 @@ Recommended approach:
 
 1. Install the framework skeleton.
 2. Build `docs/architecture/source-map.md` first.
-3. Capture only critical product terms and business rules.
-4. Treat existing docs as unverified unless they are known to be current.
-5. Grow feature docs task-by-task from touched areas.
-6. Promote durable truth only after verification against current code and tests.
+3. Populate high-level product and architecture orientation only where evidence is strong.
+4. Capture only critical product terms, business rules, flows, and conventions.
+5. Treat existing docs as unverified unless they are known to be current.
+6. Grow feature docs task-by-task from touched areas.
+7. Promote durable truth only after verification against current code and tests.
 
 Brownfield rule:
 
@@ -131,9 +132,12 @@ Example adoption tasks:
 
 - add framework skeleton
 - build source map
+- draft product overview
 - migrate glossary
 - verify business rules
 - recover architecture boundaries
+- identify important runtime flows
+- extract stable engineering conventions
 - migrate durable decisions
 - review legacy docs
 
@@ -161,7 +165,10 @@ Agent drafts and records findings; humans confirm durable truth.
 
 Agent can safely after bootstrap:
 
+- draft product overview from strong evidence
 - draft source maps
+- draft important flow summaries
+- draft engineering conventions found consistently in the codebase
 - create task folders
 - inspect source code and tests
 - record findings and uncertainty
@@ -173,6 +180,7 @@ Humans should confirm:
 - product meaning
 - business rules
 - architecture boundaries
+- accepted conventions
 - accepted decisions
 - whether legacy behavior is intended or stale
 
@@ -213,19 +221,34 @@ Use `docs/index.md` as the context router.
 Create or update:
 
 ```txt
-docs/architecture/source-map.md
 docs/architecture/system-overview.md
+docs/architecture/source-map.md
 docs/architecture/module-boundaries.md
+docs/architecture/flows.md
+docs/architecture/conventions.md
 ```
 
 Prioritize:
 
-- where important code lives
 - major runtime components
+- where important code lives
 - module boundaries
+- operationally important flows
+- stable conventions agents must follow
 - constraints agents must not violate
 
-Avoid documenting every file or function.
+Guidance:
+
+| File | Populate With |
+|---|---|
+| `system-overview.md` | major runtime components, external systems, high-level interactions |
+| `source-map.md` | product/domain areas mapped to code, entry points, and tests |
+| `module-boundaries.md` | module ownership and dependency constraints |
+| `flows.md` | important request, auth, async, integration, or deployment flows |
+| `conventions.md` | stable naming, organization, API, integration, testing, and documentation conventions |
+
+Avoid documenting every file, function, endpoint, or implementation detail.
+Do not convert weak observations into durable conventions or architecture truth.
 
 ---
 
@@ -234,6 +257,7 @@ Avoid documenting every file or function.
 Create or update:
 
 ```txt
+docs/product/overview.md
 docs/product/glossary.md
 docs/product/domain-model.md
 docs/product/business-rules.md
@@ -241,12 +265,24 @@ docs/product/business-rules.md
 
 Prioritize:
 
+- product purpose and target users
+- product goals, non-goals, and constraints
 - domain terms
 - core entities
 - durable business rules
 - behavior that code alone does not explain
 
+Guidance:
+
+| File | Populate With |
+|---|---|
+| `overview.md` | product purpose, users/operators, goals, non-goals, and constraints |
+| `glossary.md` | canonical terminology |
+| `domain-model.md` | core entities, relationships, and lifecycle |
+| `business-rules.md` | stable behavioral constraints and policies |
+
 Avoid speculative product ideas unless explicitly marked as draft.
+Do not turn inferred product intent into durable truth without confirmation.
 
 ---
 
@@ -309,8 +345,8 @@ After a task is verified, promote durable truth into the right layer:
 | Finding | Promote To |
 |---|---|
 | Current feature behavior | `docs/features/[feature-name]/` |
-| Technical boundary or flow | `docs/architecture/` |
-| Domain meaning or business rule | `docs/product/` |
+| Technical boundary, convention, or flow | `docs/architecture/` |
+| Product purpose, domain meaning, or business rule | `docs/product/` |
 | Durable tradeoff or rationale | `docs/decisions/` |
 
 Do not promote implementation logs, scratch notes, or unverified assumptions.
@@ -347,6 +383,10 @@ Before asking an agent to implement real changes, ensure:
 - `AGENTS.md` points to the correct read path
 - `docs/index.md` reflects actual folders in the repo
 - `docs/architecture/source-map.md` maps important areas of code
+- `docs/architecture/system-overview.md` identifies major runtime components
+- `docs/architecture/flows.md` captures important runtime behavior when known
+- `docs/architecture/conventions.md` captures stable conventions when known
+- `docs/product/overview.md` explains product purpose, users, goals, and constraints
 - `docs/product/glossary.md` defines common domain terms
 - `docs/tasks/index.md` exists
 - templates are available under `docs/templates/`
@@ -361,6 +401,7 @@ Before asking an agent to implement real changes, ensure:
 - Do not duplicate source code structure in docs.
 - Do not turn changelogs into implementation logs.
 - Do not create ADRs for obvious or local choices.
+- Do not promote weak observations into durable product, architecture, flow, or convention truth.
 - Prefer concise durable truth over complete wiki coverage.
 
 ---
