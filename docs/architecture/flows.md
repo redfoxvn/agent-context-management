@@ -1,107 +1,34 @@
 # System Flows
 
-## Plain Explanation
+Purpose:
+Summarize the important runtime, operational, and lifecycle flows inside the system.
 
-This file explains how important parts of the system behave at runtime.
+This file explains how major components interact when the system is running.
 
-Read this file when you need to answer:
+Use this file to answer:
 
-> "When the system is running, how do requests, state changes, and components move and interact?"
+- How do requests and state changes move through the system?
+- Which components participate in important flows?
+- Where do persistence, side effects, or async behavior occur?
+- Which runtime interactions are operationally sensitive?
 
-This file is especially useful for:
-
-- debugging
-- impact analysis
-- onboarding
-- authentication changes
-- async processing
-- distributed systems reasoning
-
-Do not use this file for:
-
-- detailed implementation walkthroughs
-- giant sequence diagrams for every endpoint
-- temporary debugging notes
-- task history
-- framework boilerplate
-
-Think of this file as:
-
-```txt
-system-overview.md = what components exist
-flows.md           = how those components behave together
-```
+Keep this file concise and flow-oriented.
+Do not turn it into exhaustive endpoint documentation or implementation walkthroughs.
 
 ---
 
-## Purpose
+## Relationship To Architecture Files
 
-This file summarizes the important runtime, operational, and lifecycle flows inside the system.
-
-The goal is not exhaustive sequence documentation.
-The goal is helping humans and coding agents understand:
-
-- how major components interact
-- where requests and state transitions move
-- where failures or side effects occur
-- which parts of the system are operationally sensitive
-
-This file should optimize:
-
-- onboarding
-- debugging
-- impact analysis
-- implementation planning
-- verification planning
-- subagent routing
-
----
-
-## Context Contract
-
-| Field | Value |
+| File | Role |
 |---|---|
-| Context type | Durable operational architecture context |
-| Source of truth for | High-level runtime and interaction flows |
-| Read when | Understanding system behavior or planning cross-boundary changes |
-| Write when | Important flows change materially |
-| Do not use for | Low-level implementation logs or exhaustive sequence diagrams |
-
-In simpler terms:
-
-- read this when changing runtime behavior
-- update it when an important flow changes
-- do not turn it into a giant endpoint-by-endpoint dump
-
----
-
-## Relationship To Other Files
-
-| File | Boundary |
-|---|---|
-| `system-overview.md` | explains static architecture structure |
-| `conventions.md` | explains stable implementation conventions |
-| `source-map.md` | routes agents to relevant code |
-| `docs/decisions/` | explains why important flow tradeoffs exist |
-| `docs/tasks/` | stores temporary investigation and debugging details |
+| `system-overview.md` | Static runtime structure and major components |
+| `source-map.md` | Navigation from flows to related code |
+| `module-boundaries.md` | Ownership and dependency constraints |
+| `conventions.md` | Stable implementation conventions |
+| `flows.md` | Important runtime and operational behavior |
 
 Use this file to explain how the system behaves.
-Use ADRs to explain why major flow decisions were accepted.
-
-Example:
-
-```txt
-flows.md:
-- login request flow
-- background job flow
-- payment callback flow
-
-source-map.md:
-- where related code lives
-
-docs/tasks/:
-- a specific debugging investigation
-```
+Use ADRs to explain why important flow tradeoffs were accepted.
 
 ---
 
@@ -115,22 +42,19 @@ Good flow descriptions:
 - identify persistence or side effects
 - identify async or eventually consistent behavior
 - identify failure-sensitive areas
-- stay understandable without reading code first
+- remain understandable without reading code first
 
 Avoid:
 
 - line-by-line implementation walkthroughs
+- giant endpoint inventories
+- stale debugging notes
 - framework boilerplate
-- giant sequence dumps
-- stale endpoint inventories
 - duplicating source code behavior verbatim
 
 ---
 
 ## Recommended Flow Categories
-
-Not every project needs every category.
-Only document flows that materially help reasoning.
 
 | Flow Type | Examples |
 |---|---|
@@ -139,15 +63,16 @@ Only document flows that materially help reasoning.
 | Background processing | queues, workers, schedulers |
 | Data synchronization | replication, caching, indexing |
 | Deployment/runtime flow | CI/CD, startup, environment loading |
-| Error handling flow | retries, dead-letter queues, rollback |
+| Error handling flow | retries, rollback, dead-letter queues |
 | External integration flow | payment, messaging, third-party APIs |
 | Agent workflow flow | adoption, task lifecycle, memory promotion |
+
+Not every project needs every category.
+Only document flows that materially help onboarding, debugging, or impact analysis.
 
 ---
 
 ## Flow Template
-
-Use the following structure for important flows.
 
 ```md
 ## [Flow Name]
@@ -204,7 +129,7 @@ Use the following structure for important flows.
 
 ---
 
-## Example Placeholder
+## Example Flow
 
 ## Example: Request → Service → Persistence
 
@@ -245,16 +170,36 @@ A user action or API request enters the system.
 
 ---
 
+## What Belongs Here
+
+- important runtime flows
+- operationally sensitive interactions
+- high-level request and state transitions
+- async and persistence boundaries
+- major side effects and failure areas
+- flow-to-code navigation hints
+
+## What Does Not Belong Here
+
+- endpoint-by-endpoint inventories
+- task-local debugging notes
+- temporary investigation logs
+- implementation-level walkthroughs
+- duplicated source code behavior
+- exhaustive infrastructure documentation
+
+---
+
 ## Agent Usage
 
 Agents should read this file when:
 
-- modifying cross-module behavior
-- debugging distributed failures
+- modifying cross-module runtime behavior
+- debugging distributed or async failures
 - changing authentication or persistence logic
-- introducing async processing
-- performing migrations affecting runtime behavior
+- planning migrations affecting runtime behavior
 - analyzing system impact
+- onboarding into unfamiliar runtime flows
 
 Agents should update this file when:
 
@@ -262,19 +207,6 @@ Agents should update this file when:
 - component interaction changes materially
 - runtime responsibilities move between components
 - important failure behavior changes
+- a previously undocumented critical flow becomes stable
 
 Minor implementation refactors normally do not require updates.
-
----
-
-## Readiness Checklist
-
-This file is operationally useful when:
-
-- important runtime flows are discoverable quickly
-- component responsibilities are understandable
-- trust boundaries are visible
-- major side effects are identified
-- async behavior and persistence boundaries are visible
-- related code paths are discoverable
-- flow descriptions remain shorter than the underlying implementation
