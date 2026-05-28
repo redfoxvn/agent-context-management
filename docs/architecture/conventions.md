@@ -1,138 +1,68 @@
 # Architecture Conventions
 
-## Plain Explanation
+Purpose:
+Record stable engineering conventions that help agents make consistent implementation decisions.
 
-This file is the project rulebook for how code should be written and organized.
+This file is the project rulebook for how code should be written, organized, tested, and integrated.
 
-Read this file when you need to answer:
-
-> "If I change or add code in this repo, what rules should I follow so the result stays consistent?"
-
-Use this file for stable engineering rules such as naming, code placement, layer boundaries, API patterns, and testing expectations.
-
-Do not use this file for:
-
-- notes from a single task
-- temporary preferences
-- unresolved debates
-- detailed feature behavior
-- long explanations of why a decision was made
-
-If a rule exists because of an important tradeoff, keep the short rule here and record the rationale in `docs/decisions/`.
-
----
-
-## Purpose
-
-This file records stable engineering conventions that apply across the project.
-
-Use it to help humans and coding agents make consistent implementation decisions without rediscovering the same rules from source code.
-
-This file should answer:
+Use this file to answer:
 
 - What conventions should new code follow?
 - Which patterns are preferred or discouraged?
 - Which boundaries should implementation preserve?
-- Which conventions are stable enough to be treated as project guidance?
+- Which conventions are stable enough to guide future work?
 
 ---
 
-## Context Contract
+## Relationship To Architecture Files
 
-| Field | Value |
+| File | Role |
 |---|---|
-| Context type | Durable architecture guidance |
-| Source of truth for | Cross-project technical conventions |
-| Read when | Planning implementation, refactor, migration, or review |
-| Write when | A stable convention is discovered, changed, or explicitly accepted |
-| Do not use for | Task logs, temporary preferences, unresolved debates, feature specs |
+| `system-overview.md` | Major runtime components and system-level structure |
+| `source-map.md` | Navigation from product/domain areas to code and tests |
+| `module-boundaries.md` | Module ownership and dependency constraints |
+| `flows.md` | Important runtime or operational flows |
+| `conventions.md` | Stable engineering rules and implementation conventions |
 
-In simpler terms:
-
-- read this before making non-trivial code changes
-- update it only when a convention should guide future work
-- do not turn it into a task diary or feature spec
-
----
-
-## Relationship To Other Files
-
-| File | Boundary |
-|---|---|
-| `docs/architecture/system-overview.md` | explains major components and runtime structure |
-| `docs/architecture/source-map.md` | maps code locations and ownership |
-| `docs/architecture/flows.md` | explains important runtime or operational flows |
-| `docs/decisions/` | records why a significant convention or tradeoff was accepted |
-| `docs/tasks/` | records task-local investigation and implementation history |
-
-If a convention exists because of an important tradeoff, link the relevant ADR instead of duplicating the rationale here.
-
-Example:
-
-```txt
-Rule lives here:
-- Frontend must not write directly to the database.
-
-Rationale lives in an ADR:
-- Why backend owns protected writes.
-
-Task history lives in docs/tasks/:
-- How a specific bug or refactor changed related code.
-```
+If a convention exists because of an important tradeoff, keep the short rule here and record the rationale in `docs/decisions/`.
 
 ---
 
 ## Naming Conventions
 
-Document stable naming rules here.
+| Area | Rule | Examples | Notes |
+|---|---|---|---|
+| `[files / modules / APIs / tests]` | `[naming rule]` | `[good / avoid examples]` | `[reason or constraint]` |
 
-Template:
+Rules:
 
-```md
-### [Convention Name]
-
-- Applies to: [files / modules / APIs / tests / configs]
-- Rule: [specific naming rule]
-- Examples:
-  - Good: `[example]`
-  - Avoid: `[example]`
-- Reason: [short rationale]
-```
-
-Current conventions:
-
-```md
-<!-- Add project-specific naming conventions during adoption or when accepted. -->
-```
+- Prefer conventions that appear consistently across the codebase.
+- Include examples when the rule is easy to misapply.
+- Do not create a naming rule from a one-off observation.
 
 ---
 
 ## Code Organization Conventions
 
-Document how code should be grouped and where new code should be placed.
+| Area | Place Here | Keep Out | Notes |
+|---|---|---|---|
+| `[area-or-layer]` | `[responsibility that belongs here]` | `[responsibility that should not live here]` | `[reason or related docs]` |
 
-Template:
+Examples of useful conventions:
 
-```md
-### [Area]
-
-- Place `[kind of code]` in `[path or module]`.
-- Keep `[responsibility]` out of `[path or module]`.
-- Prefer `[pattern]` when `[condition]`.
-- Avoid `[anti-pattern]` because `[reason]`.
-```
-
-Current conventions:
-
-```md
-<!-- Add project-specific code organization conventions here. -->
-```
+- where domain logic belongs
+- where API handlers belong
+- where shared utilities belong
+- where test helpers belong
+- which layer owns validation or orchestration
 
 ---
 
 ## Boundary Conventions
 
-Document boundaries agents must preserve during implementation.
+| Boundary | Rule | Enforcement | Related Docs |
+|---|---|---|---|
+| `[boundary-name]` | `[allowed / disallowed interaction]` | `[tests / review / lint / convention]` | `[links]` |
 
 Examples:
 
@@ -141,77 +71,39 @@ Examples:
 - Infrastructure concerns should stay out of product/domain modules.
 - Test helpers should not become production dependencies.
 
-Template:
-
-```md
-### [Boundary]
-
-- Owner: [component / module / layer]
-- Allowed dependencies: [list]
-- Disallowed dependencies: [list]
-- Enforcement: [tests / review / lint / convention]
-- Related docs: [links]
-```
-
-Current boundaries:
-
-```md
-<!-- Add project-specific boundaries here. -->
-```
+Use `module-boundaries.md` for module ownership and dependency matrices.
+Use this section for broader project-wide implementation conventions.
 
 ---
 
 ## API And Integration Conventions
 
-Document stable rules for API shape, integration patterns, error handling, retries, auth propagation, and compatibility expectations.
+| Area | Request / Input | Response / Output | Error / Retry | Notes |
+|---|---|---|---|---|
+| `[api-or-integration]` | `[rule]` | `[rule]` | `[rule]` | `[compatibility or observability notes]` |
 
-Template:
+Examples of useful conventions:
 
-```md
-### [API / Integration Area]
-
-- Request pattern: [rule]
-- Response pattern: [rule]
-- Error pattern: [rule]
-- Compatibility rule: [rule]
-- Observability rule: [rule]
-```
-
-Current conventions:
-
-```md
-<!-- Add project-specific API and integration conventions here. -->
-```
+- response shape
+- error format
+- retry and timeout behavior
+- idempotency expectations
+- auth propagation
+- logging and observability expectations
 
 ---
 
 ## Testing Conventions
 
-Document stable expectations for tests and verification.
+| Test Type | Use When | Location | Required For | Avoid |
+|---|---|---|---|---|
+| `[unit / integration / e2e / regression]` | `[condition]` | `[path]` | `[change type]` | `[anti-pattern]` |
 
-Template:
-
-```md
-### [Test Type]
-
-- Use when: [condition]
-- Location: [path]
-- Naming: [rule]
-- Required for: [task/change type]
-- Avoid: [anti-pattern]
-```
-
-Current conventions:
-
-```md
-<!-- Add project-specific testing conventions here. -->
-```
+Use this section to clarify what kind of verification is expected for common change types.
 
 ---
 
 ## Documentation Conventions
-
-Document how durable context should be updated.
 
 Baseline rules:
 
@@ -219,30 +111,45 @@ Baseline rules:
 - Keep task-local investigation inside `docs/tasks/`.
 - Use ADRs for decisions with lasting tradeoffs.
 - Avoid copying the same rule into multiple durable files.
-- Prefer short, path-oriented guidance over long explanations.
+- Prefer concise, path-oriented guidance over long explanations.
+
+---
+
+## What Belongs Here
+
+- stable naming conventions
+- stable code organization rules
+- broad implementation boundaries
+- API and integration conventions
+- testing expectations
+- documentation update conventions
+
+## What Does Not Belong Here
+
+- task history
+- temporary implementation notes
+- unresolved debates
+- speculative conventions
+- detailed feature behavior
+- long rationale better captured in ADRs
 
 ---
 
 ## Agent Usage
 
-Before making non-trivial code changes, agents should:
+Agents should read this file when:
 
-1. Read this file for applicable conventions.
-2. Check `docs/architecture/source-map.md` for relevant code locations.
-3. Check `docs/architecture/flows.md` if the change affects runtime behavior.
-4. Check `docs/decisions/` if a convention appears decision-driven.
-5. Update this file only when a stable convention is added or changed.
+- planning non-trivial implementation work
+- deciding where new code belongs
+- refactoring existing code
+- reviewing changes for consistency
+- checking whether a change violates project conventions
+
+Agents should update this file when:
+
+- a stable convention is discovered during adoption
+- an accepted convention changes
+- repeated review feedback should become explicit guidance
+- a boundary rule needs to be made durable
 
 Agents should not add conventions based only on one task-local implementation unless the convention is verified, accepted, and useful for future work.
-
----
-
-## Readiness Checklist
-
-This file is ready enough for agent use when:
-
-- stable conventions are explicit rather than implied by code style
-- conventions are scoped to where they apply
-- boundaries are concrete enough to prevent unsafe changes
-- conventions do not duplicate detailed implementation docs
-- unresolved preferences are marked as open questions, not rules
