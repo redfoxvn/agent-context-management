@@ -18,3 +18,9 @@ The skill pack is intended to be portable across coding agents such as Claude Co
 - `acm-handoff`: preserve continuation state for incomplete or risky work.
 
 Tactical skills such as `bugfix`, `codebase-research`, `migration`, and `test-design` support specific task types.
+
+## Skill Authoring
+
+Use `acm-skill-authoring` before creating or changing reusable ACM skills.
+
+Skill files should remain concise. Put reusable templates, validation snippets, and long references in `resources/`.

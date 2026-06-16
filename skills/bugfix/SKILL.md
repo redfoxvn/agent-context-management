@@ -9,6 +9,10 @@ description: Use when diagnosing incorrect behavior, regressions, failing tests,
 
 Diagnose incorrect behavior and define a minimal, verified fix.
 
+## When NOT To Use
+
+Do not use this skill when expected behavior is being intentionally changed; reclassify as `change-feature`.
+
 ## Key Moves
 
 - Separate expected behavior from actual behavior.
@@ -25,6 +29,24 @@ Diagnose incorrect behavior and define a minimal, verified fix.
 - minimal fix direction
 - regression coverage or test gap
 - verification notes
+
+## Verification
+
+Before reporting this work complete:
+
+- record what evidence was inspected
+- record checks that were run
+- record checks that were skipped and why
+- identify unresolved risks or ambiguity
+
+## Common Mistakes
+
+Avoid:
+
+- fixing symptoms without identifying cause
+- redefining expected behavior without confirmation
+- skipping reproduction when it is practical
+- skipping regression coverage when risk warrants it
 
 ## Escalate When
 

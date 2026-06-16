@@ -48,7 +48,7 @@ The framework is intended for coding agents such as Claude Code, Codex, OpenCode
 
 ## Current Architecture Summary
 
-Workflow procedures live in `skills/`. Project-specific memory lives in `.acm/`. The repository currently contains Markdown docs and resources only; it does not include an application runtime, package manifest, or test suite.
+Workflow procedures live in `skills/`. Project-specific memory lives in `.acm/`. Skill quality is maintained through `skills/acm-skill-authoring/SKILL.md`. Skill files use trigger-focused frontmatter and concise workflow sections; supporting resources hold templates and heavy references. The repository currently contains Markdown docs and resources only; it does not include an application runtime, package manifest, or test suite.
 
 ## Verification
 

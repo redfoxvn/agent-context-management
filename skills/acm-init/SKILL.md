@@ -40,6 +40,26 @@ Create optional folders only when they contain real project memory:
 .acm/tasks/[YYYY-MM-DD-task-slug]/
 ```
 
+## When NOT To Use
+
+Do not use this skill to:
+
+- migrate all legacy docs at once
+- pre-fill architecture or feature docs from weak guesses
+- create empty optional folders just to mirror the framework
+- overwrite an existing project memory structure without review
+
+## Output Contract
+
+A successful init produces:
+
+- `.acm/index.md`
+- `.acm/project.md`
+- `.acm/config.md`
+- `.acm/tasks/index.md`
+- no empty optional memory folders unless explicitly requested
+- no unverified durable feature, architecture, or decision docs
+
 ## Greenfield Adoption
 
 Use this when a project is starting from scratch.

@@ -24,6 +24,18 @@ Create or update `handoff.md` when work is:
 
 For trivial completed tasks, handoff is usually not required.
 
+## Quality Checklist
+
+A useful handoff:
+
+- states current status clearly
+- says whether the whole outcome is complete
+- lists changed files
+- records verification and gaps
+- lists known risks
+- gives one concrete next action
+- links durable memory when durable truth changed
+
 ## Location
 
 Task handoff belongs at:
@@ -85,3 +97,9 @@ When continuing from handoff:
 6. Continue only if context is still valid.
 
 If handoff conflicts with current docs/code/tests, stop, identify the conflict, update the handoff, and continue only after the conflict is resolved or documented.
+
+## Stale Handoff Handling
+
+When consuming handoff, treat it as task history, not truth.
+
+If handoff conflicts with current source, tests, durable memory, or user request, stop and record the conflict before continuing.

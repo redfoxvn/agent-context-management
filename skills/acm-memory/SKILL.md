@@ -9,6 +9,16 @@ description: Use when task findings may need to become durable project memory, f
 
 Promote verified task findings into durable project memory without turning temporary investigation notes into long-lived truth.
 
+## When NOT To Use
+
+Do not use this skill to store:
+
+- implementation logs
+- temporary debugging notes
+- speculative ideas
+- unverified source observations
+- one-off task-local decisions
+
 ## Core Rule
 
 ```txt
@@ -47,6 +57,15 @@ Do not promote:
 - broad reasoning dumps
 - speculative future ideas unless clearly marked draft
 
+## Common Rationalizations
+
+| Rationalization | Reality |
+|---|---|
+| “This might help later” | Future usefulness is not enough; durable memory must be verified or accepted. |
+| “The task notes already say it” | Task notes are history, not current truth. Promote verified durable facts. |
+| “The code currently behaves this way” | Current behavior is not always intended behavior. Reconcile with tests/docs/user intent. |
+| “I should document everything now” | Document only stable facts that help future work. |
+
 ## Durable Locations
 
 | Information | Durable Location |
@@ -81,6 +100,17 @@ Before completing a non-trivial task, ask:
 - Does any durable doc now contain stale information?
 
 If yes, update the correct durable memory before completion.
+
+## Verification Checklist
+
+Before promoting memory:
+
+- source of truth is identified
+- evidence is current
+- behavior is verified or explicitly accepted
+- location is correct
+- no scratch reasoning is copied
+- indexes are updated when new durable docs are created
 
 ## Resources
 

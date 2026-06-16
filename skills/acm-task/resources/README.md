@@ -127,6 +127,12 @@ security task = task.template.md + profiles/security.md
 - Do not use handoff as the only place to store final feature behavior.
 - Do not turn verification notes into long command logs unless the details matter.
 
+## Task Artifact Principle
+
+Task artifacts preserve working state. They should not become durable project truth by accident.
+
+Use `acm-memory` to promote verified findings into `.acm/features/`, `.acm/architecture/`, `.acm/decisions/`, or `.acm/project.md`.
+
 ---
 
 ## Agent Usage

@@ -39,6 +39,7 @@ Use core ACM skills when applicable:
 - `skills/acm-completion/SKILL.md` before reporting completion
 - `skills/acm-handoff/SKILL.md` when work is incomplete, risky, long-running, or non-obvious
 - `skills/acm-init/SKILL.md` when initializing ACM in another repository
+- `skills/acm-skill-authoring/SKILL.md` when creating, editing, or validating ACM skills
 
 For trivial edits, use judgment and keep changes minimal.
 

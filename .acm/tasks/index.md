@@ -10,6 +10,7 @@ Task history is not durable feature truth. Promote verified current behavior or 
 
 | Task | Classification | Status | Last Updated | Notes |
 |---|---|---|---|---|
+| `2026-06-17-strengthen-acm-skills` | migration | completed | 2026-06-17 | Strengthens ACM skills using patterns from Superpowers and agent-skills while preserving the hybrid model. |
 | `2026-06-16-skill-driven-acm-migration` | migration | in-progress | 2026-06-16 | Migrates ACM from copied workflow docs to root-level skills plus minimal project memory. |
 | `2026-05-28-rename-docs-root` | docs | completed | 2026-05-28 | Renamed the agent context root from `docs/` to `.acm/` and updated path references. |
 

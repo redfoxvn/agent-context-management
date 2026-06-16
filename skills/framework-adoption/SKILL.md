@@ -29,6 +29,10 @@ Use this skill when the user asks to:
 
 Do not use this skill for ordinary documentation edits.
 
+## When NOT To Use
+
+Do not use this skill for ordinary task docs or already-initialized repos unless adoption/migration is the task.
+
 ## Inputs
 
 Identify:
@@ -123,3 +127,21 @@ A good adoption pass should produce:
 - legacy docs triage notes, if applicable
 - explicit uncertainty and human-review items
 - no unverified assumptions promoted into durable docs
+
+## Verification
+
+Before reporting this work complete:
+
+- record what evidence was inspected
+- record checks that were run
+- record checks that were skipped and why
+- identify unresolved risks or ambiguity
+
+## Common Mistakes
+
+Avoid:
+
+- bulk-importing legacy docs without verification
+- creating empty optional `.acm/` folders
+- treating inferred product meaning as confirmed truth
+- overwriting existing repo conventions without review

@@ -83,6 +83,17 @@ Tactical skills support focused work such as bugfixes, migrations, refactors, se
 
 See `skills/index.md` for the full skill list.
 
+## Skill Quality Model
+
+ACM skills follow these rules:
+
+- descriptions describe when to use the skill
+- skills are reusable workflow, not project memory
+- `.acm/` stores project-specific context
+- heavy templates and references live under skill `resources/`
+- high-risk skills include stop conditions and verification gates
+- platform-specific commands are examples unless explicitly required
+
 ## Minimal ACM Init
 
 A new target repository should start with only:

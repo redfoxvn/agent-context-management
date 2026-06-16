@@ -18,6 +18,23 @@ Definition of done:
 |---|---|---|---|
 | ... | ... | passed / failed / not run | ... |
 
+## Claims Supported
+
+Purpose:
+Map final claims to evidence.
+
+Write when:
+- reporting a fix, completion, passing checks, or behavior preservation
+- verification evidence is spread across commands, manual review, or docs
+
+Definition of done:
+- every success claim has evidence
+- unsupported claims are removed or reported as unverified
+
+| Claim | Evidence |
+|---|---|
+| ... | ... |
+
 ## Not Verified
 
 Purpose:

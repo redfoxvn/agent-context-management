@@ -68,6 +68,24 @@ Content:
 
 - ...
 
+## Staleness Check
+
+Purpose:
+Help the next session verify this handoff still matches current source, tests, durable memory, and user request.
+
+Write when:
+- work is paused or handed off
+- current context may change before continuation
+
+Definition of ready:
+- checked sources are named
+- possible stale areas are visible
+
+Content:
+
+- Last checked against:
+- Known possible stale areas:
+
 ## Risks / Blockers
 
 Purpose:

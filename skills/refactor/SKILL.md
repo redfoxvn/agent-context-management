@@ -9,6 +9,10 @@ description: Use when changing internal structure, names, boundaries, or organiz
 
 Improve internal structure while preserving externally observable behavior.
 
+## When NOT To Use
+
+Do not use this skill when behavior must change; reclassify as `change-feature`.
+
 ## Key Moves
 
 - Define motivation, scope, and non-goals.
@@ -25,6 +29,24 @@ Improve internal structure while preserving externally observable behavior.
 - affected files/modules
 - verification strategy
 - architecture doc updates only when durable structure changes
+
+## Verification
+
+Before reporting this work complete:
+
+- record what evidence was inspected
+- record checks that were run
+- record checks that were skipped and why
+- identify unresolved risks or ambiguity
+
+## Common Mistakes
+
+Avoid:
+
+- mixing behavior changes into refactor work silently
+- broad cleanup without a concrete motivation
+- weakening test coverage during restructuring
+- crossing module boundaries without documenting architectural impact
 
 ## Escalate When
 

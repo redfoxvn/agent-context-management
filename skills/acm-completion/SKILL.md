@@ -9,6 +9,12 @@ description: Use when finalizing ACM-guided work, reporting completion, or decid
 
 Final review before reporting work as complete.
 
+## Core Principle
+
+Evidence before claims.
+
+Do not report work as complete, fixed, verified, or passing unless fresh evidence supports that claim.
+
 ## Completion Gate
 
 Do not report completion until these are true or explicitly reported as gaps:
@@ -43,6 +49,17 @@ Prefer targeted checks before broad checks. Broader checks are appropriate when 
 
 Record important commands and results in the task record when one exists.
 
+## Claim Check
+
+Before making a success claim:
+
+1. Identify what evidence proves the claim.
+2. Run or inspect the relevant check.
+3. Read the result.
+4. Report the actual result, including gaps.
+
+If no reliable verification exists, say that instead of implying success.
+
 Suggested order:
 
 1. targeted unit tests
@@ -71,3 +88,5 @@ State:
 - what was not verified
 - remaining risks or follow-up work
 - blockers or conflicts, if any
+
+Do not say checks passed unless they were run in the current task. Do not hide skipped checks.

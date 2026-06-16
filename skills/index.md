@@ -15,6 +15,7 @@ Skills are workflow and reasoning procedures. They should not store project-spec
 | `acm-memory` | Promote verified task findings into durable docs or ADRs |
 | `acm-completion` | Review scope, docs, verification, and residual risk before completion |
 | `acm-handoff` | Create or consume handoff state for incomplete, risky, or non-obvious work |
+| `acm-skill-authoring` | Create, edit, review, and validate reusable ACM skills |
 
 ## Tactical Skills
 
@@ -40,3 +41,5 @@ Skills are workflow and reasoning procedures. They should not store project-spec
 - Keep repo-specific facts in `.acm/`.
 - Keep skills concise and tactical.
 - Do not duplicate durable project truth inside skills.
+- Use `acm-skill-authoring` when changing skills.
+- Keep descriptions trigger-focused.

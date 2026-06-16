@@ -9,6 +9,10 @@ description: Use when latency, throughput, memory, bundle size, query cost, reso
 
 Improve performance while preserving correctness and producing before/after evidence.
 
+## When NOT To Use
+
+Do not use this skill when there is no performance symptom, target, or measurable concern.
+
 ## Key Moves
 
 - Capture the performance symptom, impact, and target metric.
@@ -25,6 +29,33 @@ Improve performance while preserving correctness and producing before/after evid
 - optimization approach
 - before/after evidence
 - known tradeoffs or regressions
+
+## Measurement Gate
+
+Before optimizing, identify:
+
+- the symptom or user impact
+- the baseline or reason no baseline is available
+- the target metric or expected improvement
+- correctness checks that must stay green
+
+## Verification
+
+Before reporting this work complete:
+
+- record what evidence was inspected
+- record checks that were run
+- record checks that were skipped and why
+- identify unresolved risks or ambiguity
+
+## Common Mistakes
+
+Avoid:
+
+- optimizing without a measurable problem
+- changing behavior unintentionally during optimization
+- relying only on intuition without evidence
+- reporting improvements without comparable measurements
 
 ## Escalate When
 

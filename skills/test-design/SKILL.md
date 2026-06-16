@@ -9,6 +9,10 @@ description: Use when adding or improving behavior tests, regression tests, veri
 
 Design meaningful tests that verify observable behavior and protect against regressions.
 
+## When NOT To Use
+
+Do not use this skill to lock in behavior that conflicts with durable memory, docs, or user intent.
+
 ## Key Moves
 
 - Identify expected behavior from docs, code, and task intent.
@@ -24,6 +28,24 @@ Design meaningful tests that verify observable behavior and protect against regr
 - regression or edge-case coverage
 - covered and uncovered scenarios
 - updated feature test expectations when needed
+
+## Verification
+
+Before reporting this work complete:
+
+- record what evidence was inspected
+- record checks that were run
+- record checks that were skipped and why
+- identify unresolved risks or ambiguity
+
+## Common Mistakes
+
+Avoid:
+
+- testing implementation details instead of observable behavior
+- adding brittle tests that mirror current internals
+- locking in accidental behavior without reconciliation
+- claiming correctness solely because new tests pass
 
 ## Escalate When
 

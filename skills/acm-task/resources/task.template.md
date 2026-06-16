@@ -60,6 +60,42 @@ Content:
 - In scope:
 - Out of scope:
 
+## Acceptance Criteria
+
+Purpose:
+Define what must be true for the task to satisfy the request.
+
+Write when:
+- planning non-trivial work
+- user-visible behavior, docs, verification, or handoff expectations matter
+
+Definition of ready:
+- criteria are observable or reviewable
+- criteria distinguish required outcomes from nice-to-have follow-up
+- criteria include preserved behavior when relevant
+
+Content:
+
+- ...
+
+## Assumptions
+
+Purpose:
+Make assumptions explicit so future agents and reviewers can verify or challenge them.
+
+Write when:
+- proceeding with incomplete but acceptable information
+- assumptions affect implementation, verification, rollout, or docs
+
+Definition of ready:
+- assumptions are specific
+- behavior-affecting assumptions are confirmed or marked as blockers
+- each assumption has a verification or review path when needed
+
+Content:
+
+- ...
+
 ## Context / Findings
 
 Purpose:

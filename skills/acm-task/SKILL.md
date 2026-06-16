@@ -9,6 +9,35 @@ description: Use when starting non-trivial ACM-guided work that needs classifica
 
 Classify work, load the smallest safe context, create task records, and plan non-trivial work without copying workflow docs into the target repo.
 
+## When NOT To Use
+
+Do not use this skill for:
+
+- trivial edits where task records would add noise
+- pure conversation with no repository impact
+- final completion review; use `acm-completion`
+- durable memory promotion; use `acm-memory`
+
+## Workflow
+
+1. Classify the task.
+2. Load the smallest safe context.
+3. Create or update the task record when work is non-trivial.
+4. Reconcile request, durable memory, source, and tests.
+5. Stop on behavior-affecting conflict.
+6. Plan only after enough context exists.
+
+## Output Contract
+
+Before implementation, know:
+
+- task classification
+- affected feature/module
+- expected behavior or intended non-behavior-change
+- relevant memory/source/test files
+- verification strategy
+- open risks or assumptions
+
 ## Core Rule
 
 Do not make non-trivial changes from the user request alone. Reconcile:
@@ -82,6 +111,16 @@ Stop and report when:
 - implementation would require a broad rewrite not requested
 
 Report what is unclear, which sources conflict, why it matters, and recommended options.
+
+## Red Flags
+
+Stop when you notice:
+
+- “I can infer the behavior” without evidence
+- “This probably does not need a task record” for multi-step work
+- docs, code, and tests disagree
+- verification path is unclear
+- security, auth, data, billing, public API, or architecture impact is uncertain
 
 ## Resources
 

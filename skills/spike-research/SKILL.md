@@ -9,6 +9,10 @@ description: Use when investigating options, unknowns, feasibility, tradeoffs, o
 
 Investigate options, tradeoffs, and unknowns without silently implementing production changes.
 
+## When NOT To Use
+
+Do not use this skill as a disguise for unbounded implementation.
+
 ## Key Moves
 
 - Define the research question and decision needed.
@@ -25,6 +29,30 @@ Investigate options, tradeoffs, and unknowns without silently implementing produ
 - tradeoffs and risks
 - recommendation or next action
 - ADR candidate when appropriate
+
+## Evidence Confidence
+
+For each important finding, record whether confidence is high, medium, or low and why.
+
+Option comparisons should include tradeoffs, reversibility, risk, and recommended next action.
+
+## Verification
+
+Before reporting this work complete:
+
+- record what evidence was inspected
+- record checks that were run
+- record checks that were skipped and why
+- identify unresolved risks or ambiguity
+
+## Common Mistakes
+
+Avoid:
+
+- presenting assumptions as conclusions
+- turning the spike into production implementation
+- omitting tradeoffs or uncertainty
+- recording large reasoning dumps without actionable findings
 
 ## Escalate When
 

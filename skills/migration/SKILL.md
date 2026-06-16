@@ -9,6 +9,10 @@ description: Use when changing schemas, data shapes, dependencies, frameworks, r
 
 Plan schema, data, dependency, framework, runtime, or infrastructure changes safely.
 
+## When NOT To Use
+
+Do not use this skill for simple local file moves unless compatibility, rollout, data, or structure risk exists.
+
 ## Key Moves
 
 - Capture current state and target state.
@@ -25,6 +29,35 @@ Plan schema, data, dependency, framework, runtime, or infrastructure changes saf
 - rollback or recovery plan
 - compatibility risks
 - verification notes
+
+## Compatibility Checklist
+
+Before implementation, identify:
+
+- current and target states
+- compatibility requirements
+- rollback or recovery path
+- generated files or lockfiles
+- data integrity or migration-order risks
+- verification for both migration result and preserved behavior
+
+## Verification
+
+Before reporting this work complete:
+
+- record what evidence was inspected
+- record checks that were run
+- record checks that were skipped and why
+- identify unresolved risks or ambiguity
+
+## Common Mistakes
+
+Avoid:
+
+- performing irreversible changes without rollback planning
+- assuming compatibility without verification
+- coupling unrelated refactors into migration work
+- skipping operational verification after rollout-sensitive changes
 
 ## Escalate When
 
