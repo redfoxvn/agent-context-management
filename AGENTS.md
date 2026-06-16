@@ -4,20 +4,20 @@
 
 This is the bootstrap file for coding agents working in this repository.
 
-`.acm/` means Agent Context Management. Keep this file short. Detailed context loading, workflow, tool safety, review, and handoff rules live under `.acm/agent/`.
+`.acm/` means Agent Context Management. Keep this file short. Reusable workflow lives in root-level `skills/`; project-specific memory lives in `.acm/`.
 
 ---
 
 ## Core Rule
 
-Do not make non-trivial code changes from the user request alone.
+Do not make non-trivial changes from the user request alone.
 
 Before planning or implementing non-trivial work, reconcile:
 
 1. User request
-2. Relevant durable docs
-3. Current source code
-4. Relevant tests
+2. Relevant durable project memory
+3. Current source code or documentation
+4. Relevant tests or verification evidence
 
 If these sources conflict in a behavior-affecting way, stop and report the conflict.
 
@@ -28,21 +28,17 @@ If these sources conflict in a behavior-affecting way, stop and report the confl
 For non-trivial tasks, read in this order:
 
 1. `.acm/index.md`
-2. `.acm/agent/context-policy.md`
-3. `.acm/agent/task-workflow.md`
-4. Relevant docs, source code, and tests identified by those files
+2. `.acm/project.md`
+3. Relevant task, feature, architecture, decision, source, and test files
+4. Relevant skills from `skills/`
 
-Read conditionally:
+Use core ACM skills when applicable:
 
-- `.acm/agent/tool-policy.md` before risky commands or mutating tools
-- `.acm/agent/review-checklist.md` before reporting completion
-- `.acm/agent/session-handoff.md` when continuing or preserving incomplete/risky work
-- relevant `.acm/agent/skills/*/SKILL.md` only when the task needs that procedure
-
-Optional references:
-
-- `.acm/agent/operating-manual.md` for the default operating loop overview
-- `.acm/agent/failure-modes.md` for common agent mistakes and reminders
+- `skills/acm-task/SKILL.md` for task classification, context loading, task records, and stop conditions
+- `skills/acm-memory/SKILL.md` for durable memory promotion
+- `skills/acm-completion/SKILL.md` before reporting completion
+- `skills/acm-handoff/SKILL.md` when work is incomplete, risky, long-running, or non-obvious
+- `skills/acm-init/SKILL.md` when initializing ACM in another repository
 
 For trivial edits, use judgment and keep changes minimal.
 
@@ -52,16 +48,15 @@ For trivial edits, use judgment and keep changes minimal.
 
 For non-trivial tasks:
 
-- Classify the task using `.acm/agent/task-workflow.md`.
+- Classify the task using `skills/acm-task/SKILL.md`.
 - Create or update a task folder under `.acm/tasks/[YYYY-MM-DD-task-slug]/`.
 - Prefer one task folder per user outcome or logical feature/change; track tightly related phases inside that folder unless there is a real boundary that requires a separate task.
 - Create a concise plan before implementation.
 - Record verification in the task folder.
-- Update durable docs only when durable truth changes.
+- Update durable memory only when durable truth changes.
 - Update `handoff.md` when work is incomplete, risky, long-running, or non-obvious.
 
-Use base templates from `.acm/templates/tasks/*.template.md` for artifact structure.
-Use task profiles from `.acm/templates/tasks/profiles/[classification].md` for classification-specific attention.
+Use task resources from `skills/acm-task/resources/` when a template or profile is useful.
 
 ---
 
