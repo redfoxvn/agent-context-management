@@ -48,6 +48,16 @@ Avoid:
 - skipping reproduction when it is practical
 - skipping regression coverage when risk warrants it
 
+## Common Rationalizations
+
+| Rationalization | Reality |
+|---|---|
+| "I know what the bug is, I'll just fix it" | Reproduce first. 30% of "obvious" bugs have different root causes. |
+| "The test is probably wrong" | Verify that assumption. If the test is wrong, fix the test. Don't skip it. |
+| "It works on my machine" | Environments differ. Check CI, config, dependencies. |
+| "I'll add a test later" | Later never comes. Add regression coverage now. |
+| "This is a flaky test, ignore it" | Flaky tests mask real bugs. Investigate or fix the flakiness. |
+
 ## Escalate When
 
 - expected behavior is unclear

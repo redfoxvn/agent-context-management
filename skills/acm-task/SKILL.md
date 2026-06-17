@@ -49,6 +49,22 @@ Do not make non-trivial changes from the user request alone. Reconcile:
 
 If these sources conflict in a behavior-affecting way, stop and report the conflict.
 
+## Iron Law
+
+```txt
+NO NON-TRIVIAL CHANGES FROM USER REQUEST ALONE
+```
+
+Before planning or implementing non-trivial work, reconcile:
+1. User request
+2. Relevant durable project memory
+3. Current source code
+4. Relevant tests
+
+If these sources conflict in a behavior-affecting way, STOP and report the conflict. Do not guess. Do not infer. Reconcile.
+
+**Violating the letter of this rule is violating the spirit of ACM.**
+
 ## Task Classification
 
 | Classification | Use When |
@@ -112,15 +128,33 @@ Stop and report when:
 
 Report what is unclear, which sources conflict, why it matters, and recommended options.
 
-## Red Flags
+## Common Rationalizations
+
+| Rationalization | Reality |
+|---|---|
+| "This is a trivial edit, no task record needed" | If it affects behavior, tests, or docs, it's non-trivial. When in doubt, create a minimal task record. |
+| "I can infer the behavior from the request" | Inference without evidence causes drift. Reconcile sources. |
+| "The docs are probably outdated" | Stale docs are a signal to reconcile, not ignore. Check code and tests. |
+| "I remember how this works from last session" | Memory is not evidence. Load context and verify. |
+| "Creating a task folder is overhead" | Task records prevent the same confusion next time. 5 minutes now saves hours later. |
+| "The user said to just do it" | User requests are one source. Reconcile with durable memory, code, and tests. |
+
+## Red Flags - STOP and Reconcile
 
 Stop when you notice:
 
-- “I can infer the behavior” without evidence
-- “This probably does not need a task record” for multi-step work
-- docs, code, and tests disagree
-- verification path is unclear
-- security, auth, data, billing, public API, or architecture impact is uncertain
+- "I can infer the behavior" without evidence
+- "This probably doesn't need a task record" for multi-step work
+- "The docs are probably outdated" without checking
+- "I remember how this works" without loading context
+- Docs, code, and tests disagree
+- Verification path is unclear
+- Security, auth, data, billing, public API, or architecture impact is uncertain
+- "The user said to just do it" without reconciling other sources
+- "This is a quick fix" for behavior-affecting changes
+- Skipping task record creation "to save time"
+
+**ALL of these mean: STOP. Load context. Reconcile sources. Create task record.**
 
 ## Resources
 

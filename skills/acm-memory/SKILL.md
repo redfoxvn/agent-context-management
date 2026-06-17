@@ -26,6 +26,21 @@ task docs record what happened
 durable docs record what is true now
 ```
 
+## Iron Law
+
+```txt
+NO PROMOTION WITHOUT VERIFICATION OR EXPLICIT ACCEPTANCE
+```
+
+Durable memory must be:
+- Verified by current code, tests, or runtime evidence
+- Explicitly accepted as intended truth by the user
+- Stable enough to matter after the task ends
+
+Unverified assumptions stay in task records. Task docs record what happened. Durable docs record what is true now.
+
+**Violating the letter of this rule is violating the spirit of ACM.**
+
 ## Memory Layers
 
 | Layer | Purpose | Location |
@@ -88,6 +103,22 @@ Create or update an ADR when:
 - the team is likely to revisit the decision later
 
 Do not create ADRs for local refactors, temporary implementation details, obvious low-impact choices, or task-local preferences.
+
+## Red Flags - STOP and Verify
+
+Stop when you notice:
+
+- "This might help later" without verification
+- "The task notes already say it" without promoting
+- "The code currently behaves this way" without checking if it's intended
+- "I should document everything now" without filtering
+- Promoting unverified assumptions
+- Promoting temporary debugging notes
+- Promoting stale historical behavior
+- Creating ADRs for trivial decisions
+- Skipping verification before promotion
+
+**ALL of these mean: STOP. Verify evidence. Check if promotion is warranted.**
 
 ## Completion Prompt
 

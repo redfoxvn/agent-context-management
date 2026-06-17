@@ -9,6 +9,18 @@ description: Use when work is incomplete, blocked, risky, long-running, partiall
 
 Create or consume task handoff state for incomplete, risky, long-running, partially verified, or non-obvious work.
 
+## Iron Law
+
+```txt
+NO SILENT LOSS OF CONTEXT
+```
+
+When work is incomplete, risky, long-running, or non-obvious, create or update handoff state. Do not assume the next session will remember. Do not assume the diff tells the whole story.
+
+If you cannot answer "what would the next agent need to know?" then handoff is required.
+
+**Violating the letter of this rule is violating the spirit of ACM.**
+
 ## When Handoff Is Needed
 
 Create or update `handoff.md` when work is:
@@ -97,6 +109,31 @@ When continuing from handoff:
 6. Continue only if context is still valid.
 
 If handoff conflicts with current docs/code/tests, stop, identify the conflict, update the handoff, and continue only after the conflict is resolved or documented.
+
+## Red Flags - STOP and Document
+
+Stop when you notice:
+
+- "The next session will figure it out"
+- "The diff shows what changed" without context
+- "It's almost done, no handoff needed"
+- "I'll remember to continue this"
+- Work is incomplete but no handoff exists
+- Risky changes with no documentation
+- Long-running work with no status update
+- Non-obvious decisions with no rationale recorded
+
+**ALL of these mean: STOP. Create or update handoff.md. Preserve context.**
+
+## Common Rationalizations
+
+| Rationalization | Reality |
+|---|---|
+| "The next session will figure it out" | They won't have your context. Write handoff. |
+| "The diff shows what changed" | Diffs show code changes, not decisions, risks, or next steps. |
+| "It's almost done, no handoff needed" | "Almost done" is incomplete. Handoff the remaining work. |
+| "I'll remember to continue this" | Sessions don't persist. Write it down. |
+| "Handoff is overhead" | Reconstructing context from scratch is more overhead. |
 
 ## Stale Handoff Handling
 

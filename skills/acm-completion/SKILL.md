@@ -15,6 +15,22 @@ Evidence before claims.
 
 Do not report work as complete, fixed, verified, or passing unless fresh evidence supports that claim.
 
+## Iron Law
+
+```txt
+NO COMPLETION CLAIMS WITHOUT FRESH VERIFICATION EVIDENCE
+```
+
+If you haven't run the verification command in this session, you cannot claim it passes. "Should work" is not evidence. "Tests pass" without running them is lying.
+
+Before reporting completion:
+1. IDENTIFY what evidence proves the claim
+2. RUN the verification (fresh, in this session)
+3. READ the actual output
+4. REPORT the actual result, including gaps
+
+**Violating the letter of this rule is violating the spirit of ACM.**
+
 ## Completion Gate
 
 Do not report completion until these are true or explicitly reported as gaps:
@@ -78,6 +94,33 @@ Suggested order:
 - Do not expose secrets or sensitive data.
 - Do not discard unrelated working-tree changes.
 - Require explicit approval before destructive commands, pushes, deploys, releases, or history rewrites.
+
+## Red Flags - STOP and Verify
+
+Stop when you notice:
+
+- "Should work now" without running verification
+- "I'm confident it passes" without evidence
+- "Tests passed earlier" without re-running
+- "I'll verify after I commit"
+- "The change is small, no need to check"
+- Expressing satisfaction before verification ("Great!", "Done!", "Perfect!")
+- About to report completion without fresh evidence
+- Trusting memory instead of running commands
+- Skipping checks "to save time"
+
+**ALL of these mean: STOP. Run verification. Read output. THEN report.**
+
+## Common Rationalizations
+
+| Rationalization | Reality |
+|---|---|
+| "Should work now" | RUN the verification. "Should" is not evidence. |
+| "I'm confident it passes" | Confidence ≠ evidence. Run the command. |
+| "Tests passed earlier" | Earlier is not this session. Run them again. |
+| "I'll verify after I commit" | Verify before commit. Commits are save points, not verification gates. |
+| "The change is small, no need to check" | Small changes break things. Verify proportionally. |
+| "Lint passed, so it's good" | Lint checks style, not behavior. Run tests. |
 
 ## Final Response
 

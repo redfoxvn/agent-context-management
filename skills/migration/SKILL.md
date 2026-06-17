@@ -59,6 +59,16 @@ Avoid:
 - coupling unrelated refactors into migration work
 - skipping operational verification after rollout-sensitive changes
 
+## Common Rationalizations
+
+| Rationalization | Reality |
+|---|---|
+| "The migration is reversible" | Verify that assumption. Some migrations have hidden irreversibility. |
+| "Compatibility is not an issue" | Test it. Assumptions about compatibility are often wrong. |
+| "We'll handle rollback if needed" | Plan rollback before implementation, not after failure. |
+| "This is just a dependency update" | Dependency updates can break APIs, data shapes, or runtime behavior. |
+| "The data will migrate fine" | Test with real data. Synthetic data misses edge cases. |
+
 ## Escalate When
 
 - destructive or shared-environment changes are required
