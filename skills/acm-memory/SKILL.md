@@ -197,14 +197,39 @@ If yes, update the correct durable memory before completion.
 
 ## Verification Checklist
 
-Before promoting memory:
+Before promoting memory, verify:
 
-- source of truth is identified
-- evidence is current
-- behavior is verified or explicitly accepted
-- location is correct
-- no scratch reasoning is copied
-- indexes are updated when new durable docs are created
+### Evidence
+- [ ] Source of truth is identified (code, tests, user acceptance)
+- [ ] Evidence is current (not from previous session without re-verification)
+- [ ] Behavior is verified or explicitly accepted
+- [ ] No unverified assumptions
+
+### Content
+- [ ] Information is stable (won't change after task ends)
+- [ ] Information is useful (helps future work)
+- [ ] No scratch reasoning copied
+- [ ] No temporary debugging notes
+- [ ] No implementation logs
+- [ ] No speculative ideas
+
+### Location
+- [ ] Correct durable location chosen
+- [ ] Feature truth → `.acm/features/[feature]/`
+- [ ] Architecture truth → `.acm/architecture/`
+- [ ] Decision rationale → `.acm/decisions/`
+- [ ] Project context → `.acm/project.md`
+
+### Indexes
+- [ ] Indexes updated when new durable docs created
+- [ ] `.acm/index.md` reflects new structure
+- [ ] No orphaned durable docs
+
+### ADR (if applicable)
+- [ ] Decision changes architecture boundaries
+- [ ] Multiple valid approaches existed
+- [ ] Tradeoff will matter in future tasks
+- [ ] ADR follows template in `resources/adr.template.md`
 
 ## Resources
 

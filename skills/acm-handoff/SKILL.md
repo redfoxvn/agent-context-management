@@ -48,6 +48,37 @@ A useful handoff:
 - gives one concrete next action
 - links durable memory when durable truth changed
 
+## Handoff Quality Verification
+
+Before considering handoff complete, verify:
+
+### Status
+- [ ] Current status is accurate (not-started, in-progress, blocked, etc.)
+- [ ] Overall outcome completeness is stated (yes/no)
+- [ ] Last updated timestamp is current
+
+### Context
+- [ ] Task summary is clear and concise
+- [ ] What was done is documented
+- [ ] Changed files are listed with change summary
+- [ ] Important context is captured (decisions, assumptions, risks)
+
+### Verification
+- [ ] Verification checks are listed
+- [ ] Results are recorded (not "should pass")
+- [ ] Skipped checks have reasons
+- [ ] Gaps are explicit
+
+### Next Steps
+- [ ] Remaining work is listed
+- [ ] Recommended next action is concrete
+- [ ] Known risks are documented
+
+### Durable Memory
+- [ ] Links to durable memory when truth changed
+- [ ] No handoff notes in durable locations
+- [ ] Handoff is in task folder only
+
 ## Location
 
 Task handoff belongs at:

@@ -65,6 +65,57 @@ Prefer targeted checks before broad checks. Broader checks are appropriate when 
 
 Record important commands and results in the task record when one exists.
 
+## Comprehensive Verification Checklist
+
+Before reporting completion, verify:
+
+### Evidence
+- [ ] Fresh verification run in this session (not "should pass")
+- [ ] Actual output recorded (not "tests pass")
+- [ ] Skipped checks documented with reasons
+- [ ] No "I'm confident" without evidence
+
+### Scope
+- [ ] Changes match user request
+- [ ] No silent scope expansion
+- [ ] Unrelated changes excluded
+- [ ] No "while I'm here" modifications
+
+### Reconciliation
+- [ ] Docs, code, and tests agree on behavior
+- [ ] Durable memory updated if truth changed
+- [ ] Task record updated if task folder exists
+- [ ] No unresolved behavior-affecting conflicts
+
+### Code Quality
+- [ ] No weakened validation/auth/error handling
+- [ ] No exposed secrets
+- [ ] No discarded unrelated work
+- [ ] No formatting/debug code remaining
+- [ ] Behavior matches durable memory or task intent
+
+### Safety
+- [ ] No destructive commands without approval
+- [ ] No secrets in commits
+- [ ] No discarded user work
+- [ ] Read-only inspection before mutation
+
+### Handoff
+- [ ] Handoff updated if work incomplete/risky
+- [ ] Next steps documented
+- [ ] Known risks recorded
+
+### Verification Order (suggested)
+1. Targeted unit tests
+2. Targeted integration tests
+3. Typecheck
+4. Lint
+5. Build
+6. E2E tests (if applicable)
+7. Documentation/reference checks
+
+**If no reliable verification exists, say that instead of implying success.**
+
 ## Claim Check
 
 Before making a success claim:

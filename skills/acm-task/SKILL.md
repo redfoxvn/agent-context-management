@@ -38,6 +38,22 @@ Before implementation, know:
 - verification strategy
 - open risks or assumptions
 
+## Output Contract Verification
+
+Before proceeding to implementation, verify you know:
+
+- [ ] Task classification (and why)
+- [ ] Affected feature/module (specific files)
+- [ ] Expected behavior (from durable memory or user request)
+- [ ] Relevant memory files (loaded and read)
+- [ ] Relevant source files (loaded and read)
+- [ ] Relevant test files (loaded and read)
+- [ ] Verification strategy (what checks will prove success)
+- [ ] Open risks or assumptions (documented)
+- [ ] No behavior-affecting conflicts (or stopped to report)
+
+**If any of these are unclear, stop and gather more context.**
+
 ## Core Rule
 
 Do not make non-trivial changes from the user request alone. Reconcile:
