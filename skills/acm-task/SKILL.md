@@ -173,6 +173,67 @@ Stop and report when:
 
 Report what is unclear, which sources conflict, why it matters, and recommended options.
 
+## Examples
+
+### Example 1: New Feature with Clear Context
+
+**User request:** "Add task sharing feature"
+
+```
+1. Classify: new-feature
+2. Load context:
+   - .acm/project.md → "task management app, multi-user"
+   - .acm/features/tasks/behavior.md → current task features
+   - .acm/architecture/database.md → schema
+   - src/models/task.ts → current model
+3. Reconcile:
+   - Request: add sharing
+   - Durable: tasks belong to single user
+   - Code: userId field on task
+   - Tests: no sharing tests
+   → No conflict, but sharing requires schema change
+4. Create task record:
+   - .acm/tasks/2026-06-17-task-sharing/task.md
+   - Classification: new-feature
+   - Affected: tasks feature, database schema
+   - Verification: tests for sharing, manual testing
+5. Plan:
+   - Add sharedWith field to task
+   - Add sharing API endpoints
+   - Add UI for sharing
+   - Update permissions logic
+```
+
+### Example 2: Ambiguous Request
+
+**User request:** "Fix the login"
+
+```
+1. Classify: uncertain (bugfix? change-feature?)
+2. Load context:
+   - .acm/features/auth/behavior.md → "JWT auth, 30min expiry"
+   - src/routes/auth.ts → login endpoint
+   - tests/auth.test.ts → login tests (all passing)
+3. Reconcile:
+   - Request: "fix the login"
+   - Durable: login works as specified
+   - Code: login endpoint exists
+   - Tests: all passing
+   → CONFLICT: What is broken? Tests pass, durable says it works.
+4. Stop and report:
+   "I can't identify what's broken with 'the login':
+   - Durable memory says login works (JWT, 30min expiry)
+   - All login tests pass
+   - No recent changes to auth
+   
+   Can you clarify what's not working?
+   - Is it a specific user?
+   - A specific error message?
+   - A specific scenario?"
+```
+
+**Outcome:** Avoided guessing, asked for clarification, prevented wasted work.
+
 ## Common Rationalizations
 
 | Rationalization | Reality |

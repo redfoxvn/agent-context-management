@@ -48,6 +48,73 @@ Avoid:
 - skipping reproduction when it is practical
 - skipping regression coverage when risk warrants it
 
+## Examples
+
+### Example 1: Regression Bug with Conflicting Sources
+
+**Scenario:** User reports "task creation fails with special characters"
+
+**Without ACM:**
+```
+Agent: <starts fixing validation regex based on user request alone>
+```
+
+**With ACM:**
+```
+1. Classify: bugfix
+2. Load context:
+   - .acm/features/task-creation/behavior.md → "titles accept Unicode"
+   - src/validators/task.ts → current regex: /^[a-zA-Z0-9\s]+$/
+   - tests/task-creation.test.ts → no Unicode tests
+3. Reconcile: 
+   - Durable says "Unicode accepted"
+   - Code says "ASCII only"
+   - Tests don't cover Unicode
+   → CONFLICT: behavior-affecting disagreement
+4. Stop and report:
+   "Durable memory says titles accept Unicode, but code only accepts ASCII.
+   Which is the intended behavior?
+   - If Unicode: fix regex, add tests
+   - If ASCII: update durable memory"
+```
+
+**Outcome:** User confirms ASCII-only is correct. Agent updates `.acm/features/task-creation/behavior.md` to match code.
+
+### Example 2: Flaky Test Investigation
+
+**Scenario:** User reports "auth test sometimes fails in CI"
+
+**Without ACM:**
+```
+Agent: <re-runs test, sees it passes, reports "fixed">
+```
+
+**With ACM:**
+```
+1. Classify: bugfix
+2. Load context:
+   - .acm/tasks/2026-06-15-auth-test-flake/task.md → previous investigation
+   - tests/auth.test.ts → test code
+   - CI logs → failure pattern: fails 30% of runs
+3. Reproduce:
+   - Run test 10 times locally → 3 failures
+   - Failure always on line 45: expect(token).toBeDefined()
+4. Root cause:
+   - Token generation is async
+   - Test doesn't await token creation
+   - Race condition: sometimes token not ready
+5. Fix:
+   - Add await before token generation
+   - Add regression test that runs 100 times
+6. Verify:
+   - Run test 100 times → 0 failures
+7. Update task record:
+   - Document root cause and fix
+   - No durable memory update (implementation detail)
+```
+
+**Outcome:** Flaky test fixed, regression coverage added, root cause documented in task record.
+
 ## Common Rationalizations
 
 | Rationalization | Reality |

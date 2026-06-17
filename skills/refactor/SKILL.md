@@ -48,6 +48,82 @@ Avoid:
 - weakening test coverage during restructuring
 - crossing module boundaries without documenting architectural impact
 
+## Examples
+
+### Example 1: Extract Validation Logic
+
+**Scenario:** User requests "extract validation logic to shared utility"
+
+**Without ACM:**
+```
+Agent: <extracts validation, breaks 3 tests, doesn't notice>
+```
+
+**With ACM:**
+```
+1. Classify: refactor (no behavior change intended)
+2. Load context:
+   - .acm/architecture/validation.md → "validation at API boundaries"
+   - src/routes/users.ts → inline validation (lines 45-60)
+   - src/routes/tasks.ts → inline validation (lines 30-45)
+   - tests/users.test.ts, tests/tasks.test.ts → existing tests
+3. Define preserved behavior:
+   - User validation: email required, name 2-50 chars
+   - Task validation: title required, status enum
+   - Error format: { code: 'VALIDATION_ERROR', message: string }
+4. Add characterization tests (if missing):
+   - Test user validation edge cases
+   - Test task validation edge cases
+   - Verify error format
+5. Extract:
+   - Create src/lib/validation.ts
+   - Move user validation logic
+   - Move task validation logic
+   - Update routes to use shared utility
+6. Verify:
+   - Run all tests → pass
+   - Check error format unchanged
+   - Check validation behavior unchanged
+7. Update durable memory:
+   - .acm/architecture/validation.md → add shared utility location
+```
+
+**Outcome:** Validation extracted, behavior preserved, architecture doc updated.
+
+### Example 2: Scope Creep Prevention
+
+**Scenario:** User requests "refactor auth module"
+
+**Without ACM:**
+```
+Agent: <refactors auth, also "fixes" logging, also updates error messages>
+```
+
+**With ACM:**
+```
+1. Classify: refactor
+2. Load context:
+   - .acm/features/auth/behavior.md → "JWT auth, 30min expiry"
+   - src/middleware/auth.ts → current implementation
+3. Define scope:
+   - Motivation: "auth module is 500 lines, hard to test"
+   - Goal: "extract token validation to separate function"
+   - Non-goals: "don't change logging, error messages, or token format"
+4. Notice during refactor:
+   - Logging is inconsistent (but out of scope)
+   - Error messages could be clearer (but out of scope)
+5. Stay focused:
+   - Extract token validation only
+   - Note other issues in task record: "NOTICED BUT NOT TOUCHING:
+     - Logging inconsistency (separate task)
+     - Error message clarity (separate task)"
+6. Verify:
+   - Auth behavior unchanged
+   - Tests pass
+```
+
+**Outcome:** Refactor completed, scope discipline maintained, other issues noted for future tasks.
+
 ## Common Rationalizations
 
 | Rationalization | Reality |

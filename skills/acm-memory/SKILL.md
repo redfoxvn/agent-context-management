@@ -124,6 +124,49 @@ Create or update an ADR when:
 
 Do not create ADRs for local refactors, temporary implementation details, obvious low-impact choices, or task-local preferences.
 
+## Examples
+
+### Example 1: Promotion Decision
+
+**Task finding:** "The auth middleware checks JWT expiry at 30 minutes"
+
+**Promote?**
+- ✅ Verified by: `src/middleware/auth.ts:45`
+- ✅ Stable: unlikely to change frequently
+- ✅ Useful: future auth work needs this
+- **Decision:** Promote to `.acm/architecture/auth.md`
+
+**Task finding:** "Tried 3 approaches, approach B worked"
+
+**Promote?**
+- ❌ Implementation log, not durable truth
+- **Decision:** Keep in task record only
+
+**Task finding:** "The bug was caused by a race condition in token generation"
+
+**Promote?**
+- ❌ Historical debugging detail
+- ✅ But: "Token generation must be awaited" is durable
+- **Decision:** Promote the durable fact, not the debugging story
+
+### Example 2: ADR Decision
+
+**Task finding:** "We chose PostgreSQL over MongoDB for the main database"
+
+**Create ADR?**
+- ✅ Architecture boundary decision
+- ✅ Multiple valid approaches existed
+- ✅ Tradeoff will matter in future tasks
+- ✅ Affects data model, queries, scaling
+- **Decision:** Create `.acm/decisions/2026-06-17-database-choice.md`
+
+**Task finding:** "We used camelCase for variable names"
+
+**Create ADR?**
+- ❌ Convention, not architecture boundary
+- ❌ Obvious from code inspection
+- **Decision:** Document in `.acm/project.md` conventions, no ADR needed
+
 ## Red Flags - STOP and Verify
 
 Stop when you notice:
