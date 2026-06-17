@@ -72,6 +72,36 @@ Do not promote:
 - broad reasoning dumps
 - speculative future ideas unless clearly marked draft
 
+## Promotion Decision Flow
+
+```dot
+digraph promote {
+    rankdir=TB;
+    
+    "Verified by code/tests/runtime?" [shape=diamond];
+    "Explicitly accepted as truth?" [shape=diamond];
+    "Stable after task ends?" [shape=diamond];
+    "Useful for future work?" [shape=diamond];
+    
+    "Promote to durable memory" [shape=box, style=filled, fillcolor="#ccffcc"];
+    "Keep in task record only" [shape=box, style=filled, fillcolor="#ffcccc"];
+    "Consider ADR" [shape=box, style=filled, fillcolor="#ffffcc"];
+    
+    "Verified by code/tests/runtime?" -> "Explicitly accepted as truth?" [label="yes"];
+    "Verified by code/tests/runtime?" -> "Keep in task record only" [label="no"];
+    "Explicitly accepted as truth?" -> "Stable after task ends?" [label="yes"];
+    "Explicitly accepted as truth?" -> "Keep in task record only" [label="no"];
+    "Stable after task ends?" -> "Useful for future work?" [label="yes"];
+    "Stable after task ends?" -> "Keep in task record only" [label="no"];
+    "Useful for future work?" -> "Promote to durable memory" [label="yes"];
+    "Useful for future work?" -> "Keep in task record only" [label="no"];
+    
+    "Promote to durable memory" -> "Consider ADR" [label="architecture boundary\nor durable tradeoff"];
+}
+```
+
+**When in doubt, keep in task record.** Promotion is for verified, stable, useful facts.
+
 ## Common Rationalizations
 
 | Rationalization | Reality |
