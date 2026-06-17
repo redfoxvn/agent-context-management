@@ -84,42 +84,22 @@ If classification is uncertain and affects workflow, stop and report the ambigui
 
 ## Classification Decision Flow
 
-```dot
-digraph classification {
-    rankdir=TB;
-    
-    "New capability?" [shape=diamond];
-    "Changing existing behavior?" [shape=diamond];
-    "Fixing incorrect behavior?" [shape=diamond];
-    "Changing structure only?" [shape=diamond];
-    "Changing schema/data/deps?" [shape=diamond];
-    "Improving performance?" [shape=diamond];
-    "Security/auth/permissions?" [shape=diamond];
-    
-    "new-feature" [shape=box, style=filled, fillcolor="#ccffcc"];
-    "change-feature" [shape=box, style=filled, fillcolor="#ccffcc"];
-    "bugfix" [shape=box, style=filled, fillcolor="#ffcccc"];
-    "refactor" [shape=box, style=filled, fillcolor="#ccccff"];
-    "migration" [shape=box, style=filled, fillcolor="#ffffcc"];
-    "performance" [shape=box, style=filled, fillcolor="#ffccff"];
-    "security" [shape=box, style=filled, fillcolor="#ffcccc"];
-    "test-improvement / docs / spike" [shape=box];
-    
-    "New capability?" -> "new-feature" [label="yes"];
-    "New capability?" -> "Changing existing behavior?" [label="no"];
-    "Changing existing behavior?" -> "change-feature" [label="yes"];
-    "Changing existing behavior?" -> "Fixing incorrect behavior?" [label="no"];
-    "Fixing incorrect behavior?" -> "bugfix" [label="yes"];
-    "Fixing incorrect behavior?" -> "Changing structure only?" [label="no"];
-    "Changing structure only?" -> "refactor" [label="yes"];
-    "Changing structure only?" -> "Changing schema/data/deps?" [label="no"];
-    "Changing schema/data/deps?" -> "migration" [label="yes"];
-    "Changing schema/data/deps?" -> "Improving performance?" [label="no"];
-    "Improving performance?" -> "performance" [label="yes"];
-    "Improving performance?" -> "Security/auth/permissions?" [label="no"];
-    "Security/auth/permissions?" -> "security" [label="yes"];
-    "Security/auth/permissions?" -> "test-improvement / docs / spike" [label="no"];
-}
+```
+New capability?
+├── YES → new-feature
+└── NO → Changing existing behavior?
+         ├── YES → change-feature
+         └── NO → Fixing incorrect behavior?
+                  ├── YES → bugfix
+                  └── NO → Changing structure only (no behavior change)?
+                           ├── YES → refactor
+                           └── NO → Changing schema/data/dependencies?
+                                    ├── YES → migration
+                                    └── NO → Improving performance?
+                                             ├── YES → performance
+                                             └── NO → Security/auth/permissions?
+                                                      ├── YES → security
+                                                      └── NO → test-improvement / docs / spike
 ```
 
 **Uncertain classification?** Stop and report the ambiguity. Do not guess when classification affects workflow.
@@ -137,30 +117,23 @@ Stop when enough context exists to identify affected files, expected behavior, v
 
 ## Context Loading Flow
 
-```dot
-digraph context {
-    rankdir=TB;
-    
-    "Read AGENTS.md" [shape=box];
-    "Read .acm/index.md + project.md" [shape=box];
-    "Identify affected feature/module" [shape=box];
-    "Load relevant task/feature/arch/decision docs" [shape=box];
-    "Load relevant source and test files" [shape=box];
-    "Enough context to proceed?" [shape=diamond];
-    "Load tactical skill (if needed)" [shape=box];
-    "Proceed with planning" [shape=box, style=filled, fillcolor="#ccffcc"];
-    "Stop: insufficient context" [shape=box, style=filled, fillcolor="#ffcccc"];
-    
-    "Read AGENTS.md" -> "Read .acm/index.md + project.md";
-    "Read .acm/index.md + project.md" -> "Identify affected feature/module";
-    "Identify affected feature/module" -> "Load relevant task/feature/arch/decision docs";
-    "Load relevant task/feature/arch/decision docs" -> "Load relevant source and test files";
-    "Load relevant source and test files" -> "Enough context to proceed?";
-    "Enough context to proceed?" -> "Load tactical skill (if needed)" [label="almost"];
-    "Enough context to proceed?" -> "Proceed with planning" [label="yes"];
-    "Enough context to proceed?" -> "Stop: insufficient context" [label="no, blocked"];
-    "Load tactical skill (if needed)" -> "Enough context to proceed?";
-}
+```
+┌─────────────────────────────────────────────────────────────┐
+│  1. Read AGENTS.md                                           │
+│     ↓                                                        │
+│  2. Read .acm/index.md + project.md                          │
+│     ↓                                                        │
+│  3. Identify affected feature/module                         │
+│     ↓                                                        │
+│  4. Load relevant task/feature/arch/decision docs            │
+│     ↓                                                        │
+│  5. Load relevant source and test files                      │
+│     ↓                                                        │
+│  6. Enough context to proceed?                               │
+│     ├── YES → Proceed with planning                          │
+│     ├── ALMOST → Load tactical skill (if needed) → Re-check │
+│     └── NO, BLOCKED → Stop: insufficient context             │
+└─────────────────────────────────────────────────────────────┘
 ```
 
 **Stop when:** You cannot identify affected files, expected behavior, verification strategy, risks, or open questions.
