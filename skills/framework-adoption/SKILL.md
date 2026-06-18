@@ -145,3 +145,55 @@ Avoid:
 - creating empty optional `.acm/` folders
 - treating inferred product meaning as confirmed truth
 - overwriting existing repo conventions without review
+
+## Source Verification
+
+When adopting frameworks or libraries during adoption, verify patterns against official documentation:
+
+### Source Hierarchy
+
+| Priority | Source | Example |
+|----------|--------|---------|
+| 1 | Official documentation | react.dev, docs.djangoproject.com |
+| 2 | Official blog / changelog | react.dev/blog, nextjs.org/blog |
+| 3 | Web standards references | MDN, web.dev |
+| 4 | Browser/runtime compatibility | caniuse.com, node.green |
+
+**Not authoritative:**
+- Stack Overflow answers
+- Blog posts or tutorials
+- AI-generated documentation
+- Training data (verify it)
+
+### Citation Rules
+
+When documenting framework-specific patterns in durable memory:
+
+1. Identify exact versions from dependency files
+2. Fetch official documentation for the feature
+3. Document following documented patterns
+4. Cite sources with full URLs
+
+```typescript
+// React 19 form handling with useActionState
+// Source: https://react.dev/reference/react/useActionState#usage
+const [state, formAction, isPending] = useActionState(submitOrder, initialState);
+```
+
+### Unverified Patterns
+
+If you cannot find documentation for a pattern:
+
+```
+UNVERIFIED: I could not find official documentation for this pattern.
+This is based on training data and may be outdated.
+Verify before using in production.
+```
+
+### Common Rationalizations
+
+| Rationalization | Reality |
+|---|---|
+| "I'm confident about this API" | Confidence is not evidence. Training data contains outdated patterns. |
+| "Fetching docs wastes tokens" | Hallucinating an API wastes more. One fetch prevents hours of rework. |
+| "The docs won't have what I need" | If docs don't cover it, the pattern may not be officially recommended. |

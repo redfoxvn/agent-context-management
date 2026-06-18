@@ -33,7 +33,7 @@ Based on comparative analysis of 3 skill frameworks:
 - Strengthened verification checklists (all skills)
 
 ## Status
-- Status: `phase-4-complete`
+- Status: `complete`
 - Plan: `plan.md` (detailed implementation plan with 5 phases)
 - Verification: `verification.md`
 - Phase 1: ✅ Complete (commit 815cc38)
@@ -50,9 +50,12 @@ Based on comparative analysis of 3 skill frameworks:
   - 2 examples added to migration (schema migration, dependency update)
   - 2 examples added to acm-memory (promotion decisions, ADR decisions)
   - 2 examples added to acm-task (new feature, ambiguous request)
-- Phase 4: ✅ Complete
+- Phase 4: ✅ Complete (commit 042bff1)
   - Expanded verification checklist in acm-completion (7 categories)
   - Added output contract verification to acm-task
   - Expanded verification checklist in acm-memory (5 categories)
   - Added handoff quality verification to acm-handoff (5 categories)
-- Next action: Begin Phase 5 (Advanced Patterns - Optional)
+- Phase 5: ✅ Complete
+  - Created acm-adversarial-review skill (fresh-context review for high-stakes decisions)
+  - Added source verification to framework-adoption (official docs hierarchy, citation rules)
+  - Updated skills/index.md with new Advanced Skills section

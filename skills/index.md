@@ -17,6 +17,12 @@ Skills are workflow and reasoning procedures. They should not store project-spec
 | `acm-handoff` | Create or consume handoff state for incomplete, risky, or non-obvious work |
 | `acm-skill-authoring` | Create, edit, review, and validate reusable ACM skills |
 
+## Advanced Skills
+
+| Skill | Purpose |
+|---|---|
+| `acm-adversarial-review` | Subject high-stakes decisions to fresh-context adversarial review |
+
 ## Tactical Skills
 
 | Skill | Purpose |
