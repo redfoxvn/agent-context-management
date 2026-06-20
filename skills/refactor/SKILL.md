@@ -32,12 +32,36 @@ Do not use this skill when behavior must change; reclassify as `change-feature`.
 
 ## Verification
 
-Before reporting this work complete:
+Before reporting refactor complete:
 
-- record what evidence was inspected
-- record checks that were run
-- record checks that were skipped and why
-- identify unresolved risks or ambiguity
+### Behavior Preservation
+
+- [ ] All existing tests pass
+- [ ] Public API unchanged (or changes documented)
+- [ ] Error messages unchanged (or changes documented)
+- [ ] Side effects unchanged (logging, metrics, etc.)
+- [ ] Manual verification of critical flows
+
+### Code Quality
+
+- [ ] No new code smells introduced
+- [ ] Test coverage maintained or improved
+- [ ] No performance regression
+- [ ] Cyclomatic complexity reduced (if that was the goal)
+
+### Documentation
+
+- [ ] Architecture docs updated if structure changed
+- [ ] Inline comments updated if logic moved
+- [ ] No stale references to old structure
+- [ ] ADR created if architectural boundary changed
+
+### Evidence
+
+- [ ] Test output recorded (before and after)
+- [ ] Before/after comparison if applicable
+- [ ] Performance metrics compared (if performance-sensitive)
+- [ ] Residual risks documented
 
 ## Common Mistakes
 
@@ -139,3 +163,11 @@ Agent: <refactors auth, also "fixes" logging, also updates error messages>
 - behavior change becomes necessary
 - module boundaries are unclear
 - test coverage is too weak to verify preservation
+
+## Related Skills
+
+- **acm-task**: Classify as refactor, load context before refactoring
+- **acm-memory**: Promote architecture changes to durable memory
+- **test-driven-development**: Use characterization tests to verify behavior preservation
+- **code-review**: Ensure architecture axis reviewed
+- **acm-adversarial-review**: Use for high-stakes refactors (core modules, public APIs)
