@@ -20,7 +20,7 @@ Do not copy workflow policies, task profiles, or templates into every target rep
 
 ## Minimal Init Output
 
-Create only:
+Create the `.acm/` memory layer:
 
 ```txt
 .acm/
@@ -29,6 +29,15 @@ Create only:
 ├── config.md
 └── tasks/
     └── index.md
+```
+
+If the repository has no agent bootstrap yet, also install one at the root from
+this skill's `resources/bootstrap/` so skills load at session start. Do NOT
+overwrite an existing `AGENTS.md` or `CLAUDE.md` — merge the ACM rules into it:
+
+```txt
+AGENTS.md   ← resources/bootstrap/AGENTS.md
+CLAUDE.md   ← resources/bootstrap/CLAUDE.md
 ```
 
 Create optional folders only when they contain real project memory:
@@ -57,6 +66,7 @@ A successful init produces:
 - `.acm/project.md`
 - `.acm/config.md`
 - `.acm/tasks/index.md`
+- a root bootstrap (`AGENTS.md`, and `CLAUDE.md` for Claude Code) when none existed
 - no empty optional memory folders unless explicitly requested
 - no unverified durable feature, architecture, or decision docs
 
@@ -104,14 +114,16 @@ Agents may draft project memory from evidence. Humans should confirm product mea
 
 ## Resources
 
-Canonical starter files live under this skill's `resources/minimal-acm/`. Copy
-them as the initial `.acm/` layer instead of writing from memory:
+Canonical starter files live under this skill's `resources/`. Copy them instead
+of writing from memory:
 
 ```txt
 resources/minimal-acm/index.md       → .acm/index.md
 resources/minimal-acm/project.md     → .acm/project.md
 resources/minimal-acm/config.md      → .acm/config.md
 resources/minimal-acm/tasks/index.md → .acm/tasks/index.md
+resources/bootstrap/AGENTS.md        → AGENTS.md   (only if absent; else merge)
+resources/bootstrap/CLAUDE.md        → CLAUDE.md   (only if absent; else merge)
 ```
 
 Then fill `project.md` with known project facts only.
