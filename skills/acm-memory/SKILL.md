@@ -105,12 +105,18 @@ Verified by code/tests/runtime?
 
 | Information | Durable Location |
 |---|---|
+| Feature spec / overview | `.acm/features/[feature]/spec.md` |
 | Current feature behavior | `.acm/features/[feature]/behavior.md` |
 | Feature API or interface contracts | `.acm/features/[feature]/api.md` |
+| Feature data shape and lifecycle | `.acm/features/[feature]/data-model.md` |
 | Feature test expectations | `.acm/features/[feature]/test-scenarios.md` |
+| Durable feature-level change history | `.acm/features/[feature]/changelog.md` |
 | Stable architecture constraints | `.acm/architecture/` |
 | Durable tradeoffs or rationale | `.acm/decisions/` |
 | Project purpose or terminology | `.acm/project.md` |
+
+Use only the feature files a project actually needs. Templates for each live
+under this skill's `resources/feature-templates/`.
 
 ## ADR Trigger Heuristic
 

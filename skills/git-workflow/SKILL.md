@@ -207,4 +207,6 @@ For every commit:
 
 ## Resources
 
-For advanced git patterns (worktrees, bisect, blame), see Agent-Skills git-workflow-and-versioning skill.
+For advanced git patterns (worktrees, bisect, blame), see the external
+Agent-Skills `git-workflow-and-versioning` skill (reference only — not bundled
+in this pack).

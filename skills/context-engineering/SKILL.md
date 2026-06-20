@@ -210,9 +210,8 @@ After setting up context, confirm:
 
 ## Related Skills
 
-- **acm-task**: Load context progressively during task execution
+- **acm-task**: Load context progressively and find relevant docs/code/tests before planning (see its Codebase Research Techniques section)
 - **acm-memory**: Promote verified findings into durable memory
-- **codebase-research**: Find relevant docs/code/tests before planning
 
 ## Resources
 

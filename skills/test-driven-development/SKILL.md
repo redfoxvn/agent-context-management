@@ -209,4 +209,5 @@ Before marking work complete:
 
 ## Resources
 
-For testing anti-patterns and advanced patterns, see Superpowers TDD skill.
+For testing anti-patterns and advanced patterns, see the external Superpowers
+`test-driven-development` skill (reference only — not bundled in this pack).

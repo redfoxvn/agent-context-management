@@ -101,3 +101,17 @@ Create `.acm/decisions/` when an accepted tradeoff will matter in future tasks.
 ## Human Confirmation
 
 Agents may draft project memory from evidence. Humans should confirm product meaning, business rules, architecture boundaries, accepted conventions, and durable decisions.
+
+## Resources
+
+Canonical starter files live under this skill's `resources/minimal-acm/`. Copy
+them as the initial `.acm/` layer instead of writing from memory:
+
+```txt
+resources/minimal-acm/index.md       → .acm/index.md
+resources/minimal-acm/project.md     → .acm/project.md
+resources/minimal-acm/config.md      → .acm/config.md
+resources/minimal-acm/tasks/index.md → .acm/tasks/index.md
+```
+
+Then fill `project.md` with known project facts only.
