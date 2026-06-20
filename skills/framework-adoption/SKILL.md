@@ -1,0 +1,230 @@
+---
+name: framework-adoption
+description: Use when adopting ACM into a real repository, preparing agent context, or migrating existing docs into project memory.
+---
+
+# Skill: Framework Adoption
+
+## Use For
+
+Adopt Agent Context Management into a real software repository after the ACM skill pack is available.
+
+For first-time initialization, use `skills/acm-init/SKILL.md` first.
+
+## Core Model
+
+```txt
+skills = how agents work
+.acm/  = what this project knows
+```
+
+## Use When
+
+Use this skill when the user asks to:
+
+- prepare a repo for coding agents
+- add context management to a codebase
+- migrate legacy docs into ACM memory
+- build initial architecture, feature, decision, or project context
+
+Do not use this skill for ordinary documentation edits.
+
+## When NOT To Use
+
+Do not use this skill for ordinary task docs or already-initialized repos unless adoption/migration is the task.
+
+## Inputs
+
+Identify:
+
+- target repository structure
+- adoption mode: `greenfield`, `brownfield`, or `legacy-docs-migration`
+- existing docs and whether they are current
+- protected areas or risky domains
+- user-provided constraints
+
+If adoption mode is unclear and affects the approach, stop and ask.
+
+## Procedure
+
+### 1. Confirm Minimal ACM Memory
+
+The target repo should contain:
+
+```txt
+.acm/index.md
+.acm/project.md
+.acm/config.md
+.acm/tasks/index.md
+```
+
+If these files do not exist, use `skills/acm-init/SKILL.md` or ask for approval before creating them.
+
+### 2. Create Adoption Task State
+
+Create or update:
+
+```txt
+.acm/tasks/[YYYY-MM-DD-adopt-acm]/task.md
+```
+
+Record adoption mode, scope, repo structure findings, uncertainty, verification performed, remaining risks, and next actions.
+
+Use `handoff.md` if adoption is incomplete, multi-session, or risky.
+
+### 3. Build Project Memory From Evidence
+
+For greenfield adoption, keep `.acm/project.md` minimal and let memory grow from tasks.
+
+For brownfield adoption, treat code and tests as primary evidence until docs are verified.
+
+For legacy docs migration, triage docs instead of bulk-importing them.
+
+| Finding | Destination |
+|---|---|
+| project purpose, goals, terms, verification commands | `.acm/project.md` |
+| current feature behavior | `.acm/features/[feature-name]/` |
+| technical boundary, source map, convention, or flow | `.acm/architecture/` |
+| durable tradeoff or rationale | `.acm/decisions/` |
+
+Create optional folders only when they contain useful durable memory.
+
+### 4. Triage Legacy Docs
+
+| Category | Action |
+|---|---|
+| verified durable truth | promote to project, architecture, feature, or decision docs |
+| useful historical context | link from task or decision docs when relevant |
+| stale or conflicting docs | archive, mark stale, or remove |
+| task-specific notes | move or summarize into task docs only if still useful |
+
+Do not promote implementation logs, scratch notes, or unverified assumptions.
+
+## Human Confirmation Required
+
+Humans should confirm product meaning, business rules, architecture boundaries, accepted conventions, public API/product behavior decisions, accepted ADRs, and whether legacy behavior is intended or stale.
+
+## Stop Conditions
+
+Stop and report when:
+
+- adoption mode is unclear and affects the workflow
+- minimal ACM memory has not been initialized
+- existing docs conflict with code or tests
+- product terms cannot be inferred safely
+- business rules affect user-visible behavior
+- architecture boundaries are unclear or currently violated
+- adoption would overwrite existing docs or user work
+- verification is impossible or unreliable
+
+## Output
+
+A good adoption pass should produce:
+
+- minimal ACM memory confirmed
+- adoption task state recorded
+- verified project memory updates where useful
+- legacy docs triage notes, if applicable
+- explicit uncertainty and human-review items
+- no unverified assumptions promoted into durable docs
+
+## Verification
+
+Before reporting framework adoption complete:
+
+### Initialization
+
+- [ ] Minimal `.acm/` files exist or initialization was explicitly deferred
+- [ ] Adoption mode identified: greenfield, brownfield, or legacy-docs-migration
+- [ ] Adoption task state created or updated
+- [ ] Existing user work and repo conventions preserved
+
+### Memory Quality
+
+- [ ] Durable memory contains only verified project facts
+- [ ] Optional `.acm/` folders created only when useful
+- [ ] Legacy docs triaged instead of bulk-imported
+- [ ] Stale or conflicting docs marked, archived, or left out
+
+### Source Verification
+
+- [ ] Code and tests checked before promoting brownfield facts
+- [ ] Official docs cited for framework-specific patterns when needed
+- [ ] Product meaning and business rules confirmed by humans when necessary
+- [ ] Unverified patterns labeled as unverified
+
+### Evidence
+
+- [ ] Evidence inspected is recorded in task state
+- [ ] Checks run are recorded
+- [ ] Skipped checks are recorded with reasons
+- [ ] Remaining uncertainty and human-review items documented
+
+## Common Mistakes
+
+Avoid:
+
+- bulk-importing legacy docs without verification
+- creating empty optional `.acm/` folders
+- treating inferred product meaning as confirmed truth
+- overwriting existing repo conventions without review
+
+## Source Verification
+
+When adopting frameworks or libraries during adoption, verify patterns against official documentation:
+
+### Source Hierarchy
+
+| Priority | Source | Example |
+|----------|--------|---------|
+| 1 | Official documentation | react.dev, docs.djangoproject.com |
+| 2 | Official blog / changelog | react.dev/blog, nextjs.org/blog |
+| 3 | Web standards references | MDN, web.dev |
+| 4 | Browser/runtime compatibility | caniuse.com, node.green |
+
+**Not authoritative:**
+- Stack Overflow answers
+- Blog posts or tutorials
+- AI-generated documentation
+- Training data (verify it)
+
+### Citation Rules
+
+When documenting framework-specific patterns in durable memory:
+
+1. Identify exact versions from dependency files
+2. Fetch official documentation for the feature
+3. Document following documented patterns
+4. Cite sources with full URLs
+
+```typescript
+// React 19 form handling with useActionState
+// Source: https://react.dev/reference/react/useActionState#usage
+const [state, formAction, isPending] = useActionState(submitOrder, initialState);
+```
+
+### Unverified Patterns
+
+If you cannot find documentation for a pattern:
+
+```
+UNVERIFIED: I could not find official documentation for this pattern.
+This is based on training data and may be outdated.
+Verify before using in production.
+```
+
+### Common Rationalizations
+
+| Rationalization | Reality |
+|---|---|
+| "I'm confident about this API" | Confidence is not evidence. Training data contains outdated patterns. |
+| "Fetching docs wastes tokens" | Hallucinating an API wastes more. One fetch prevents hours of rework. |
+| "The docs won't have what I need" | If docs don't cover it, the pattern may not be officially recommended. |
+
+## Related Skills
+
+- **acm-init**: Create the minimal `.acm/` memory layer
+- **acm-task**: Record adoption task state and stop conditions
+- **acm-memory**: Promote verified project facts into durable memory
+- **decision-recording**: Capture durable adoption choices and tradeoffs
+- **context-engineering**: Keep adoption context compact and evidence-based

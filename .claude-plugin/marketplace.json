@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "acm",
+  "description": "Agent Context Management — reusable workflow skills plus a per-repo .acm/ memory layer.",
+  "owner": {
+    "name": "redfoxvn",
+    "url": "https://github.com/redfoxvn"
+  },
+  "plugins": [
+    {
+      "name": "agent-context-management",
+      "source": {
+        "source": "github",
+        "repo": "redfoxvn/agent-context-management"
+      },
+      "description": "A hybrid context architecture for coding agents: reusable workflow skills plus a per-repo .acm/ memory layer for durable, verifiable work.",
+      "homepage": "https://github.com/redfoxvn/agent-context-management",
+      "license": "MIT",
+      "keywords": ["skills", "context-management", "agent-memory", "workflows", "verification"]
+    }
+  ]
+}
