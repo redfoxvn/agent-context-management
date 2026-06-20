@@ -34,6 +34,7 @@ For non-trivial tasks, read in this order:
 
 Use core ACM skills when applicable:
 
+- `skills/using-acm/SKILL.md` to choose which skill applies and recall the shared operating rules
 - `skills/acm-task/SKILL.md` for task classification, context loading, task records, and stop conditions
 - `skills/acm-memory/SKILL.md` for durable memory promotion
 - `skills/acm-completion/SKILL.md` before reporting completion

@@ -73,7 +73,11 @@ Optional `.acm/` folders are created only when they contain useful project memor
 
 ## Skills
 
-ACM currently provides 21 reusable skills across four groups.
+ACM currently provides 22 reusable skills across five groups.
+
+Meta skill:
+
+- `skills/using-acm/SKILL.md`: entry point — shared operating rules and a situation→skill routing map
 
 Core workflow skills:
 
@@ -182,4 +186,4 @@ This repository currently contains Markdown skills, resources, and minimal proje
 
 ## License
 
-No license file is currently included in this repository.
+MIT License — see the `LICENSE` file. (Update the copyright holder as needed.)

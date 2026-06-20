@@ -1,6 +1,6 @@
 ---
 name: code-review
-description: Use before merging any change. Use when reviewing code written by yourself, another agent, or a human.
+description: Use when reviewing code before merging a change — written by yourself, another agent, or a human.
 ---
 
 # Skill: Code Review
@@ -196,4 +196,5 @@ Before approving a change:
 
 ## Resources
 
-For detailed security and performance checklists, see Agent-Skills code-review-and-quality skill.
+For deeper, dimension-specific review, use the `security-remediation` and
+`performance-optimization` skills in this pack.

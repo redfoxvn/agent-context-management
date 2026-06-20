@@ -4,8 +4,23 @@ Run from the repository root.
 
 ## Validate Frontmatter
 
+Portable POSIX shell — runs under both `bash` and `zsh`:
+
 ```bash
-bad=0; count=0; for f in skills/**/SKILL.md; do count=$((count+1)); exec 3< "$f"; IFS= read -r l1 <&3; IFS= read -r l2 <&3; IFS= read -r l3 <&3; IFS= read -r l4 <&3; exec 3<&-; name=${l2#name: }; desc=${l3#description: }; if [ "$l1" != "---" ] || [ "$l4" != "---" ]; then print -- "bad delimiters: $f"; bad=1; fi; if [[ ! "$l2" == name:\ * ]] || [[ ! "$name" =~ '^[a-z0-9-]+$' ]]; then print -- "bad name: $f -> $l2"; bad=1; fi; if [[ ! "$l3" == description:\ Use\ when* ]]; then print -- "bad description trigger: $f -> $l3"; bad=1; fi; if [ ${#desc} -gt 500 ]; then print -- "description too long: $f"; bad=1; fi; done; print -- "checked $count skill files"; exit $bad
+bad=0; count=0
+for f in skills/*/SKILL.md; do
+  count=$((count+1))
+  l1=$(sed -n '1p' "$f"); l2=$(sed -n '2p' "$f")
+  l3=$(sed -n '3p' "$f"); l4=$(sed -n '4p' "$f")
+  name=${l2#name: }; desc=${l3#description: }
+  [ "$l1" = "---" ] && [ "$l4" = "---" ] || { echo "bad delimiters: $f"; bad=1; }
+  case "$l2" in name:\ *) ;; *) echo "bad name key: $f -> $l2"; bad=1;; esac
+  printf '%s' "$name" | grep -Eq '^[a-z0-9-]+$' || { echo "bad name: $f -> $name"; bad=1; }
+  case "$l3" in description:\ Use\ when*) ;; *) echo "bad description trigger: $f -> $l3"; bad=1;; esac
+  [ "${#desc}" -le 500 ] || { echo "description too long: $f"; bad=1; }
+done
+echo "checked $count skill files"
+exit $bad
 ```
 
 Expected result:

@@ -22,6 +22,8 @@ This repository uses Agent Context Management.
 
 Reusable workflow lives under `skills/` in this repository.
 
+Start with `skills/using-acm/SKILL.md` to choose which skill applies.
+
 Core workflow skills:
 
 - `skills/acm-init/SKILL.md`

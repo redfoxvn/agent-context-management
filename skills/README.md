@@ -9,15 +9,30 @@ ACM uses a hybrid model:
 
 The skill pack is intended to be portable across coding agents such as Claude Code, Codex, OpenCode, and future plugin integrations. A project should not need to copy workflow policies or templates into `.acm/` during initialization. Skills create or update repo-local memory only when useful.
 
-## Core Skills
+## Meta Skill
+
+- `using-acm`: entry point — shared operating rules and a situation→skill routing map.
+
+## Core Workflow Skills
 
 - `acm-init`: initialize a minimal `.acm/` memory layer.
 - `acm-task`: classify work, load context, and manage task records.
 - `acm-memory`: promote verified findings into durable project memory.
 - `acm-completion`: perform final review and verification checks.
 - `acm-handoff`: preserve continuation state for incomplete or risky work.
+- `acm-skill-authoring`: create, edit, review, and validate reusable ACM skills.
 
-Tactical skills such as `bugfix`, `codebase-research`, `migration`, and `test-design` support specific task types.
+## Advanced Skills
+
+- `acm-adversarial-review`: subject high-stakes decisions to fresh-context adversarial review.
+
+## Development Practice & Tactical Skills
+
+Development-practice skills (`code-review`, `context-engineering`, `git-workflow`,
+`test-driven-development`) and tactical skills (such as `bugfix`, `migration`,
+`refactor`, and `test-design`) support specific task types.
+
+See `skills/index.md` for the full grouped list.
 
 ## Skill Authoring
 

@@ -34,6 +34,27 @@ A confident answer is not a correct answer. Long sessions accumulate context tha
 
 **Violating the letter of this rule is violating the spirit of ACM.**
 
+## Getting a Fresh Context
+
+"Fresh context" means a reviewer that has NOT accumulated this session's
+assumptions. The principle is fixed; the mechanism depends on your runtime:
+
+- **Claude Code**: dispatch a subagent with the Task tool (e.g. a `code-reviewer`
+  agent), seeded with only the ARTIFACT + CONTRACT — never the conversation history.
+- **Codex**: start a separate session or a new `codex` invocation and pass only
+  the extracted unit; use a different model when one is available.
+- **OpenCode**: spawn a subagent/task or open a separate session that contains
+  only the ARTIFACT + CONTRACT.
+- **Any runtime**: escalating to a *different model* strengthens the review when
+  correctness matters more than cost.
+
+Whichever you use, the reviewer must receive ARTIFACT + CONTRACT only — not the
+CLAIM and not your reasoning (both bias it toward agreement).
+
+If no fresh-context mechanism is available, the review degrades to self-review
+from the same context. State that limitation explicitly rather than implying an
+independent check.
+
 ## The Process
 
 ### Step 1: CLAIM - Surface the Decision
