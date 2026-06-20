@@ -78,7 +78,7 @@ Avoid:
 - **security-remediation**: Add negative tests for security-sensitive behavior
 - **acm-memory**: Promote verified behavior expectations to durable feature docs
 
-## Escalate When
+## Stop Conditions
 
 - expected behavior is unclear
 - tests would lock in conflicting behavior

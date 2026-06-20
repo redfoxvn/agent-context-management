@@ -80,6 +80,51 @@ Avoid:
 - relying only on intuition without evidence
 - reporting improvements without comparable measurements
 
+## Example: N+1 Query on a Dashboard
+
+**Symptom:** `/dashboard` p95 latency is 4.2s under 50 concurrent users.
+
+```
+1. Classify: performance
+2. Baseline (record environment):
+   - p95 = 4200ms from APM + local load run; target < 800ms
+3. Locate the bottleneck with evidence:
+   - query log shows 1 + N pattern: 1 list query + 1 per project (N ≈ 120)
+   → N+1 in src/services/dashboard.ts
+4. Protect correctness:
+   - existing dashboard tests green before any change
+5. Optimize the measured issue only:
+   - replace per-row fetch with a single batched join / IN query
+6. Compare before/after (same input + environment):
+   - p95 4200ms → 310ms; returned rows identical; tests still green
+7. Guard: add a query-count assertion or benchmark; record numbers in the task record
+```
+
+**Outcome:** Measured the real bottleneck, fixed only that, and proved the win with comparable before/after evidence.
+
+## Common Rationalizations
+
+| Rationalization | Reality |
+|---|---|
+| "I know exactly where the bottleneck is" | Intuition is often wrong. Measure before changing anything. |
+| "It's obviously slow, no need to baseline" | Without a baseline you cannot prove the change helped. Capture one. |
+| "This optimization can't change behavior" | Caching, batching, and reordering are all behavior risks. Keep correctness tests green. |
+| "It's faster on my machine, ship it" | One run is noise. Compare comparable measurements, not a single sample. |
+| "We'll add the benchmark later" | The regression guard is the benchmark. Without it, the win silently erodes. |
+
+## Red Flags - STOP and Measure
+
+Stop when you notice:
+
+- Optimizing without a captured baseline
+- Picking the bottleneck by intuition instead of evidence
+- Changing behavior or weakening a check to gain speed
+- Comparing before/after with different inputs, environments, or single samples
+- Reporting an improvement with no comparable measurement
+- Expanding into "while I'm here" optimizations on cold paths
+
+**ALL of these mean: STOP. Capture the baseline. Locate the bottleneck with evidence. Then optimize.**
+
 ## Related Skills
 
 - **acm-task**: Classify performance work and load relevant source/tests
@@ -88,7 +133,7 @@ Avoid:
 - **code-review**: Review performance changes and tradeoffs
 - **acm-memory**: Promote durable performance constraints or benchmarks when verified
 
-## Escalate When
+## Stop Conditions
 
 - no reliable measurement is possible
 - optimization risks correctness or data integrity

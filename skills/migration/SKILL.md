@@ -191,6 +191,19 @@ Agent: <updates package.json, fixes compilation errors, ships>
 | "This is just a dependency update" | Dependency updates can break APIs, data shapes, or runtime behavior. |
 | "The data will migrate fine" | Test with real data. Synthetic data misses edge cases. |
 
+## Red Flags - STOP and Plan Rollback
+
+Stop when you notice:
+
+- Running an irreversible or destructive step before the rollback path is written and tested
+- Assuming compatibility instead of testing it
+- Migrating with synthetic data only when real-shaped data has edge cases
+- Bundling an unrelated refactor into the migration
+- No rollback trigger defined before rollout
+- Skipping post-migration validation on a shared or production-like environment
+
+**ALL of these mean: STOP. Write and test the rollback. Verify compatibility with representative data. Then migrate.**
+
 ## Related Skills
 
 - **acm-task**: Classify as migration and load context before planning
@@ -199,7 +212,7 @@ Agent: <updates package.json, fixes compilation errors, ships>
 - **code-review**: Review migration plan, rollback, and risk boundaries
 - **acm-adversarial-review**: Use for high-stakes migrations involving production data or public APIs
 
-## Escalate When
+## Stop Conditions
 
 - destructive or shared-environment changes are required
 - rollback is unclear or impossible

@@ -158,7 +158,20 @@ Agent: <refactors auth, also "fixes" logging, also updates error messages>
 | "This is a small refactor, no need for characterization tests" | Small refactors can have subtle behavior changes. Add tests when risk warrants. |
 | "I'll document the architecture changes later" | Document while context is fresh. Later becomes never. |
 
-## Escalate When
+## Red Flags - STOP and Restate Scope
+
+Stop when you notice:
+
+- Editing a test to make a "refactor" pass (that is a behavior change in disguise)
+- Mixing a behavior change into the refactor
+- Restructuring code you do not yet understand (understand why it exists first)
+- "While I'm here" cleanup outside the stated scope
+- Weakening or deleting tests to fit the new structure
+- Crossing a module boundary without recording architectural impact
+
+**ALL of these mean: STOP. Restate scope and non-goals. Preserve behavior. Reclassify as `change-feature` if behavior must change.**
+
+## Stop Conditions
 
 - behavior change becomes necessary
 - module boundaries are unclear

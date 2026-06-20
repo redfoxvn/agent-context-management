@@ -267,7 +267,7 @@ Agent: <re-runs test, sees it passes, reports "fixed">
 | "I see the problem, let me fix it" | Seeing symptoms ≠ understanding root cause. |
 | "One more fix attempt" (after 2+ failures) | 3+ failures = architectural problem. Question pattern, don't fix again. |
 
-## Escalate When
+## Stop Conditions
 
 - expected behavior is unclear
 - reproduction is impossible and evidence is weak

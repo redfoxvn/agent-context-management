@@ -83,7 +83,7 @@ Avoid:
 - **acm-adversarial-review**: Challenge high-stakes choices before recording
 - **context-engineering**: Preserve enough context for future agents without dumping reasoning
 
-## Escalate When
+## Stop Conditions
 
 - decision impact is long-lived or architectural
 - multiple viable directions remain unresolved

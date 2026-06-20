@@ -81,6 +81,49 @@ Avoid:
 - treating unknown coupling as no coupling
 - expanding scope without updating the task record
 
+## Example: Adding a Field to a Shared Response
+
+**Change:** add an `archived` flag to the Task API response.
+
+```
+1. Classify: change-feature (touches a shared contract)
+2. Trace affected surface:
+   - API: GET /tasks, GET /tasks/:id (serializer)
+   - Consumers: web client, mobile client, CSV export job
+   - Data: tasks table (new column + default)
+   - Tests: serializer tests, export-job snapshot tests
+3. Must change vs must stay stable:
+   - change: serializer includes `archived`
+   - stable: existing fields, ordering, and types (clients already depend on them)
+4. Verification scope:
+   - serializer unit tests; update export snapshot; mobile contract check
+   - migration adds column with a safe default (non-breaking)
+5. Out of scope: archive UI (separate task)
+```
+
+**Outcome:** Surfaced three consumers and a migration that the "one-line" serializer change would otherwise have broken.
+
+## Common Rationalizations
+
+| Rationalization | Reality |
+|---|---|
+| "It's a one-file change, impact is local" | Shared contracts and callers turn one-file changes system-wide. Trace the callers. |
+| "Nothing else uses this" | "I didn't find a user" is not "there is no user." Search, don't assume. |
+| "The tests will catch anything I miss" | Tests only catch what they cover. Weak automation needs explicit manual scope. |
+| "Unknown coupling is probably fine" | Unknown coupling is unbounded risk. Call it out; don't treat it as no risk. |
+
+## Red Flags - STOP and Widen the Trace
+
+Stop when you notice:
+
+- Analyzing only the file being edited
+- Concluding "nothing else uses this" without searching callers and contracts
+- Treating unknown coupling as no coupling
+- Skipping generated artifacts, fixtures, or migration/rollback paths
+- Scope expanding during analysis without updating the task record
+
+**ALL of these mean: STOP. Trace callers and shared contracts. Document what must stay stable.**
+
 ## Related Skills
 
 - **acm-task**: Load context and record task scope before analysis
@@ -89,7 +132,7 @@ Avoid:
 - **security-remediation**: Use when impact touches trust boundaries or sensitive data
 - **code-review**: Use impact findings to focus review axes
 
-## Escalate When
+## Stop Conditions
 
 - impact crosses architectural boundaries
 - compatibility or migration risk is unclear

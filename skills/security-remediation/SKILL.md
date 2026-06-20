@@ -89,6 +89,57 @@ Avoid:
 - focusing only on happy-path verification
 - hiding residual risk after partial remediation
 
+## Example: Missing Authorization Check (IDOR)
+
+**User report:** "I can see another user's invoice by changing the ID in the URL"
+
+```
+1. Classify: security (broken access control)
+2. Map assets + boundary:
+   - Asset: invoices (per-user financial data)
+   - Boundary: GET /invoices/:id — authenticated, but no ownership check
+   - Actor: any authenticated user
+3. Reconcile:
+   - Durable: .acm/features/billing/behavior.md → "users see only their own invoices"
+   - Code: src/routes/invoice.ts → loads invoice by id, no owner check
+   - Tests: happy-path only (owner fetches own invoice)
+   → CONFLICT: durable says own-only, code enforces nothing
+4. Remediate root cause:
+   - Enforce ownership: invoice.userId === req.user.id, else 404
+     (404 not 403 — avoid leaking that the record exists)
+5. Verify with negative tests:
+   - non-owner GET → 404
+   - owner GET → 200 (regression)
+   - re-run billing suite
+6. Promote: confirm behavior.md still correct; record the access-control rule if not already durable
+```
+
+**Outcome:** Fixed the root cause (missing authorization), not the symptom, and added an attack-scenario test that blocks regression.
+
+## Common Rationalizations
+
+| Rationalization | Reality |
+|---|---|
+| "It's behind auth, so it's safe" | Authentication is one layer. Still authorize the specific action and validate input. |
+| "Internal callers are trusted" | Internal callers get compromised. Re-verify at the trust boundary. |
+| "No one would send that input" | Attackers send exactly that. Handle malicious input explicitly. |
+| "Patch the symptom now, root-cause later" | A symptom patch leaves the same hole open elsewhere. Fix the root cause. |
+| "A security test is overkill here" | The negative test is what stops the vulnerability from returning. |
+
+## Red Flags - STOP and Re-Analyze
+
+Stop when you notice:
+
+- Fixing a reported symptom without mapping the trust boundary
+- Assuming internal or authenticated callers are automatically trusted
+- Weakening validation or authorization "temporarily" to ship
+- Logging tokens, secrets, or PII while debugging the issue
+- Echoing exploit input into error messages or logs
+- Skipping the negative/attack-scenario test "because the fix is obvious"
+- Treating a user-supplied exploit description as ground truth without verifying the asset and boundary
+
+**ALL of these mean: STOP. Map assets and trust boundaries. Fix the root cause. Add a negative test.**
+
 ## Related Skills
 
 - **acm-task**: Classify as security, load context before remediation
@@ -97,7 +148,7 @@ Avoid:
 - **test-driven-development**: Write security tests first (Prove-It pattern)
 - **code-review**: Ensure security axis reviewed
 
-## Escalate When
+## Stop Conditions
 
 - security impact is unclear
 - remediation weakens protections or contracts

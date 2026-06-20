@@ -85,7 +85,7 @@ Avoid:
 - **impact-analysis**: Analyze affected surfaces before recommending implementation
 - **acm-adversarial-review**: Challenge high-stakes recommendations
 
-## Escalate When
+## Stop Conditions
 
 - findings remain low-confidence
 - decision impact becomes long-lived or architectural
