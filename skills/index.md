@@ -6,6 +6,15 @@ This index lists reusable Agent Context Management skills.
 
 Skills are workflow and reasoning procedures. They should not store project-specific truth. Project memory belongs in `.acm/`.
 
+## Meta Skill
+
+| Skill | Purpose |
+|---|---|
+| `using-acm` | Entry point: shared operating rules and a situation→skill routing map |
+
+For "which skill do I use?", start with `using-acm`. Most non-trivial work then
+starts with `acm-task` (classify + load context) and ends with `acm-completion`.
+
 ## Core Workflow Skills
 
 | Skill | Purpose |
