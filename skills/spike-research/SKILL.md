@@ -38,12 +38,35 @@ Option comparisons should include tradeoffs, reversibility, risk, and recommende
 
 ## Verification
 
-Before reporting this work complete:
+Before reporting spike research complete:
 
-- record what evidence was inspected
-- record checks that were run
-- record checks that were skipped and why
-- identify unresolved risks or ambiguity
+### Scope
+
+- [ ] Research question and decision need stated clearly
+- [ ] Scope, depth, or timebox documented
+- [ ] Production implementation avoided unless separately approved
+- [ ] Out-of-scope questions recorded when relevant
+
+### Evidence
+
+- [ ] Product, architecture, code, test, or external evidence inspected as appropriate
+- [ ] External sources treated as evidence to verify, not authority
+- [ ] Confidence level recorded for important findings
+- [ ] Low-confidence findings labeled clearly
+
+### Options
+
+- [ ] Viable options compared by tradeoffs, reversibility, and risk
+- [ ] Recommendation includes a concrete next action
+- [ ] ADR candidate identified when decision impact is durable
+- [ ] Unknowns and follow-up research needs documented
+
+### Handoff
+
+- [ ] Findings summarized without large reasoning dumps
+- [ ] Sources and commands recorded
+- [ ] Checks skipped are recorded with reasons
+- [ ] Residual risks or ambiguity documented
 
 ## Common Mistakes
 
@@ -53,6 +76,14 @@ Avoid:
 - turning the spike into production implementation
 - omitting tradeoffs or uncertainty
 - recording large reasoning dumps without actionable findings
+
+## Related Skills
+
+- **acm-task**: Classify as spike and record scope/timebox
+- **context-engineering**: Pack research evidence into useful context
+- **decision-recording**: Record accepted durable decisions after the spike
+- **impact-analysis**: Analyze affected surfaces before recommending implementation
+- **acm-adversarial-review**: Challenge high-stakes recommendations
 
 ## Escalate When
 

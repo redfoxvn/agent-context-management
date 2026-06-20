@@ -36,12 +36,35 @@ Create durable decision records only when future agents or developers need the r
 
 ## Verification
 
-Before reporting this work complete:
+Before reporting decision recording complete:
 
-- record what evidence was inspected
-- record checks that were run
-- record checks that were skipped and why
-- identify unresolved risks or ambiguity
+### Decision Fit
+
+- [ ] Decision is accepted, not merely proposed
+- [ ] Durable record is warranted by future impact, not local trivia
+- [ ] Task note is used instead of ADR when the choice is local or obvious
+- [ ] Decision scope and affected docs are identified
+
+### Rationale
+
+- [ ] Constraints and context recorded
+- [ ] Alternatives considered and summarized
+- [ ] Tradeoffs and consequences documented
+- [ ] Reversibility and follow-up work noted
+
+### Placement
+
+- [ ] Decision stored in the correct durable location
+- [ ] Related task, feature, architecture, or product docs linked
+- [ ] Decisions index updated when an ADR is added
+- [ ] No project-specific truth is duplicated into reusable skills
+
+### Evidence
+
+- [ ] Evidence inspected is recorded
+- [ ] Human or stakeholder acceptance recorded when needed
+- [ ] Unresolved questions or residual risks documented
+- [ ] Checks skipped are recorded with reasons
 
 ## Common Mistakes
 
@@ -51,6 +74,14 @@ Avoid:
 - recording decisions before the choice is accepted
 - omitting alternatives and consequences
 - storing durable rationale only in handoff notes
+
+## Related Skills
+
+- **acm-memory**: Promote accepted durable truth into project memory
+- **acm-task**: Keep uncertain or task-local decisions in task records
+- **impact-analysis**: Identify whether the decision has durable impact
+- **acm-adversarial-review**: Challenge high-stakes choices before recording
+- **context-engineering**: Preserve enough context for future agents without dumping reasoning
 
 ## Escalate When
 

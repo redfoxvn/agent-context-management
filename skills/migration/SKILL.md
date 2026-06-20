@@ -43,12 +43,42 @@ Before implementation, identify:
 
 ## Verification
 
-Before reporting this work complete:
+Before reporting migration complete:
 
-- record what evidence was inspected
-- record checks that were run
-- record checks that were skipped and why
-- identify unresolved risks or ambiguity
+### Compatibility
+
+- [ ] Current and target states documented
+- [ ] Compatibility requirements identified
+- [ ] Compatibility assumptions tested, not inferred
+- [ ] Breaking changes documented
+
+### Data Integrity
+
+- [ ] Data migration tested with representative data when applicable
+- [ ] No data loss or corruption observed
+- [ ] Post-migration validation performed
+- [ ] Generated files and lockfiles checked when applicable
+
+### Rollback
+
+- [ ] Rollback or recovery plan documented
+- [ ] Rollback tested or inability to test documented
+- [ ] Rollback triggers defined
+- [ ] Irreversible steps explicitly called out
+
+### Result Verification
+
+- [ ] Migration result verified
+- [ ] Preserved behavior verified
+- [ ] Performance not degraded in relevant paths
+- [ ] Security controls not weakened
+
+### Documentation
+
+- [ ] Migration notes recorded in task state
+- [ ] Durable memory updated for schema, runtime, dependency, or architecture changes
+- [ ] ADR created if the migration reflects a durable tradeoff
+- [ ] Residual risks documented
 
 ## Common Mistakes
 
@@ -160,6 +190,14 @@ Agent: <updates package.json, fixes compilation errors, ships>
 | "We'll handle rollback if needed" | Plan rollback before implementation, not after failure. |
 | "This is just a dependency update" | Dependency updates can break APIs, data shapes, or runtime behavior. |
 | "The data will migrate fine" | Test with real data. Synthetic data misses edge cases. |
+
+## Related Skills
+
+- **acm-task**: Classify as migration and load context before planning
+- **acm-memory**: Promote schema, runtime, dependency, or architecture changes
+- **test-driven-development**: Write migration and compatibility tests first when practical
+- **code-review**: Review migration plan, rollback, and risk boundaries
+- **acm-adversarial-review**: Use for high-stakes migrations involving production data or public APIs
 
 ## Escalate When
 

@@ -41,12 +41,35 @@ Before optimizing, identify:
 
 ## Verification
 
-Before reporting this work complete:
+Before reporting performance optimization complete:
 
-- record what evidence was inspected
-- record checks that were run
-- record checks that were skipped and why
-- identify unresolved risks or ambiguity
+### Baseline
+
+- [ ] User impact or performance symptom documented
+- [ ] Baseline measurement captured or unavailable baseline explained
+- [ ] Target metric or success threshold defined
+- [ ] Measurement environment recorded well enough to compare results
+
+### Bottleneck
+
+- [ ] Hot path or bottleneck identified with evidence
+- [ ] Alternative bottlenecks considered where relevant
+- [ ] Optimization scope limited to the measured issue
+- [ ] Correctness checks identified before optimization
+
+### Result
+
+- [ ] Before/after measurements captured using comparable methods
+- [ ] Correctness tests pass after optimization
+- [ ] No security, data integrity, or behavior tradeoff introduced without approval
+- [ ] Regression risk checked in adjacent paths
+
+### Evidence
+
+- [ ] Measurement commands, tools, or traces recorded
+- [ ] Checks run are recorded
+- [ ] Skipped checks are recorded with reasons
+- [ ] Remaining performance uncertainty documented
 
 ## Common Mistakes
 
@@ -56,6 +79,14 @@ Avoid:
 - changing behavior unintentionally during optimization
 - relying only on intuition without evidence
 - reporting improvements without comparable measurements
+
+## Related Skills
+
+- **acm-task**: Classify performance work and load relevant source/tests
+- **impact-analysis**: Identify correctness, security, and adjacent-module risks
+- **test-driven-development**: Protect correctness before optimizing
+- **code-review**: Review performance changes and tradeoffs
+- **acm-memory**: Promote durable performance constraints or benchmarks when verified
 
 ## Escalate When
 

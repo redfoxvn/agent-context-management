@@ -42,12 +42,35 @@ Check whether the change touches:
 
 ## Verification
 
-Before reporting this work complete:
+Before reporting impact analysis complete:
 
-- record what evidence was inspected
-- record checks that were run
-- record checks that were skipped and why
-- identify unresolved risks or ambiguity
+### Surface Area
+
+- [ ] Affected features, modules, files, and contracts identified
+- [ ] Public APIs, internal APIs, and data models checked where relevant
+- [ ] Auth, permissions, validation, and security boundaries checked where relevant
+- [ ] Generated artifacts, fixtures, migrations, and deployment paths considered
+
+### Behavior
+
+- [ ] Behavior that must change is documented
+- [ ] Behavior that must remain stable is documented
+- [ ] Adjacent modules and shared contracts inspected when coupling exists
+- [ ] Unknown coupling called out instead of treated as no risk
+
+### Verification Scope
+
+- [ ] Required tests or checks identified for each affected surface
+- [ ] Regression risks prioritized by impact
+- [ ] Manual checks identified where automation is weak
+- [ ] Out-of-scope areas documented
+
+### Evidence
+
+- [ ] Evidence inspected is recorded
+- [ ] Checks run are recorded when analysis includes verification
+- [ ] Skipped checks are recorded with reasons
+- [ ] Residual risks or ambiguity documented
 
 ## Common Mistakes
 
@@ -57,6 +80,14 @@ Avoid:
 - ignoring shared contracts or generated files
 - treating unknown coupling as no coupling
 - expanding scope without updating the task record
+
+## Related Skills
+
+- **acm-task**: Load context and record task scope before analysis
+- **context-engineering**: Keep broad impact context manageable
+- **migration**: Use when impact includes schema, runtime, dependency, or infrastructure changes
+- **security-remediation**: Use when impact touches trust boundaries or sensitive data
+- **code-review**: Use impact findings to focus review axes
 
 ## Escalate When
 

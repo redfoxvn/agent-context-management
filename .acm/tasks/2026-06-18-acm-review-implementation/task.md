@@ -50,8 +50,10 @@ Sau khi phân tích toàn bộ ACM project và so sánh với Superpowers + Agen
   - **Mitigation:** Clear migration guide, update index.md
 
 ## Status
-- Status: `planning`
-- Next action: Review plan and begin Phase 1
+- Status: `phase-2-implemented`
+- Latest action: Enhanced tactical skill verification and cross-references for Phase 2
+- Verification: `git diff --check`; confirmed 9 target skills have specialized verification and `Related Skills`
+- Next action: Review Phase 2 diff, then commit if approved
 
 ## Related
 - Review analysis: (completed in conversation)

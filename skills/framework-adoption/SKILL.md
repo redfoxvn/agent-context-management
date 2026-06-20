@@ -130,12 +130,35 @@ A good adoption pass should produce:
 
 ## Verification
 
-Before reporting this work complete:
+Before reporting framework adoption complete:
 
-- record what evidence was inspected
-- record checks that were run
-- record checks that were skipped and why
-- identify unresolved risks or ambiguity
+### Initialization
+
+- [ ] Minimal `.acm/` files exist or initialization was explicitly deferred
+- [ ] Adoption mode identified: greenfield, brownfield, or legacy-docs-migration
+- [ ] Adoption task state created or updated
+- [ ] Existing user work and repo conventions preserved
+
+### Memory Quality
+
+- [ ] Durable memory contains only verified project facts
+- [ ] Optional `.acm/` folders created only when useful
+- [ ] Legacy docs triaged instead of bulk-imported
+- [ ] Stale or conflicting docs marked, archived, or left out
+
+### Source Verification
+
+- [ ] Code and tests checked before promoting brownfield facts
+- [ ] Official docs cited for framework-specific patterns when needed
+- [ ] Product meaning and business rules confirmed by humans when necessary
+- [ ] Unverified patterns labeled as unverified
+
+### Evidence
+
+- [ ] Evidence inspected is recorded in task state
+- [ ] Checks run are recorded
+- [ ] Skipped checks are recorded with reasons
+- [ ] Remaining uncertainty and human-review items documented
 
 ## Common Mistakes
 
@@ -197,3 +220,11 @@ Verify before using in production.
 | "I'm confident about this API" | Confidence is not evidence. Training data contains outdated patterns. |
 | "Fetching docs wastes tokens" | Hallucinating an API wastes more. One fetch prevents hours of rework. |
 | "The docs won't have what I need" | If docs don't cover it, the pattern may not be officially recommended. |
+
+## Related Skills
+
+- **acm-init**: Create the minimal `.acm/` memory layer
+- **acm-task**: Record adoption task state and stop conditions
+- **acm-memory**: Promote verified project facts into durable memory
+- **decision-recording**: Capture durable adoption choices and tradeoffs
+- **context-engineering**: Keep adoption context compact and evidence-based
