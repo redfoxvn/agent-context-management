@@ -51,6 +51,8 @@ ACM reduces those failures by separating reusable workflow from repo-local memor
 │   ├── acm-memory/
 │   ├── acm-completion/
 │   ├── acm-handoff/
+│   ├── acm-skill-authoring/
+│   ├── [development-practice-skill]/
 │   └── [tactical-skill]/
 └── .acm/
     ├── index.md
@@ -71,15 +73,29 @@ Optional `.acm/` folders are created only when they contain useful project memor
 
 ## Skills
 
+ACM currently provides 21 reusable skills across four groups.
+
 Core workflow skills:
 
 - `skills/acm-init/SKILL.md`: initialize a minimal `.acm/` memory layer
-- `skills/acm-task/SKILL.md`: classify work, load context, and manage task records
+- `skills/acm-task/SKILL.md`: classify work, clarify requirements, research code, plan implementation, and manage task records
 - `skills/acm-memory/SKILL.md`: promote verified findings into durable memory
 - `skills/acm-completion/SKILL.md`: review verification, scope, docs, and residual risk before completion
 - `skills/acm-handoff/SKILL.md`: create or consume continuation state
+- `skills/acm-skill-authoring/SKILL.md`: create, edit, review, and validate reusable ACM skills
 
-Tactical skills support focused work such as bugfixes, migrations, refactors, security remediation, impact analysis, and test design.
+Advanced skill:
+
+- `skills/acm-adversarial-review/SKILL.md`: subject high-stakes decisions to fresh-context adversarial review
+
+Development practice skills:
+
+- `skills/code-review/SKILL.md`: review code across correctness, readability, architecture, security, and performance
+- `skills/context-engineering/SKILL.md`: build, prune, and preserve task context safely
+- `skills/git-workflow/SKILL.md`: manage repository state, branches, save points, and atomic commits
+- `skills/test-driven-development/SKILL.md`: drive behavior changes with failing tests, minimal implementation, and refactoring
+
+Tactical skills support focused work such as bugfixes, migrations, refactors, security remediation, impact analysis, performance optimization, spike research, decision recording, framework adoption, and test design.
 
 See `skills/index.md` for the full skill list.
 

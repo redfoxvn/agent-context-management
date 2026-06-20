@@ -23,20 +23,26 @@ Skills are workflow and reasoning procedures. They should not store project-spec
 |---|---|
 | `acm-adversarial-review` | Subject high-stakes decisions to fresh-context adversarial review |
 
+## Development Practice Skills
+
+| Skill | Purpose |
+|---|---|
+| `code-review` | Review code for correctness, readability, architecture, security, and performance risks |
+| `context-engineering` | Build, prune, and preserve task context without mixing project memory into skills |
+| `git-workflow` | Manage branches, atomic commits, save points, and repository state safely |
+| `test-driven-development` | Drive behavior changes through failing tests, minimal implementation, and refactoring |
+
 ## Tactical Skills
 
 | Skill | Purpose |
 |---|---|
 | `bugfix` | Diagnose a defect and define a minimal verified fix path |
-| `codebase-research` | Find the smallest relevant docs/code/tests before planning |
 | `decision-recording` | Record durable decisions or ADRs when needed |
 | `framework-adoption` | Adopt ACM into a real repository safely and incrementally |
 | `impact-analysis` | Identify affected features, modules, contracts, data, tests, and risks |
-| `implementation-planning` | Convert context and impact into a safe implementation approach |
 | `migration` | Plan schema, data, dependency, runtime, or infrastructure changes safely |
 | `performance-optimization` | Improve performance while preserving correctness and measuring results |
 | `refactor` | Improve internal structure without changing behavior |
-| `requirement-analysis` | Clarify scope, actors, acceptance criteria, and ambiguity |
 | `security-remediation` | Analyze and remediate auth, permission, validation, secret, or data exposure risks |
 | `spike-research` | Investigate options and produce decision support |
 | `test-design` | Design meaningful behavior and regression tests |
