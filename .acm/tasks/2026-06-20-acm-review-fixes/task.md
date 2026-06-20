@@ -27,10 +27,23 @@ from `plan.md`.
 | `LICENSE`, `README.md` | Added MIT LICENSE; updated License section. |
 | 9 tactical skills | Renamed `## Escalate When` → `## Stop Conditions` (terminology unified across the pack). |
 
+## Packaging Phase (P4 — multi-harness distribution)
+| Area | Change |
+|---|---|
+| `.claude-plugin/plugin.json`, `marketplace.json` | Claude Code plugin + marketplace manifest (`/plugin marketplace add redfoxvn/agent-context-management`). |
+| `hooks/hooks.json`, `hooks/session-start.sh` | SessionStart hook injecting `using-acm` (pure bash, no jq). Verified: emits valid JSON `additionalContext`. |
+| `gemini-extension.json`, `GEMINI.md` | Gemini CLI extension (loads AGENTS.md + using-acm). |
+| `.opencode/skills` | Symlink → `../skills` for OpenCode discovery. |
+| `docs/setup.md` | Per-harness install guide (Claude Code, Gemini, OpenCode, Cursor, Windsurf, Codex, Kiro). |
+| `AGENTS.md` | Slimmed to an always-loaded floor (one rule + read path + safety floor + Stop & Report) pointing to `using-acm`. |
+| `skills/acm-init/{SKILL.md,resources/bootstrap/}` | New AGENTS.md/CLAUDE.md bootstrap template; init now installs a root bootstrap when absent. |
+| `README.md` | Added Installation + Distribution; updated structure and Current Status. |
+
 ## Scope / Not Doing
 - Did not touch `.acm/tasks/` history.
 - Did not change core `acm-*` workflow logic.
-- `docs/` left as-is (empty + untracked; git does not include it).
+- Cursor/Windsurf/Codex/Kiro: documented manual setup (no shipped config) since their formats vary and can't be verified here.
+- Standalone CLI (`acm init`, …) remains future work.
 
 ## Decisions (confirmed by user 2026-06-20)
 - P1-3: Option A — acknowledge `spec`/`data-model`/`changelog` templates in `acm-memory`. Applied.

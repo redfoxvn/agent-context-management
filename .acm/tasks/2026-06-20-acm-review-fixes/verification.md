@@ -39,6 +39,18 @@ Result: PASS.
 `grep -rn '^## Escalate When' skills` → none. All condition sections now use
 `## Stop Conditions` (11 skills). PASS.
 
+## Packaging (P4)
+- JSON manifests parse: `plugin.json`, `marketplace.json`, `hooks.json`,
+  `gemini-extension.json` → all OK (python3 json.load). PASS.
+- Hook syntax: `bash -n hooks/session-start.sh` → OK. PASS.
+- Hook output: `CLAUDE_PLUGIN_ROOT=. bash hooks/session-start.sh` → valid JSON
+  with `hookSpecificOutput.additionalContext` (3789 chars of using-acm). PASS.
+- `.opencode/skills` symlink resolves to `../skills`. PASS.
+- `.gitignore` does not exclude any new packaging file. PASS.
+
 ## Not verified / gaps
 - LICENSE copyright holder is a placeholder ("ACM Contributors", 2026) — confirm/replace.
 - No automated link-checker exists in-repo; path checks were done via grep.
+- Plugin/hook tested for JSON validity and local execution only — not yet
+  installed end-to-end in Claude Code / Gemini / OpenCode (no harness here).
+- `homepage`/`repo` URLs assume `redfoxvn/agent-context-management` (matches origin).
