@@ -41,17 +41,25 @@ ACM reduces those failures by separating reusable workflow from repo-local memor
 
 ```txt
 .
-├── AGENTS.md
-├── CLAUDE.md
+├── AGENTS.md                 # always-loaded bootstrap floor
+├── CLAUDE.md                 # @AGENTS.md for Claude Code
+├── GEMINI.md                 # context file for Gemini CLI
 ├── README.md
+├── .claude-plugin/           # Claude Code plugin + marketplace manifest
+├── hooks/                    # SessionStart hook (injects using-acm)
+├── .opencode/                # OpenCode adapter (skills symlink)
+├── gemini-extension.json     # Gemini CLI extension manifest
+├── docs/setup.md             # per-harness install guide
 ├── skills/
 │   ├── index.md
+│   ├── using-acm/            # meta: operating rules + routing map
 │   ├── acm-init/
 │   ├── acm-task/
 │   ├── acm-memory/
 │   ├── acm-completion/
 │   ├── acm-handoff/
 │   ├── acm-skill-authoring/
+│   ├── acm-adversarial-review/
 │   ├── [development-practice-skill]/
 │   └── [tactical-skill]/
 └── .acm/
@@ -164,11 +172,29 @@ For brownfield adoption:
 3. Build source maps, feature docs, architecture docs, and ADRs task-by-task.
 4. Keep uncertainty in task records until confirmed.
 
-## Future Plugin Direction
+## Installation
 
-This repository is structured so the skill pack can later be packaged for agent integrations.
+ACM installs as a portable skill pack plus harness adapters — install the pack
+once, then run `acm-init` per repository to create the `.acm/` layer.
 
-Possible future commands include:
+Claude Code:
+
+```text
+/plugin marketplace add redfoxvn/agent-context-management
+/plugin install agent-context-management@acm
+```
+
+See [docs/setup.md](docs/setup.md) for Gemini CLI, OpenCode, Cursor, Windsurf,
+Codex, and Kiro.
+
+## Distribution
+
+ACM is packaged as a Claude Code plugin (`.claude-plugin/`) with a `SessionStart`
+hook that injects the `using-acm` skill, plus adapters for Gemini CLI
+(`gemini-extension.json` + `GEMINI.md`) and OpenCode (`.opencode/`). Other agents
+load the plain-Markdown skills via their instruction/rules files.
+
+A standalone CLI is still future work. Possible commands:
 
 ```txt
 acm init
@@ -178,11 +204,12 @@ acm promote
 acm handoff
 ```
 
-No CLI or plugin is implemented yet.
-
 ## Current Status
 
-This repository currently contains Markdown skills, resources, and minimal project memory. It does not contain a concrete application codebase, package manifest, or test suite.
+This repository contains the Markdown skill pack, packaging manifests (Claude
+Code plugin, Gemini extension), a session-start hook, multi-harness adapters,
+and minimal project memory. It does not contain a concrete application codebase
+or test suite; ACM is workflow-and-memory tooling, not an application runtime.
 
 ## License
 
