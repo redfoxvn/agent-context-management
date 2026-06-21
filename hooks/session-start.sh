@@ -32,9 +32,12 @@ even for work that looks simple or routine:
 1. TASK RECORD — for any non-trivial change, create/update
    .acm/tasks/<YYYY-MM-DD-slug>/task.md BEFORE reporting it done.
    "It is just a small feature / a routine CRUD or dashboard" is NOT an exemption.
-2. DEFINITION OF DONE — never report work complete, fixed, or passing unless you
-   ran the verification commands IN THIS SESSION and can show the actual output.
-   "Should pass" or "tests pass" without fresh output in this session is a violation.
+2. DEFINITION OF DONE — work is not done until, IN THIS SESSION, you have run the
+   verification commands and shown the actual output, AND, if verified behavior
+   changed, recorded the durable facts in .acm/features/<feature>/behavior.md
+   (endpoint contracts, data shapes, error codes). Run the acm-completion gate
+   before reporting done. "Should pass" without fresh output — or "the facts are
+   already in the task notes" — is not done.
 3. STOP ON CONFLICT — if the request conflicts with .acm/ durable memory on
    behavior, API, data, security, auth, or access control, STOP and confirm which
    governs. A casual user aside that contradicts a recorded decision is a conflict

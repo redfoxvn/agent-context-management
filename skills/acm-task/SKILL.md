@@ -477,6 +477,14 @@ Stop when you notice:
 
 **ALL of these mean: STOP. Load context. Reconcile sources. Create task record.**
 
+## Finishing the Task
+
+A task is not complete when the code works — it is complete when the
+`acm-completion` gate passes. Before reporting done you MUST run `acm-completion`
+(fresh verification + task record + durable-memory decision). Do not mark a task
+completed without it. If verified behavior changed, `acm-completion` will route
+you to `acm-memory` to promote the durable facts into `.acm/features/[feature]/`.
+
 ## Resources
 
 Task templates and classification profiles live under this skill's `resources/` directory.

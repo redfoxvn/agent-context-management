@@ -10,6 +10,7 @@ Task history is not durable feature truth. Promote verified current behavior or 
 
 | Task | Classification | Status | Last Updated | Notes |
 |---|---|---|---|---|
+| `2026-06-21-acm-memory-gate` | refactor + docs | completed | 2026-06-21 | Re-test showed acm-memory still skipped: promotion was gated inside acm-completion (not invoked), not in the always-loaded hook contract. Moved durable-promotion into the hook Definition-of-Done gate; acm-task now requires acm-completion before done; acm-completion couples acm-memory; require `.acm/features/index.md`. |
 | `2026-06-21-acm-reliability-fixes` | refactor + docs | completed | 2026-06-21 | Converted 3 behaviors (task record, definition-of-done, stop-on-conflict) into hard gates after the team-tasks eval showed skills don't self-trigger; SessionStart hook now injects a binding operating contract; enforce `.acm/features/` promotion + git save-point nudge. |
 | `2026-06-20-acm-review-fixes` | docs + refactor | completed | 2026-06-20 | Fixed broken metadata validator, stale/dangling skill refs, orphaned templates, and added Red Flags/Rationalizations/Examples to high-risk skills; added routing table, adversarial-review actuation, and MIT LICENSE. |
 | `2026-06-17-strengthen-acm-skills` | migration | completed | 2026-06-17 | Strengthens ACM skills using patterns from Superpowers and agent-skills while preserving the hybrid model. |
