@@ -53,7 +53,9 @@ Do not report completion until these are true or explicitly reported as gaps:
 - Relevant docs, code, and tests were reconciled.
 - Changes are minimal and follow existing patterns.
 - Relevant checks were run, or skipped checks have reasons.
-- Durable memory was updated if current truth changed.
+- Durable memory was updated if current truth changed. **If verified behavior
+  changed, invoke `acm-memory` and create/update `.acm/features/[feature]/behavior.md`
+  before reporting done — completion is not done until promotion is decided.**
 - Task docs were updated if a task folder exists.
 - Handoff was updated when needed.
 - No unresolved behavior-affecting conflict remains.
@@ -171,6 +173,10 @@ Stop when you notice:
 - About to report completion without fresh evidence
 - Trusting memory instead of running commands
 - Skipping checks "to save time"
+- Reporting done after verification without deciding durable promotion (verified
+  feature behavior changed but `.acm/features/` was not updated)
+- "Applying the completion checklist manually" instead of running the gate, then
+  skipping the acm-memory step
 
 **ALL of these mean: STOP. Run verification. Read output. THEN report.**
 

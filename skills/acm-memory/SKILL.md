@@ -233,6 +233,7 @@ Before promoting memory, verify:
 ### Indexes
 - [ ] Indexes updated when new durable docs created
 - [ ] `.acm/index.md` reflects new structure
+- [ ] `.acm/features/index.md` exists and lists each feature when `.acm/features/` is present
 - [ ] No orphaned durable docs
 
 ### ADR (if applicable)
