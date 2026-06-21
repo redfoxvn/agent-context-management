@@ -51,8 +51,10 @@ small feature / a routine CRUD or dashboard" is not an exemption.
 
 ## Choosing a Skill
 
-Most non-trivial work starts with `acm-task` (classify + load context) and ends
-with `acm-completion`. Between those, route by situation:
+Most non-trivial work starts with `acm-task` (classify + load context) and
+finishes by verifying (`acm-completion`) and then promoting any durable truth
+(`acm-memory`) — completion is a gate, not the last step. Between those, route by
+situation:
 
 | Situation / Trigger | Start with |
 |---|---|
