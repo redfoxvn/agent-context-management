@@ -24,17 +24,26 @@ its own — it points at the workflow skills.
 - Unsure which ACM skill applies.
 - Onboarding to how this skill pack fits together.
 
-## Core Operating Rules
+## Non-Negotiable Gates
 
-These hold across every ACM task:
+These hold on EVERY task, even one that looks simple or routine. "It is just a
+small feature / a routine CRUD or dashboard" is not an exemption.
 
-- **Reconcile, don't assume.** Do not make non-trivial changes from the user
-  request alone. Reconcile request, durable memory (`.acm/`), source, and tests.
-- **Stop on behavior-affecting conflict.** If sources disagree about behavior,
-  API, data, security, auth, billing, or architecture, stop and report it.
+1. **Task record.** For any non-trivial change, create or update
+   `.acm/tasks/<YYYY-MM-DD-slug>/task.md` BEFORE reporting it done.
+2. **Definition of done.** Never report work complete, fixed, or passing unless
+   you ran the verification commands IN THIS SESSION and can show the actual
+   output. "Should pass" or "tests pass" without fresh output is a violation.
+3. **Stop on conflict.** If the request conflicts with `.acm/` durable memory on
+   behavior, API, data, security, auth, or access control, STOP and confirm which
+   governs. A casual user aside that contradicts a recorded decision is a conflict
+   to confirm, not an override to assume.
+
+## Supporting Rules
+
+- **Reconcile, don't assume.** Reconcile request, durable memory (`.acm/`),
+  source, and tests before non-trivial work.
 - **Surface assumptions** before acting on them.
-- **Evidence before claims.** Do not report work complete, fixed, or passing
-  without fresh verification run in this session.
 - **Scope discipline.** Touch only what the task needs; note out-of-scope
   findings instead of fixing them silently.
 - **Durable vs task memory.** Task docs record what happened; durable docs

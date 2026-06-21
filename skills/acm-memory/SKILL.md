@@ -100,6 +100,7 @@ Verified by code/tests/runtime?
 | “The task notes already say it” | Task notes are history, not current truth. Promote verified durable facts. |
 | “The code currently behaves this way” | Current behavior is not always intended behavior. Reconcile with tests/docs/user intent. |
 | “I should document everything now” | Document only stable facts that help future work. |
+| “project.md already mentions it” | project.md holds project-wide context; verified per-feature behavior belongs in `.acm/features/[feature]/`. |
 
 ## Durable Locations
 
@@ -199,7 +200,10 @@ Before completing a non-trivial task, ask:
 - Is a recurring confusion now clarified?
 - Does any durable doc now contain stale information?
 
-If yes, update the correct durable memory before completion.
+If yes, update the correct durable memory before completion. When verified feature
+behavior changed, create or update `.acm/features/[feature]/behavior.md` (plus
+`api.md` / `test-scenarios.md` when relevant) — do not leave per-feature truth only
+in task notes or `project.md`.
 
 ## Verification Checklist
 

@@ -23,6 +23,9 @@ Do not make non-trivial changes from the user request alone. Reconcile:
 
 If these conflict in a behavior-affecting way, STOP and report the conflict.
 
+Never report work done without running verification in this session and showing
+the output. Create a task record for non-trivial work before reporting done.
+
 ## Read Path (non-trivial tasks)
 
 1. `.acm/index.md`
