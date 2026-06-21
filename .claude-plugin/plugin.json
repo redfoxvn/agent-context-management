@@ -1,7 +1,7 @@
 {
   "name": "agent-context-management",
   "description": "Agent Context Management (ACM): a hybrid context architecture — reusable workflow skills plus a per-repo .acm/ memory layer for durable, verifiable agent work.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": {
     "name": "redfoxvn"
   },
