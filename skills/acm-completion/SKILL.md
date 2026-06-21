@@ -31,6 +31,18 @@ Before reporting completion:
 
 **Violating the letter of this rule is violating the spirit of ACM.**
 
+## Definition of Done
+
+Work is DONE only when, in THIS session, you have:
+
+- run the project's verification commands and pasted the actual output,
+- created or updated the task record, and
+- updated durable memory if current truth changed — including promoting verified
+  feature behavior to `.acm/features/[feature]/` and refreshing the architecture
+  summary.
+
+Until all three are true, report status and the gap — not "done".
+
 ## Completion Gate
 
 Do not report completion until these are true or explicitly reported as gaps:
@@ -172,6 +184,8 @@ Stop when you notice:
 | "I'll verify after I commit" | Verify before commit. Commits are save points, not verification gates. |
 | "The change is small, no need to check" | Small changes break things. Verify proportionally. |
 | "Lint passed, so it's good" | Lint checks style, not behavior. Run tests. |
+| "It's a routine feature, no record needed" | Routine features are where silent breakage hides. Record and verify. |
+| "I ran the tests in my head / last edit was tiny" | Run them now, in this session, and paste the output. |
 
 ## Final Response
 
@@ -184,3 +198,5 @@ State:
 - blockers or conflicts, if any
 
 Do not say checks passed unless they were run in the current task. Do not hide skipped checks.
+
+At task end, offer a commit as a save point. Do not commit without the user's approval.

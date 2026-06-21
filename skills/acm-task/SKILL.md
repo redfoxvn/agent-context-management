@@ -317,6 +317,9 @@ Stop and report when:
 - security, auth, billing, data integrity, or public API impact is unclear
 - required verification is impossible or unreliable
 - implementation would require a broad rewrite not requested
+- the request conflicts with a recorded decision in durable memory, especially on
+  security, auth, or access control — a casual user aside is not an override;
+  confirm which governs before proceeding
 
 Report what is unclear, which sources conflict, why it matters, and recommended options.
 
@@ -447,6 +450,8 @@ Report what is unclear, which sources conflict, why it matters, and recommended 
 | Rationalization | Reality |
 |---|---|
 | "This is a trivial edit, no task record needed" | If it affects behavior, tests, or docs, it's non-trivial. When in doubt, create a minimal task record. |
+| "This is a routine CRUD/dashboard, skip the task record" | Routine ≠ trivial. Any multi-file or behavior change gets a task record. |
+| "The user's aside overrides our recorded decision" | A casual aside that contradicts durable memory is a conflict to confirm, not an override — stop and ask which governs. |
 | "I can infer the behavior from the request" | Inference without evidence causes drift. Reconcile sources. |
 | "The docs are probably outdated" | Stale docs are a signal to reconcile, not ignore. Check code and tests. |
 | "I remember how this works from last session" | Memory is not evidence. Load context and verify. |
@@ -467,6 +472,8 @@ Stop when you notice:
 - "The user said to just do it" without reconciling other sources
 - "This is a quick fix" for behavior-affecting changes
 - Skipping task record creation "to save time"
+- "It's a routine feature" used to skip the task record
+- A casual aside that contradicts a recorded decision, treated as an override
 
 **ALL of these mean: STOP. Load context. Reconcile sources. Create task record.**
 

@@ -15,7 +15,7 @@ Subject non-trivial, high-stakes decisions to fresh-context adversarial review b
 - Security-sensitive changes (auth, permissions, data exposure)
 - Irreversible migrations (schema changes, data transformations)
 - Decisions with high blast radius (public API, billing, data integrity)
-- When confident output would be cheaper to verify now than debug later
+- When a wrong call is hard to reverse and a fresh check now is cheaper than debugging later — high confidence is a trigger here, not a reason to skip
 
 ## When NOT To Use
 
@@ -51,9 +51,10 @@ assumptions. The principle is fixed; the mechanism depends on your runtime:
 Whichever you use, the reviewer must receive ARTIFACT + CONTRACT only — not the
 CLAIM and not your reasoning (both bias it toward agreement).
 
-If no fresh-context mechanism is available, the review degrades to self-review
-from the same context. State that limitation explicitly rather than implying an
-independent check.
+If no fresh-context mechanism is available for a high-stakes decision, do NOT
+rely on self-review — escalate to the user instead. Self-review from the same
+context cannot catch the blind spots this skill exists to surface; reporting it
+as an independent check would be false.
 
 ## The Process
 

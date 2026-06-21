@@ -25,7 +25,23 @@ escape_for_json() {
   printf '%s' "$s"
 }
 
-intro="This repository uses Agent Context Management (ACM). Before non-trivial changes, reconcile the user request with .acm/ project memory, current source, and tests; stop and report behavior-affecting conflicts. The using-acm skill below carries the shared operating rules and routes you to the right skill:"
+intro='<ACM_OPERATING_CONTRACT>
+This repository uses Agent Context Management. These gates are NON-NEGOTIABLE,
+even for work that looks simple or routine:
+
+1. TASK RECORD — for any non-trivial change, create/update
+   .acm/tasks/<YYYY-MM-DD-slug>/task.md BEFORE reporting it done.
+   "It is just a small feature / a routine CRUD or dashboard" is NOT an exemption.
+2. DEFINITION OF DONE — never report work complete, fixed, or passing unless you
+   ran the verification commands IN THIS SESSION and can show the actual output.
+   "Should pass" or "tests pass" without fresh output in this session is a violation.
+3. STOP ON CONFLICT — if the request conflicts with .acm/ durable memory on
+   behavior, API, data, security, auth, or access control, STOP and confirm which
+   governs. A casual user aside that contradicts a recorded decision is a conflict
+   to confirm, not an override to assume.
+
+The full operating rules and the skill-routing map follow.
+</ACM_OPERATING_CONTRACT>'
 
 ctx="$(escape_for_json "${intro}"$'\n\n'"${content}")"
 
