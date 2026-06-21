@@ -7,7 +7,7 @@ description: Use when reviewing code before merging a change — written by your
 
 ## Use For
 
-Multi-dimensional code review with quality gates. Every change gets reviewed before merge.
+Multi-dimensional code review with quality gates. Every non-trivial change is reviewed before merge.
 
 ## When NOT To Use
 

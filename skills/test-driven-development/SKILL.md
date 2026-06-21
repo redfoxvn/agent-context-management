@@ -12,9 +12,11 @@ Write failing tests before implementation code. Prove behavior works before clai
 ## When NOT To Use
 
 Do not use this skill for:
-- Trivial changes (typo fixes, formatting)
+- Non-code edits with no behavior change: formatting, comments, or docs
 - Exploratory prototyping (but delete prototype and restart with TDD)
 - Generated code or configuration files
+
+"This logic change is small" is not on this list. Small production code still gets a failing test first.
 
 ## Iron Law
 

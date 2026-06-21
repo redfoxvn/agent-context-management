@@ -19,7 +19,7 @@ Do not use this skill when expected behavior is being intentionally changed; rec
 - Reproduce the issue, or record why reproduction is not possible.
 - Inspect related docs, code, tests, and recent task history when regression is suspected.
 - Identify root cause or a specific fix hypothesis.
-- Add or update regression coverage when practical.
+- Add a regression test that fails before the fix and passes after; skip only if genuinely untestable, and record why.
 - Verify the issue is fixed or the hypothesis is supported by evidence.
 
 ## The Four Phases
@@ -169,7 +169,7 @@ Avoid:
 - fixing symptoms without identifying cause
 - redefining expected behavior without confirmation
 - skipping reproduction when it is practical
-- skipping regression coverage when risk warrants it
+- shipping a fix without a regression test that proves it
 
 ## Red Flags - STOP and Follow Process
 

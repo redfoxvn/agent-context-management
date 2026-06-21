@@ -34,5 +34,18 @@ gates and puts the binding contract in the always-injected SessionStart hook.
 - Kept to 3 gates only — did not turn every skill into MUST/NEVER walls (backfires per writing-skills).
 - Did not change ACM's "don't commit unasked" stance (nudge only).
 
+## Wording-bug sweep (follow-on)
+A full audit of all 22 skills found the same defect class (exemption/vague wording
+undercutting gates). Fixed #1-#5:
+- `bugfix`: regression test now required (was "when practical" / "when risk warrants").
+- `test-driven-development`: "Trivial changes" exemption → "non-code edits only";
+  added "small logic still gets a failing test first".
+- `code-review`: "Every change" → "Every non-trivial change" (resolve contradiction).
+- `acm-adversarial-review`: concrete trigger (not "confident output"); high-stakes with
+  no fresh context → escalate to user, not self-review.
+- `acm-handoff`: "trivial / usually not required" → "fully completed, verified, no open risk".
+Also fixed earlier: `using-acm`/`index.md` "ends with acm-completion" → completion is a gate, not the end.
+Rejected several agent over-flags (rationalization tables, conservative "keep in task record" default).
+
 ## Verification
 See `verification.md`. Real test = re-run team-tasks slices 3-4 with instruction-free prompts (RED→GREEN per writing-skills).

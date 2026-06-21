@@ -34,7 +34,7 @@ Create or update `handoff.md` when work is:
 - changed by new user requirements
 - difficult to reconstruct from docs/code diff alone
 
-For trivial completed tasks, handoff is usually not required.
+For fully completed and verified tasks with no open risk, follow-up, or unresolved ambiguity, handoff is not required.
 
 ## Quality Checklist
 
